@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkkitchen_color_studio=self.webpackChunkkitchen_color_studio||[]).push([[337],{28159:function(n,o,t){t.r(o);var s=t(50959),u=t(11823),_=t(11527);o.default=function(){return(0,_.jsx)(u.Z,{showBorder:!0})}}}]);
