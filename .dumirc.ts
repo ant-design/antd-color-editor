@@ -1,7 +1,9 @@
 import { defineConfig } from 'dumi'
 import { homepage } from './package.json'
 
-const isProd = process.env.NODE_ENV === 'production'
+const isProdSite =
+  // 不是预览模式 同时是生产环境
+  process.env.PREVIEW !== '1' && process.env.NODE_ENV === 'production'
 const isWin = process.platform === 'win32'
 
 const themeConfig = {
@@ -19,8 +21,8 @@ export default defineConfig({
   title: 'Kitchen Color Studio',
   favicons: ['https://gw.alipayobjects.com/zos/bmw-prod/51a51720-8a30-4430-b6c9-be5712364f04.svg'],
   npmClient: 'pnpm',
-  base: '/',
-  publicPath: '/',
+  base: isProdSite ? '/kitchen-color-studio/' : '/',
+  publicPath: isProdSite ? '/kitchen-color-studio/' : '/',
   outputPath: 'docs-dist',
   apiParser: isWin ? false : {},
   resolve: isWin
@@ -31,15 +33,17 @@ export default defineConfig({
   define: {
     'process.env': process.env,
   },
+  exportStatic: {},
   extraBabelPlugins: [
     [
       'babel-plugin-styled-components',
       {
         minify: true,
         transpileTemplateLiterals: true,
-        displayName: process.env.NODE_ENV === 'development',
+        displayName: !isProdSite,
         pure: true,
       },
     ],
   ],
+  hash: true,
 })
