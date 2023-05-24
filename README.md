@@ -4,7 +4,7 @@
 
 <img width="160" src="https://gw.alipayobjects.com/mdn/rms_7d1485/afts/img/A*XDYxSJXBjjwAAAAAAAAAAAAAARQnAQ">
 
-<h1>kitchen-color-studio</h1>
+<h1>kitchen Color Studio</h1>
 
 An open-source color editor for designing color system
 
