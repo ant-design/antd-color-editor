@@ -128,8 +128,8 @@ This project is [MIT](./LICENSE) licensed.
 
 <!-- release -->
 
-[release-shield]: https://img.shields.io/npm/v/@lobehub/ui?label=kitchen-color-studio
-[release-url]: https://www.npmjs.com/package/@lobehub/ui
+[release-shield]: https://img.shields.io/npm/vkitchen-color-studio?label=kitchen-color-studio
+[release-url]: https://www.npmjs.com/packagekitchen-color-studio
 
 <!-- releaseDate -->
 
