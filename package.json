@@ -60,7 +60,7 @@
     ]
   },
   "dependencies": {
-    "@ant-design/colors": "^6.0.0",
+    "@ant-design/colors": "^7.0.0",
     "@ant-design/icons": "^4",
     "@ant-design/pro-editor": "latest",
     "@ctrl/tinycolor": "^3",
