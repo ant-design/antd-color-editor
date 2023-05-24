@@ -7,9 +7,9 @@
 <h1>CanisMinor Template</h1>
 
 This is a template repo for canisminor1990
-  
+
 [Changelog](./CHANGELOG.md) · [Report Bug][issues-url] · [Request Feature][issues-url]
-  
+
 <!-- SHIELD GROUP -->
 
 [![release][release-shield]][release-url]
@@ -21,7 +21,7 @@ This is a template repo for canisminor1990
 [![forks][forks-shield]][forks-url]
 [![stargazers][stargazers-shield]][stargazers-url]
 [![issues][issues-shield]][issues-url]
-  
+
 ![](https://github.com/othneildrew/Best-README-Template/raw/master/images/screenshot.png)
 
 </div>
@@ -35,8 +35,8 @@ You can use Gitpod for online development:
 Or clone it for local development:
 
 ```bash
-$ git clone https://github.com/canisminor1990/canisminor-template.git
-$ cd canisminor-template
+$ git clone https://github.com/canisminor1990/kitchen-color-studio.git
+$ cd kitchen-color-studio
 $ npm install
 $ npm start
 ```
@@ -46,7 +46,6 @@ $ npm start
 [![][back-to-top]](#readme-top)
 
 </div>
-
 
 ## 🤝 Contributing
 
@@ -73,17 +72,17 @@ $ npm start
 </div>
 
 ---
+
 #### 📝 License
 
 Copyright © 2023 [CanisMinor][profile-url]. <br />
-This project is [MIT](./LICENSE) licensed. 
-
+This project is [MIT](./LICENSE) licensed.
 
 <!-- LINK GROUP -->
 
 [profile-url]: https://github.com/canisminor1990
-[issues-url]: https://github.com/canisminor1990/canisminor-template/issues/new/choose
-[gitpod-url]: https://gitpod.io/#https://github.com/canisminor1990/canisminor-template
+[issues-url]: https://github.com/canisminor1990/kitchen-color-studio/issues/new/choose
+[gitpod-url]: https://gitpod.io/#https://github.com/canisminor1990/kitchen-color-studio
 
 <!-- SHIELD LINK GROUP -->
 
@@ -91,40 +90,40 @@ This project is [MIT](./LICENSE) licensed.
 
 <!-- release -->
 
-[release-shield]: https://img.shields.io/github/v/release/canisminor1990/canisminor-template?style=flat&sort=semver&logo=github
-[release-url]: https://github.com/canisminor1990/canisminor-template/releases
+[release-shield]: https://img.shields.io/github/v/release/canisminor1990/kitchen-color-studio?style=flat&sort=semver&logo=github
+[release-url]: https://github.com/canisminor1990/kitchen-color-studio/releases
 
 <!-- releaseDate -->
 
-[release-date-shield]: https://img.shields.io/github/release-date/canisminor1990/canisminor-template?style=flat
-[release-date-url]: https://github.com/canisminor1990/canisminor-template/releases
+[release-date-shield]: https://img.shields.io/github/release-date/canisminor1990/kitchen-color-studio?style=flat
+[release-date-url]: https://github.com/canisminor1990/kitchen-color-studio/releases
 
 <!-- ciTest -->
 
-[ci-test-shield]: https://github.com/canisminor1990/canisminor-template/workflows/Test%20CI/badge.svg
-[ci-test-url]: https://github.com/canisminor1990/canisminor-template/actions/workflows/test.yml
+[ci-test-shield]: https://github.com/canisminor1990/kitchen-color-studio/workflows/Test%20CI/badge.svg
+[ci-test-url]: https://github.com/canisminor1990/kitchen-color-studio/actions/workflows/test.yml
 
 <!-- ciRelease -->
 
-[ci-release-shield]: https://github.com/canisminor1990/canisminor-template/workflows/Build%20and%20Release/badge.svg
-[ci-release-url]: https://github.com/canisminor1990/canisminor-template/actions/workflows/release.yml
+[ci-release-shield]: https://github.com/canisminor1990/kitchen-color-studio/workflows/Build%20and%20Release/badge.svg
+[ci-release-url]: https://github.com/canisminor1990/kitchen-color-studio/actions/workflows/release.yml
 
 <!-- contributors -->
 
-[contributors-shield]: https://img.shields.io/github/contributors/canisminor1990/canisminor-template.svg?style=flat
-[contributors-url]: https://github.com/canisminor1990/canisminor-template/graphs/contributors
+[contributors-shield]: https://img.shields.io/github/contributors/canisminor1990/kitchen-color-studio.svg?style=flat
+[contributors-url]: https://github.com/canisminor1990/kitchen-color-studio/graphs/contributors
 
 <!-- forks -->
 
-[forks-shield]: https://img.shields.io/github/forks/canisminor1990/canisminor-template.svg?style=flat
-[forks-url]: https://github.com/canisminor1990/canisminor-template/network/members
+[forks-shield]: https://img.shields.io/github/forks/canisminor1990/kitchen-color-studio.svg?style=flat
+[forks-url]: https://github.com/canisminor1990/kitchen-color-studio/network/members
 
 <!-- stargazers -->
 
-[stargazers-shield]: https://img.shields.io/github/stars/canisminor1990/canisminor-template.svg?style=flat
-[stargazers-url]: https://github.com/canisminor1990/canisminor-template/stargazers
+[stargazers-shield]: https://img.shields.io/github/stars/canisminor1990/kitchen-color-studio.svg?style=flat
+[stargazers-url]: https://github.com/canisminor1990/kitchen-color-studio/stargazers
 
 <!-- issues -->
 
-[issues-shield]: https://img.shields.io/github/issues/canisminor1990/canisminor-template.svg?style=flat
-[issues-url]: https://img.shields.io/github/issues/canisminor1990/canisminor-template.svg?style=flat
+[issues-shield]: https://img.shields.io/github/issues/canisminor1990/kitchen-color-studio.svg?style=flat
+[issues-url]: https://img.shields.io/github/issues/canisminor1990/kitchen-color-studio.svg?style=flat

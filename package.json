@@ -1,21 +1,40 @@
 {
-  "name": "canisminor-template",
-  "version": "1.0.1",
-  "private": true,
+  "name": "kitchen-color-studio",
+  "version": "0.0.0",
+  "description": "an open-source color editor for designing color system",
+  "keywords": [
+    "kitchen",
+    "antd",
+    "color-editor",
+    "color-stytem"
+  ],
+  "homepage": "https://github.com/canisminor1990/kitchen-color-studio",
+  "bugs": {
+    "url": "https://github.com/canisminor1990/kitchen-color-studio/issues/new"
+  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/canisminor1990/canisminor-template.git"
+    "url": "https://github.com/canisminor1990/kitchen-color-studio.git"
   },
   "author": "canisminor1990 <i@canisminor.cc>",
+  "sideEffects": false,
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib",
+    "es"
+  ],
   "scripts": {
-    "build": "umi build",
-    "dev": "umi dev",
-    "postinstall": "umi setup",
+    "build": "father build",
+    "dev": "dumi dev",
+    "docs:build": "dumi build",
+    "doctor": "father doctor",
     "lint": "eslint \"{src,javascript}/**/*.{js,jsx,ts,tsx}\" --fix",
     "prepare": "husky install",
     "prettier": "prettier -c --write \"**/**\"",
     "release": "semantic-release",
-    "setup": "umi setup",
+    "setup": "dumi setup",
     "start": "npm run dev",
     "stylelint": "stylelint \"src/**/*.{css,less,js,jsx,ts,tsx}\" --fix",
     "test": "npm run lint",
@@ -41,30 +60,56 @@
     ]
   },
   "dependencies": {
-    "@ant-design/icons": "^5",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "@types/styled-components": "^5",
-    "@umijs/lint": "^4",
+    "@ant-design/colors": "^6.0.0",
+    "@ant-design/icons": "^4",
+    "@ant-design/pro-editor": "latest",
+    "@ctrl/tinycolor": "^3",
+    "@leva-ui/plugin-bezier": "^0.9",
+    "@material/material-color-utilities": "^0.2.0",
+    "@radix-ui/react-icons": "^1",
+    "@react-three/drei": "9.14.3",
+    "@react-three/fiber": "8.0.27",
     "ahooks": "^3",
     "antd": "^5",
-    "antd-style": "^3",
+    "antd-style": "^3.1.1",
+    "babel-plugin-import": "^1",
     "babel-plugin-styled-components": "^2",
+    "bezier-easing": "^2",
+    "chroma-js": "^2",
+    "copy-to-clipboard": "^3",
+    "dayjs": "^1",
+    "dumi": "^2",
+    "dumi-assets-types": "^1",
+    "dumi-theme-antd-style": "latest",
+    "html2sketch": "^0.4",
+    "leva": "^0.9",
+    "lodash-es": "^4",
     "polished": "^4",
     "react": "^18",
+    "react-copy-to-clipboard": "^5",
     "react-dom": "^18",
+    "react-layout-kit": "^1.7.0",
     "styled-components": "^5",
-    "umi": "^4",
+    "three": "0.142.0",
     "zustand": "^4"
   },
   "devDependencies": {
     "@commitlint/cli": "^17",
+    "@sketch-hq/sketch-file-format-ts": "^6.5.0",
+    "@types/chroma-js": "^2.1.4",
+    "@types/lodash-es": "^4.17.7",
     "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "@types/styled-components": "^5",
+    "@types/three": "0.142.0",
+    "@umijs/lint": "^4",
     "commitlint": "^17",
     "commitlint-config-gitmoji": "^2",
     "eslint": "^8",
     "eslint-import-resolver-alias": "^1",
     "eslint-import-resolver-typescript": "^3",
+    "father": "^4",
     "husky": "^8",
     "lint-staged": "^13",
     "postcss-less": "^6",
@@ -79,5 +124,14 @@
     "stylelint-config-recommended": "^12",
     "stylelint-order": "^6",
     "typescript": "^5"
+  },
+  "peerDependencies": {
+    "antd": ">=5",
+    "react": ">=18",
+    "react-dom": ">=18"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
   }
 }
