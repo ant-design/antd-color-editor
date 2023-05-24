@@ -55,7 +55,7 @@ jobs:
         run: pnpm run release
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
-          NPM_TOKEN: ${{ secrets.GH_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Build docs
         run: pnpm run docs:build
