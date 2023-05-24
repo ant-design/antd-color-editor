@@ -1,5 +1,5 @@
 import { defineConfig } from 'dumi'
-import { homepage } from './package.json'
+import { homepage, name } from './package.json'
 
 const isProdSite =
   // 不是预览模式 同时是生产环境
@@ -13,6 +13,15 @@ const themeConfig = {
   footer: 'Made with ❤️ by Kitchen',
   socialLinks: {
     github: homepage,
+  },
+  apiHeader: {
+    // 组件库包名，可以从 package.json 中引入名称
+    pkg: name,
+    // 匹配路由，默认为 /api 或 /components
+    match: ['/components'],
+    // github 会匹配 themeConfig.github 字段
+    sourceUrl: `{github}/tree/master/src/{atomId}/index.tsx`,
+    docUrl: `{github}/tree/master/src/{atomId}/index.md`,
   },
 }
 

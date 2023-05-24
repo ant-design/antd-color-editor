@@ -22,7 +22,45 @@ An open-source color editor for designing color system
 [![stargazers][stargazers-shield]][stargazers-url]
 [![issues][issues-shield]][issues-url]
 
-![](https://github.com/othneildrew/Best-README-Template/raw/master/images/screenshot.png)
+[![](https://raw.githubusercontent.com/canisminor1990/kitchen-color-studio/master/public/preview1.webp)](https://canisminor1990.github.io/kitchen-color-studio/~demos/colorstudio-demo-demo)
+
+</div>
+
+## 📦 Installation
+
+To install Lobe Commit, run the following command:
+
+```bash
+pnpm add kitchen-color-studio
+```
+
+<div align="right">
+
+[![][back-to-top]](#readme-top)
+
+</div>
+
+## 🎨 Usage
+
+### Color Space
+
+![](https://raw.githubusercontent.com/canisminor1990/kitchen-color-studio/master/public/preview2.webp)
+
+### Color Accessibility
+
+![](https://raw.githubusercontent.com/canisminor1990/kitchen-color-studio/master/public/preview5.webp)
+
+### Token Mode
+
+![](https://raw.githubusercontent.com/canisminor1990/kitchen-color-studio/master/public/preview3.webp)
+
+### Setting Export
+
+![](https://raw.githubusercontent.com/canisminor1990/kitchen-color-studio/master/public/preview4.webp)
+
+<div align="right">
+
+[![][back-to-top]](#readme-top)
 
 </div>
 
@@ -37,8 +75,8 @@ Or clone it for local development:
 ```bash
 $ git clone https://github.com/canisminor1990/kitchen-color-studio.git
 $ cd kitchen-color-studio
-$ npm install
-$ npm start
+$ pnpm install
+$ pnpm start
 ```
 
 <div align="right">
@@ -90,8 +128,8 @@ This project is [MIT](./LICENSE) licensed.
 
 <!-- release -->
 
-[release-shield]: https://img.shields.io/github/v/release/canisminor1990/kitchen-color-studio?style=flat&sort=semver&logo=github
-[release-url]: https://github.com/canisminor1990/kitchen-color-studio/releases
+[release-shield]: https://img.shields.io/npm/v/@lobehub/ui?label=kitchen-color-studio
+[release-url]: https://www.npmjs.com/package/@lobehub/ui
 
 <!-- releaseDate -->
 
