@@ -61,7 +61,7 @@
   },
   "dependencies": {
     "@ant-design/colors": "^6.0.0",
-    "@ant-design/icons": "^4",
+    "@ant-design/icons": "^5",
     "@ant-design/pro-editor": "latest",
     "@ctrl/tinycolor": "^3",
     "@leva-ui/plugin-bezier": "^0.9",
