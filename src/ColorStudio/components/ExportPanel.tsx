@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react'
+import { memo, useCallback } from 'react'
 import { Button, Space, message, Popconfirm, Upload } from 'antd'
 import styled from 'styled-components'
 import { DownloadOutlined, SaveOutlined, UploadOutlined, DeleteOutlined, ReloadOutlined } from '@ant-design/icons'
@@ -9,6 +9,10 @@ import { useControls, useCreateStore } from 'leva'
 import type { IEditorConfig } from '@/ColorStudio/config'
 import type { IPanel } from '@/index'
 import { useDownload, LevaPanel, PanelGroup } from '@/index'
+
+/******************************************************
+ *********************** Style *************************
+ ******************************************************/
 
 const Btn = styled(Button)`
   font-size: 12px !important;
@@ -27,11 +31,15 @@ const Flex = styled(Space)`
   }
 `
 
-interface IExportPanel {
+/******************************************************
+ ************************* Dom *************************
+ ******************************************************/
+
+export interface IExportPanel {
   config: IEditorConfig
 }
 
-const ExportPanel: React.FC<IExportPanel> = ({ config }) => {
+const ExportPanel = memo<IExportPanel>(({ config }) => {
   const [localData, setLocalData] = useLocalStorageState<{
     data: IEditorConfig
     name: string
@@ -70,7 +78,7 @@ const ExportPanel: React.FC<IExportPanel> = ({ config }) => {
   }
 
   const handleUpload = useCallback(
-    (info) => {
+    (info: any) => {
       // if (info.file.status !== 'done') return;
       const reader = new FileReader()
       //@ts-ignore file 类型不明确
@@ -153,6 +161,6 @@ const ExportPanel: React.FC<IExportPanel> = ({ config }) => {
     },
   ]
   return <PanelGroup panels={exportPanelGroup} />
-}
+})
 
-export default React.memo(ExportPanel)
+export default ExportPanel

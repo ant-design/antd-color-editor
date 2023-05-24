@@ -1,9 +1,13 @@
-import React from 'react'
+import { memo } from 'react'
 import styled from 'styled-components'
 import { Space, message } from 'antd'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { readableColor } from 'polished'
 import { colorTypeFormat } from '@/index'
+
+/******************************************************
+ *********************** Style *************************
+ ******************************************************/
 
 const AlphaLightBg =
   'url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAFpJREFUWAntljEKADAIA23p6v//qQ+wfUEcCu1yriEgp0FHRJSJcnehmmWm1Dv/lO4HIg1AAAKjTqm03ea88zMCCEDgO4HV5bS757f+7wRoAAIQ4B9gByAAgQ3pfiDmXmAeEwAAAABJRU5ErkJggg==) 0% 0% / 26px'
@@ -52,19 +56,23 @@ const Text = styled.div`
   opacity: 0.5;
 `
 
-interface IScaleRowProps {
+/******************************************************
+ ************************* Dom *************************
+ ******************************************************/
+
+export interface IScaleRow {
   title: 'light' | 'lightA' | 'dark' | 'darkA'
   scale: string[]
   solidScale?: string[]
   colorType: 'mix' | 'hex' | 'hct' | 'rgb' | 'hsl' | 'hsv' | 'cts'
   showDetail?: boolean
-  darkMode?: boolean
   alpha?: boolean
 }
 
-const ScaleRow: React.FC<IScaleRowProps> = ({ title, scale, solidScale, colorType, showDetail, alpha }) => {
+const ScaleRow = memo<IScaleRow>(({ title, scale, solidScale, colorType, showDetail, alpha }) => {
   const isDark = title.includes('dark')
   let style = {}
+
   switch (title) {
     case 'lightA':
       style = { backgroundColor: '#fff', background: AlphaLightBg }
@@ -75,6 +83,7 @@ const ScaleRow: React.FC<IScaleRowProps> = ({ title, scale, solidScale, colorTyp
     default:
       break
   }
+
   return (
     <Space direction={!showDetail ? 'horizontal' : 'vertical'} size={2}>
       <ScaleRowTitle key="title" style={showDetail ? {} : { padding: 8 }}>
@@ -100,9 +109,9 @@ const ScaleRow: React.FC<IScaleRowProps> = ({ title, scale, solidScale, colorTyp
                 style={{
                   backgroundColor: color,
                   color: readableColor(
-                    alpha ? solidScale[index] : color,
-                    alpha ? solidScale[isDark ? 0 : solidScale.length - 1] : scale[isDark ? 0 : scale.length - 1],
-                    alpha ? solidScale[isDark ? solidScale.length - 1 : 0] : scale[isDark ? scale.length - 1 : 0],
+                    String(alpha ? solidScale?.[index] : color),
+                    alpha ? solidScale?.[isDark ? 0 : solidScale.length - 1] : scale[isDark ? 0 : scale.length - 1],
+                    alpha ? solidScale?.[isDark ? solidScale.length - 1 : 0] : scale[isDark ? scale.length - 1 : 0],
                     true
                   ),
                 }}
@@ -115,6 +124,6 @@ const ScaleRow: React.FC<IScaleRowProps> = ({ title, scale, solidScale, colorTyp
       })}
     </Space>
   )
-}
+})
 
-export default React.memo(ScaleRow)
+export default ScaleRow

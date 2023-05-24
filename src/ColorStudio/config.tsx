@@ -5,7 +5,6 @@ import {
   PinTopIcon,
   ShadowIcon,
   AngleIcon,
-  Half2Icon,
   AspectRatioIcon,
   ComponentBooleanIcon,
   TokensIcon,
@@ -16,16 +15,13 @@ import {
   TransformIcon,
   UpdateIcon,
 } from '@radix-ui/react-icons'
-import React from 'react'
 import { folder } from 'leva'
 import { bezier } from '@leva-ui/plugin-bezier'
 import type { Schema } from 'leva/src/types/index'
 import { merge } from 'lodash-es'
-import type { IGenerateConfig, IGenerateConfigItem, ISchemaItem } from '@/index'
-import { GenerateScale } from '@/index'
-import { Label } from '@/components'
-import type { IEditorConfig } from './defaultConfig'
-import { defaultEditorConfig } from './defaultConfig'
+import { GenerateScale, Label, type IGenerateConfig, type IGenerateConfigItem, type ISchemaItem } from '@/index'
+
+import { defaultEditorConfig, type IEditorConfig } from './defaultConfig'
 
 export const getCacheEditorConfig = (): IEditorConfig => {
   const localConfig = localStorage.getItem('kitchen-color-config')
@@ -210,14 +206,13 @@ export const editConfig: Schema = {
 }
 
 export const colorTypes = ['mix', 'hex', 'hct', 'rgb', 'hsl', 'hsv', 'cts']
-export const genDisplapConfig = (button): Schema => ({
+export const genDisplapConfig = (button: any): Schema => ({
   colorType: {
     label: <Label icon={<TokensIcon />} title="色彩空间" />,
     value: 'hct',
     options: colorTypes,
   },
   ' ': button,
-  darkMode: { label: <Label icon={<Half2Icon />} title="暗色模式" />, value: false },
   showDetail: {
     label: <Label icon={<AspectRatioIcon />} title="详细模式" />,
     value: true,
@@ -284,7 +279,7 @@ export const defineGenerateConfig = ({
   darkUpAdvance,
   darkDown,
   darkDownAdvance,
-}): IGenerateConfig => {
+}: any): IGenerateConfig => {
   const config: IGenerateConfig = {
     step,
     hue,

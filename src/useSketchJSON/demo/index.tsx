@@ -1,9 +1,9 @@
-import React, { useRef } from 'react'
+import { useRef, memo } from 'react'
 import { useSketchJSON } from 'kitchen-color-studio'
 import { Space, Button } from 'antd'
 
-export default () => {
-  const ref = useRef()
+export default memo(() => {
+  const ref: any = useRef()
   const { generateGroup, generateSymbol } = useSketchJSON()
   return (
     <div>
@@ -16,4 +16,4 @@ export default () => {
       </Space>
     </div>
   )
-}
+})

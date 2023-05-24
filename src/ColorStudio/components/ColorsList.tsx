@@ -1,4 +1,4 @@
-import React from 'react'
+import { memo } from 'react'
 import { SortableList } from '@ant-design/pro-editor'
 import ColorsListItem, { ColorsListHeader } from './ColorsListItem'
 
@@ -10,16 +10,17 @@ export type ISchemaItem = {
   type?: 'normal' | 'neutral'
 }
 
-interface IColorsList {
+export interface IColorsList {
   colorList: ISchemaItem[]
   setColorList: (v: ISchemaItem[]) => void
   isolateDark?: boolean | any
 }
 
-const ColorsList: React.FC<IColorsList> = ({ colorList, setColorList, isolateDark }) => {
+const ColorsList = memo<IColorsList>(({ colorList, setColorList, isolateDark }) => {
   return (
     <div style={{ padding: '0 12px' }}>
       <SortableList
+        compact
         renderHeader={() => <ColorsListHeader isolateDark={isolateDark} />}
         initialValues={colorList}
         onChange={setColorList}
@@ -36,6 +37,6 @@ const ColorsList: React.FC<IColorsList> = ({ colorList, setColorList, isolateDar
       />
     </div>
   )
-}
+})
 
-export default React.memo(ColorsList)
+export default ColorsList

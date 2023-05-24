@@ -1,4 +1,4 @@
-import { hexToHct, hctToHex } from '@/colorUtils'
+import { hexToHct, hctToHex } from '@/utils/colorUtils'
 import BezierEasing from 'bezier-easing'
 import { merge } from 'lodash-es'
 
@@ -134,7 +134,7 @@ class GenerateScale {
     const step = direction === 'up' ? this.config.step.up : this.config.step.down
     const stepList = []
 
-    const { hRotate, tTarget, hEasing, tEasing } = direction === 'up' ? up : down
+    const { hRotate, tTarget, hEasing, tEasing }: any = direction === 'up' ? up : down
     let { cTarget, cEasing } = direction === 'up' ? up : down
 
     if (neutral) {
@@ -142,8 +142,11 @@ class GenerateScale {
       cEasing = direction === 'up' ? this.config.neutral.cEasingUp : this.config.neutral.cEasingDown
     }
 
+    // @ts-ignore
     const hBE = BezierEasing(...hEasing)
+    // @ts-ignore
     const cBE = BezierEasing(...cEasing)
+    // @ts-ignore
     const tBE = BezierEasing(...tEasing)
 
     const [h, c, t] = hctColor
@@ -157,14 +160,14 @@ class GenerateScale {
     return stepList
   }
 
-  private hueRotate(h, hRotate): number {
+  private hueRotate(h: number, hRotate: number): number {
     let hue = h + this.calcHueRotate(h, hRotate)
     if (hue > 360) hue = hue - 360
     if (hue < 0) hue = hue + 360
     return hue
   }
 
-  private genCalcHueVaule(Xa: number, Xb: number, max: number, multiply) {
+  private genCalcHueVaule(Xa: number, Xb: number, max: number, multiply: number) {
     const toRad = Math.PI / 180
     const a = 360 / (Xb - Xa)
     const b = (-1 * a * toRad * (3 * Xa + Xb)) / 4
@@ -173,13 +176,13 @@ class GenerateScale {
     const y = (max + min) / 2
     const scale = (max - min) / 2
 
-    return (v) => {
+    return (v: number) => {
       const rad = v * toRad
       return scale * Math.sin(a * rad + b) + y
     }
   }
 
-  private calcHueRotate(h, hRotate) {
+  private calcHueRotate(h: number, hRotate: number) {
     const { segment, multiply } = this.config.hue
     const calcHueVaule = this.genCalcHueVaule(segment[0], segment[1], hRotate, multiply)
     return calcHueVaule(h)

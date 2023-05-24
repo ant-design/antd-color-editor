@@ -1,8 +1,12 @@
-import React from 'react'
+import { memo } from 'react'
 import styled from 'styled-components'
 import { Space } from 'antd'
 import { ScaleRow, getAlphaColor } from '@/index'
 import type { IScales } from '@/ColorStudio/config'
+
+/******************************************************
+ *********************** Style *************************
+ ******************************************************/
 
 const ScaleBox = styled.div`
   cursor: pointer;
@@ -50,74 +54,71 @@ const View = styled.div`
   justify-content: center;
 `
 
-interface IScaleProps {
+/******************************************************
+ ************************* Dom *************************
+ ******************************************************/
+
+export interface IScaleBlock {
   scale: IScales
   colorType?: 'mix' | 'hex' | 'hct' | 'rgb' | 'hsl' | 'hsv' | 'cts'
   showDetail?: boolean
-  darkMode?: boolean
   highLights?: number[]
   midHighLight?: number
   isFliterStep?: boolean
 }
 
-const Scale: React.FC<IScaleProps> = ({
-  scale,
-  colorType = 'hex',
-  showDetail,
-  darkMode,
-  highLights,
-  midHighLight,
-  isFliterStep,
-}) => {
-  return (
-    <View style={{ background: darkMode ? '#000' : '#FFF', color: darkMode ? '#fff' : '#000' }}>
-      <ColorView>
-        <Space direction={showDetail ? 'horizontal' : 'vertical'} size={2}>
-          <Space direction={!showDetail ? 'horizontal' : 'vertical'} key="scale-title" size={2}>
-            <ScaleRowTitle key="scale-num" style={showDetail ? { width: 32 } : {}} />
-            {new Array(scale.light.length).fill('').map((_, index) => {
-              const isHighlight = highLights?.includes(index)
-              const isMidHighlight = midHighLight === index
-              return (
-                <ScaleBox key={'num' + index} style={showDetail ? { width: 32 } : {}}>
-                  <ScaleItem>
-                    <Text
-                      style={{
-                        opacity: isFliterStep ? (isHighlight ? 1 : 0.1) : 0.5,
-                        fontWeight: isMidHighlight ? 700 : 400,
-                      }}
-                    >
-                      {index + 1}
-                    </Text>
-                  </ScaleItem>
-                </ScaleBox>
-              )
-            })}
+const ScaleBlock = memo<IScaleBlock>(
+  ({ scale, colorType = 'hex', showDetail, highLights, midHighLight, isFliterStep }) => {
+    return (
+      <View>
+        <ColorView>
+          <Space direction={showDetail ? 'horizontal' : 'vertical'} size={2}>
+            <Space direction={!showDetail ? 'horizontal' : 'vertical'} key="scale-title" size={2}>
+              <ScaleRowTitle key="scale-num" style={showDetail ? { width: 32 } : {}} />
+              {new Array(scale.light.length).fill('').map((_, index) => {
+                const isHighlight = highLights?.includes(index)
+                const isMidHighlight = midHighLight === index
+                return (
+                  <ScaleBox key={'num' + index} style={showDetail ? { width: 32 } : {}}>
+                    <ScaleItem>
+                      <Text
+                        style={{
+                          opacity: isFliterStep ? (isHighlight ? 1 : 0.1) : 0.5,
+                          fontWeight: isMidHighlight ? 700 : 400,
+                        }}
+                      >
+                        {index + 1}
+                      </Text>
+                    </ScaleItem>
+                  </ScaleBox>
+                )
+              })}
+            </Space>
+            <ScaleRow key="light" title="light" scale={scale.light} colorType={colorType} showDetail={showDetail} />
+            <ScaleRow
+              key="lightA"
+              title="lightA"
+              scale={scale.light.map((c) => getAlphaColor(c, '#fff'))}
+              solidScale={scale.light}
+              colorType={colorType}
+              showDetail={showDetail}
+              alpha
+            />
+            <ScaleRow key="dark" title="dark" scale={scale.dark} colorType={colorType} showDetail={showDetail} />
+            <ScaleRow
+              key="darkA"
+              title="darkA"
+              scale={scale.dark.map((c) => getAlphaColor(c, '#000'))}
+              solidScale={scale.dark}
+              colorType={colorType}
+              showDetail={showDetail}
+              alpha
+            />
           </Space>
-          <ScaleRow key="light" title="light" scale={scale.light} colorType={colorType} showDetail={showDetail} />
-          <ScaleRow
-            key="lightA"
-            title="lightA"
-            scale={scale.light.map((c) => getAlphaColor(c, '#fff'))}
-            solidScale={scale.light}
-            colorType={colorType}
-            showDetail={showDetail}
-            alpha
-          />
-          <ScaleRow key="dark" title="dark" scale={scale.dark} colorType={colorType} showDetail={showDetail} />
-          <ScaleRow
-            key="darkA"
-            title="darkA"
-            scale={scale.dark.map((c) => getAlphaColor(c, '#000'))}
-            solidScale={scale.dark}
-            colorType={colorType}
-            showDetail={showDetail}
-            alpha
-          />
-        </Space>
-      </ColorView>
-    </View>
-  )
-}
+        </ColorView>
+      </View>
+    )
+  }
+)
 
-export default React.memo(Scale)
+export default ScaleBlock

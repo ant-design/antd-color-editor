@@ -1,10 +1,10 @@
-import React from 'react'
+import { memo } from 'react'
 import { Collapse } from 'antd'
 import { TriangleRightIcon, TriangleDownIcon } from '@radix-ui/react-icons'
 import { levaLightTheme } from '@/index'
-import { LevaPanel as RawLevaPanel } from 'leva'
+import { LevaPanel as Leva } from 'leva'
 
-const CollapsePanel = (props) => {
+const CollapsePanel = memo((props: any) => {
   return (
     <Collapse
       {...props}
@@ -15,9 +15,9 @@ const CollapsePanel = (props) => {
       }
     />
   )
-}
+})
 
-const LevaPanel = ({ store }) => <RawLevaPanel fill flat store={store} titleBar={false} theme={levaLightTheme} />
+const LevaPanel = memo(({ store }: any) => <Leva fill flat store={store} titleBar={false} theme={levaLightTheme} />)
 
 const Panel = Collapse.Panel
 export { CollapsePanel, Panel, LevaPanel }

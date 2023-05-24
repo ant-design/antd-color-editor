@@ -1,4 +1,4 @@
-import { toCtsString, toHctString } from '@/colorUtils'
+import { toCtsString, toHctString } from '@/utils/colorUtils'
 import { TinyColor } from '@ctrl/tinycolor'
 import chroma from 'chroma-js'
 

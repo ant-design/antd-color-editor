@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import { memo, useEffect, useState, type ReactNode } from 'react'
 import { buttonGroup, useControls, useCreateStore } from 'leva'
 import { Tabs } from 'antd'
 import { CollapseTitle } from '@ant-design/pro-editor'
 import { useLocalStorageState } from 'ahooks'
-import type { IEditorConfig, IScales } from './config'
 import {
   advanceConfig,
   stepConfig,
@@ -21,8 +20,9 @@ import {
   cacheEditorConfig,
   setForceConfig,
   neutralAdvanceConfig,
+  type IEditorConfig,
+  type IScales,
 } from './config'
-import type { ISchemaItem, IPanel } from '@/index'
 import {
   JsonView,
   TokenView,
@@ -37,6 +37,8 @@ import {
   StepFliter,
   ScalePreview,
   Footer,
+  type ISchemaItem,
+  type IPanel,
 } from '@/index'
 import { CanvasView, ColorView, EditorView, PanelView } from '@/styles'
 
@@ -51,19 +53,18 @@ enum PanelTabKey {
   export = 'export',
 }
 
-interface IColorListScale {
+export interface IColorListScale {
   name: string
   scales: IScales
   color: string
   darkColor: string
-  dom: React.ReactNode
+  dom: ReactNode
 }
 
-interface IColorStudio {
+export interface IColorStudio {
   logo?: string
   logoHref?: string
   title?: string
-  showBorder?: boolean
   showFooter?: boolean
   forceConfig?: {
     name: string
@@ -73,15 +74,7 @@ interface IColorStudio {
   onChange?: (v: { name: string; scales: IScales }) => void
 }
 
-const ColorStudio: React.FC<IColorStudio> = ({
-  logo,
-  logoHref,
-  title,
-  showBorder,
-  showFooter = true,
-  forceConfig,
-  onChange,
-}) => {
+const ColorStudio = memo<IColorStudio>(({ logo, logoHref, title, showFooter = true, forceConfig, onChange }) => {
   const [tabKey, setTabKey] = useLocalStorageState<number>('kietchen-color-tabkey', {
     defaultValue: TabKey.colors,
   })
@@ -326,11 +319,11 @@ const ColorStudio: React.FC<IColorStudio> = ({
   }, [editorConfig])
 
   return (
-    <EditorView showBorder={Boolean(showBorder)}>
+    <EditorView>
       <CanvasView>
         <NavBar tabKey={tabKey || TabKey.colors} setTabKey={setTabKey} logoHref={logoHref} logo={logo} title={title} />
         {tabKey === TabKey.colors && (
-          <ColorView darkMode={display.darkMode}>
+          <ColorView>
             {colorListScale.map((color) => color.dom)}
             {showFooter && <Footer />}
           </ColorView>
@@ -361,6 +354,6 @@ const ColorStudio: React.FC<IColorStudio> = ({
       </PanelView>
     </EditorView>
   )
-}
+})
 
 export default ColorStudio

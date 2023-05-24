@@ -1,9 +1,9 @@
-import React from 'react'
+import { memo, ReactNode } from 'react'
 import { CollapsePanel, Panel } from '@/index'
 
 export interface IPanel {
   header: string
-  panel: React.ReactNode
+  panel: ReactNode
   hidden?: boolean | any
 }
 
@@ -11,7 +11,7 @@ export interface IPanelGroup {
   panels: IPanel[]
 }
 
-const PanelGroup: React.FC<IPanelGroup> = ({ panels }) => {
+const PanelGroup = memo<IPanelGroup>(({ panels }) => {
   return (
     <CollapsePanel defaultActiveKey={panels.map((_, index) => index)}>
       {panels
@@ -23,6 +23,6 @@ const PanelGroup: React.FC<IPanelGroup> = ({ panels }) => {
         ))}
     </CollapsePanel>
   )
-}
+})
 
-export default React.memo(PanelGroup)
+export default PanelGroup

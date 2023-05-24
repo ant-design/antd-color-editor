@@ -1,4 +1,3 @@
-import React from 'react'
 import { ScaleRow } from 'kitchen-color-studio'
 
 const scale = [

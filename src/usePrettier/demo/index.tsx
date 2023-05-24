@@ -1,14 +1,14 @@
-import React from 'react'
+import { memo } from 'react'
 import { usePrettier } from 'kitchen-color-studio'
 
-export default () => {
+export default memo(() => {
   const { format } = usePrettier()
   const content = `export const menus = {components: [{title: '装配器',
         children: ['Studio'],},{
-            title: '面板模块',children: ['HctPicker', 
-'ScalePreview', 'ScaleBlock', 
+            title: '面板模块',children: ['HctPicker',
+'ScalePreview', 'ScaleBlock',
             'ScaleRow'],},{
-        title: '工具类',children: ['useSketchJSON', 
+        title: '工具类',children: ['useSketchJSON',
             'useDownload'],
       },],};`
 
@@ -24,4 +24,4 @@ export default () => {
       </pre>
     </div>
   )
-}
+})

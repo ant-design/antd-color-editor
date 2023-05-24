@@ -1,6 +1,5 @@
 import { memo } from 'react'
-import type { IReadable } from './readable'
-import { readable } from './readable'
+import { readable, type IReadable } from './readable'
 import AccessBlock from './AccessBlock'
 import styled from 'styled-components'
 import { Popover } from 'antd'
@@ -30,7 +29,7 @@ const Tag = styled.div<{ tagColor: [string, string] }>`
   color: ${({ tagColor }) => tagColor[1]};
 
   background: ${({ tagColor }) => tagColor[0]};
-  border-radius: ${({ theme }) => theme.borderRadiusXS};
+  border-radius: ${({ theme }) => theme.borderRadiusSM}px;
 `
 
 /******************************************************
@@ -39,7 +38,7 @@ const Tag = styled.div<{ tagColor: [string, string] }>`
 
 type IColor = [string, string]
 
-interface IAccessibilityTag {
+export interface IAccessibilityTag {
   colors: IColor[]
 }
 

@@ -81,7 +81,6 @@ export const PanelView: any = styled(DraggablePanel)`
     border-bottom: 1px solid ${({ theme }) => theme.colorBorderSecondary};
     border-radius: 0 !important;
   }
-
   .ant-tabs {
     position: relative;
     overflow: hidden;

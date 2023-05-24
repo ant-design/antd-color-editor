@@ -1,15 +1,15 @@
 import { ThemeProvider as AntdThemeProvider, setupStyled, type ThemeMode } from 'antd-style'
-import React from 'react'
+import { type ReactNode, memo } from 'react'
 import { ThemeContext } from 'styled-components'
 import GlobalStyle from './GlobalStyle'
 import { App } from 'antd'
 
 export interface ThemeProviderProps {
-  children: React.ReactNode
+  children: ReactNode
   themeMode?: ThemeMode
 }
 
-const ThemeProvider: React.FC<ThemeProviderProps> = ({ children, themeMode }) => {
+const ThemeProvider = memo<ThemeProviderProps>(({ children, themeMode }) => {
   setupStyled({ ThemeContext })
   return (
     <AntdThemeProvider themeMode={themeMode}>
@@ -17,6 +17,6 @@ const ThemeProvider: React.FC<ThemeProviderProps> = ({ children, themeMode }) =>
       <App>{children}</App>
     </AntdThemeProvider>
   )
-}
+})
 
 export default ThemeProvider

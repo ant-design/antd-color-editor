@@ -1,16 +1,16 @@
-import React from 'react'
-import { ISchemaItem } from './ColorsList'
+import { memo, type CSSProperties } from 'react'
+import { type ISchemaItem } from './ColorsList'
 import { Input, Select } from 'antd'
 import { useSortableList } from '@ant-design/pro-editor'
 import { Flexbox } from 'react-layout-kit'
 import { HctPicker } from '@/index'
-interface IColorsListItem {
+export interface IColorsListItem {
   item: ISchemaItem
   index: number
   isolateDark: boolean
 }
 
-const fieldStyle: React.CSSProperties = {
+const fieldStyle: CSSProperties = {
   flex: 1,
   width: '100%',
   height: '24px',
@@ -18,7 +18,7 @@ const fieldStyle: React.CSSProperties = {
   borderRadius: '2px',
   minWidth: '48px',
 }
-const ColorsListItem: React.FC<IColorsListItem> = ({ item, index, isolateDark }) => {
+const ColorsListItem = memo<IColorsListItem>(({ item, index, isolateDark }) => {
   const instance = useSortableList()
 
   return (
@@ -92,11 +92,11 @@ const ColorsListItem: React.FC<IColorsListItem> = ({ item, index, isolateDark })
       )}
     </Flexbox>
   )
-}
+})
 
-export default React.memo(ColorsListItem)
+export default ColorsListItem
 
-export const ColorsListHeader = ({ isolateDark }: { isolateDark: boolean }) => {
+export const ColorsListHeader = memo(({ isolateDark }: { isolateDark: boolean }) => {
   return (
     <Flexbox horizontal align={'center'} gap={8} style={{ paddingRight: 22 }}>
       <div style={fieldStyle}>名称</div>
@@ -111,4 +111,4 @@ export const ColorsListHeader = ({ isolateDark }: { isolateDark: boolean }) => {
       )}
     </Flexbox>
   )
-}
+})

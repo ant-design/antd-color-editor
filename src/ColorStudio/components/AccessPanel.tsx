@@ -1,9 +1,10 @@
-import React from 'react'
+import { memo } from 'react'
 import { useControls, useCreateStore } from 'leva'
 import type { IPanel } from '@/index'
 import { LevaPanel, PanelGroup, AccessBlock, genScaleTestList, AccessibilityTag } from '@/index'
 import styled from 'styled-components'
 import type { IScales } from '@/ColorStudio/config'
+import { useThemeMode } from 'antd-style'
 
 /******************************************************
  *********************** Style *************************
@@ -38,7 +39,7 @@ const SubShowcase = styled.div<{ color2: string }>`
  ************************* Dom *************************
  ******************************************************/
 
-interface IAccessPanel {
+export interface IAccessPanel {
   data: {
     name: string
     color: string
@@ -47,7 +48,8 @@ interface IAccessPanel {
   }[]
 }
 
-const AccessPanel: React.FC<IAccessPanel> = ({ data }) => {
+const AccessPanel = memo<IAccessPanel>(({ data }) => {
+  const { isDarkMode } = useThemeMode()
   const accessStore = useCreateStore()
   const { color1, color2 } = useControls(
     {
@@ -57,7 +59,7 @@ const AccessPanel: React.FC<IAccessPanel> = ({ data }) => {
       },
       color2: {
         label: '背景色',
-        value: '#f9f9fe',
+        value: isDarkMode ? '#000e5e' : '#f9f9fe',
       },
     },
     { store: accessStore }
@@ -126,6 +128,6 @@ const AccessPanel: React.FC<IAccessPanel> = ({ data }) => {
   ]
 
   return <PanelGroup panels={accessPanelGroup} />
-}
+})
 
-export default React.memo(AccessPanel)
+export default AccessPanel

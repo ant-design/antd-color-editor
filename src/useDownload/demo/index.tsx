@@ -1,8 +1,8 @@
-import React from 'react'
+import { memo } from 'react'
 import { useDownload } from 'kitchen-color-studio'
 import { Button } from 'antd'
 
-export default () => {
+export default memo(() => {
   const data = {
     a: 111,
     b: 222,
@@ -15,4 +15,4 @@ export default () => {
       <Button onClick={startDownload}>生成并下载文件</Button>
     </div>
   )
-}
+})

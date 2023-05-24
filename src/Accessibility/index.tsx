@@ -18,7 +18,7 @@ const View = styled.div`
  ************************* Dom *************************
  ******************************************************/
 
-interface IAccessibility {
+export interface IAccessibility {
   color1: string
   color2: string
 }

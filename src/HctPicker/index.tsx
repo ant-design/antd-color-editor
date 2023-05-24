@@ -1,8 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import { memo, useEffect, useState } from 'react'
 import { useControls, LevaPanel, useCreateStore } from 'leva'
 import styled from 'styled-components'
 import { Popover } from 'antd'
 import { hexToHct, hctToHex, levaLightTheme } from '@/index'
+
+/******************************************************
+ *********************** Style *************************
+ ******************************************************/
 
 const ControlView = styled.div`
   width: 240px;
@@ -18,13 +22,17 @@ const ColorAvatar = styled.div`
   border-radius: 3px;
 `
 
-interface IHctPicker {
+/******************************************************
+ ************************* Dom *************************
+ ******************************************************/
+
+export interface IHctPicker {
   color?: string
   onChange: (value?: any) => void
   listModify?: boolean
 }
 
-const HctPicker: React.FC<IHctPicker> = ({ color = '#1677FF', onChange, listModify }) => {
+const HctPicker = memo<IHctPicker>(({ color = '#1677FF', onChange, listModify }) => {
   const [visible, setVisible] = useState(false)
   const colorStore = useCreateStore()
   // @ts-ignore
@@ -66,6 +74,6 @@ const HctPicker: React.FC<IHctPicker> = ({ color = '#1677FF', onChange, listModi
       <ColorAvatar onClick={() => listModify && set({ HEX: color })} style={{ background: listModify ? color : HEX }} />
     </Popover>
   )
-}
+})
 
-export default React.memo(HctPicker)
+export default HctPicker

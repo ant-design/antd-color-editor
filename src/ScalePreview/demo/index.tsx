@@ -1,4 +1,3 @@
-import React from 'react'
 import { ScalePreview } from 'kitchen-color-studio'
 
 const scales = {

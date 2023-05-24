@@ -14,12 +14,12 @@ export const hctToHex = (hct: number[]): string => {
 export const toHctString = (hex: string, alpha?: boolean): string => {
   if (!alpha) {
     const hctColor = hexToHct(hex)
-    return `hct(${hctColor.map((c) => Math.round(c)).join(',')})`
+    return `hct(${hctColor.map((c: number) => Math.round(c)).join(',')})`
   } else {
     const [r, g, b, a] = chroma(hex).rgba()
     const newHex = chroma.rgb(r, g, b).hex()
     const hctColor = hexToHct(newHex)
-    return `hcta(${hctColor.map((c) => Math.round(c)).join(',')},${a})`
+    return `hcta(${hctColor.map((c: number) => Math.round(c)).join(',')},${a})`
   }
 }
 

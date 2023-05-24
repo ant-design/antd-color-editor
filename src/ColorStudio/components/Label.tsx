@@ -1,16 +1,16 @@
-import React from 'react'
+import { memo, type ReactNode } from 'react'
 import { PanelTitle } from '@/styles'
 
 export interface ILabel {
-  icon: React.ReactNode
+  icon: ReactNode
   title: string
 }
 
-const Label: React.FC<ILabel> = ({ icon, title }) => (
+const Label = memo<ILabel>(({ icon, title }) => (
   <PanelTitle>
     {icon}
     {title}
   </PanelTitle>
-)
+))
 
 export default Label

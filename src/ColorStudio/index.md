@@ -17,7 +17,7 @@ import { ProEditor } from '@ant-design/pro-editor'
 export default () => (
   <Button
     type="primary"
-    href={`${window.publicPath}_demos/colorstudio-demo`}
+    href={`/~demos/colorstudio-demo-demo`}
     target="_blank"
     icon={<FullscreenOutlined />}
     style={{ marginBottom: 8 }}

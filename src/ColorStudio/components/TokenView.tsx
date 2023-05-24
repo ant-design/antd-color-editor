@@ -1,11 +1,10 @@
-import React from 'react'
-import { Highlight } from '@ant-design/pro-editor'
+import { memo } from 'react'
 import { kebabCase, camelCase } from 'lodash-es'
 import { usePrettier, getAlphaColor, colorTypeFormat } from '@/index'
 import { CodeView } from '@/styles'
 import type { IScales } from '@/ColorStudio/config'
-
-interface ITokenView {
+import { DumiSiteProvider, Highlighter } from 'dumi-theme-antd-style'
+export interface ITokenView {
   config: {
     colorType: 'mix' | 'hex' | 'rgb' | 'hsl'
     codeType: 'css' | 'less' | 'scss' | 'js'
@@ -17,9 +16,9 @@ interface ITokenView {
   }[]
 }
 
-const TokenView: React.FC<ITokenView> = ({ data, config }) => {
+const TokenView = memo<ITokenView>(({ data, config }) => {
   const { format } = usePrettier()
-  const { colorType, codeType, isolateDarkToken } = config
+  const { colorType, codeType, isolateDarkToken }: any = config
   const tokenData = data.map((item) => ({
     name: item.name,
     light: item.scales.light.map((s) => colorTypeFormat(s, colorType)),
@@ -32,8 +31,8 @@ const TokenView: React.FC<ITokenView> = ({ data, config }) => {
 
   if (codeType === 'js') {
     if (isolateDarkToken) {
-      const objLight = {}
-      const objDark = {}
+      const objLight: any = {}
+      const objDark: any = {}
       tokenData.forEach((item) => {
         objLight[camelCase(item.name)] = {
           solid: item.light,
@@ -50,19 +49,19 @@ const TokenView: React.FC<ITokenView> = ({ data, config }) => {
           solid: number[],
           alpha: number[],
         }
-  
+
         export interface ITheme {
           ${Object.keys(objLight)
             .map((key) => `${key}: IScale;`)
             .join('\n')}
         }
-  
+
         export const LightTheme:ITheme = ${JSON.stringify(objLight)}
-        
+
         export const DarkTheme:ITheme = ${JSON.stringify(objDark)}
       `
     } else {
-      const obj = {}
+      const obj: any = {}
       tokenData.forEach((item) => {
         obj[camelCase(item.name)] = {
           light: item.light,
@@ -79,13 +78,13 @@ const TokenView: React.FC<ITokenView> = ({ data, config }) => {
           dark: number[],
           darkA: number[],
         }
-  
+
         export interface ITheme {
           ${Object.keys(obj)
             .map((key) => `${key}: IScale;`)
             .join('\n')}
         }
-  
+
         export const Theme:ITheme = ${JSON.stringify(obj)}
       `
     }
@@ -114,11 +113,13 @@ const TokenView: React.FC<ITokenView> = ({ data, config }) => {
   }
   return (
     <CodeView>
-      <Highlight language={codeType} theme="dark">
-        {content}
-      </Highlight>
+      <DumiSiteProvider>
+        <Highlighter background={false} language={codeType}>
+          {content}
+        </Highlighter>
+      </DumiSiteProvider>
     </CodeView>
   )
-}
+})
 
-export default React.memo(TokenView)
+export default TokenView

@@ -24,7 +24,7 @@ const Tag = styled.div`
  ************************* Dom *************************
  ******************************************************/
 
-interface IW3cShield {
+export interface IW3cShield {
   color1: string
   color2: string
 }

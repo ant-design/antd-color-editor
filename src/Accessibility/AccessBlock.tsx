@@ -1,4 +1,4 @@
-import React, { memo } from 'react'
+import { memo, type ReactNode } from 'react'
 import { W3cShield } from '@/index'
 import styled from 'styled-components'
 import { tinycolor } from '@ctrl/tinycolor'
@@ -43,7 +43,7 @@ const ShieldBlock = styled.div`
 export interface IAccessBlock {
   color1: string
   color2: string
-  children?: React.ReactNode | string
+  children?: ReactNode | string
 }
 
 const AccessBlock = memo<IAccessBlock>(({ color1, color2, children }) => {

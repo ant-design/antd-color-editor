@@ -1,19 +1,20 @@
 import chroma from 'chroma-js'
-import React from 'react'
+import { memo } from 'react'
 import * as Three from 'three'
 import { hexToHct } from '@/index'
+import { useThemeMode } from 'antd-style'
 
-interface IGenColor3D {
+export interface IGenColor3D {
   name: string
   scale: string[]
   colorType: 'mix' | 'hex' | 'hct' | 'rgb' | 'hsl' | 'hsv' | 'cts'
   zoom: number
   hueZoom: number
-  darkMode: boolean
 }
 
 // @ts-ignore
-const GenColor3D: React.FC<IGenColor3D> = ({ name, scale, colorType, zoom, darkMode, hueZoom }) => {
+const GenColor3D = memo<IGenColor3D>(({ name, scale, colorType, zoom, hueZoom }) => {
+  const { isDarkMode } = useThemeMode()
   const scalePositon = (pos: number[], zoomPos: number[]) => {
     const [x, y, z] = pos
     const [xZoom, yZoom, zZoom] = zoomPos
@@ -28,7 +29,7 @@ const GenColor3D: React.FC<IGenColor3D> = ({ name, scale, colorType, zoom, darkM
         break
       case 'cts':
         position = scalePositon(
-          [hexToHct(midC)[0], num, chroma.contrast(c, darkMode ? '#000' : '#fff')],
+          [hexToHct(midC)[0], num, chroma.contrast(c, isDarkMode ? '#000' : '#fff')],
           [(1 / 3.6) * hueZoom, 100, 20]
         )
         break
@@ -62,6 +63,6 @@ const GenColor3D: React.FC<IGenColor3D> = ({ name, scale, colorType, zoom, darkM
       <meshPhysicalMaterial color={c} />
     </mesh>
   ))
-}
+})
 
 export default GenColor3D
