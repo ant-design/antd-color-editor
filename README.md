@@ -2,7 +2,7 @@
 
 <div align="center">
   
-<img width="160" src="https://avatars.githubusercontent.com/u/17870709?v=4">
+<img width="160" src="https://gw.alipayobjects.com/mdn/rms_7d1485/afts/img/A*XDYxSJXBjjwAAAAAAAAAAAAAARQnAQ">
 
 <h1>CanisMinor Template</h1>
 
