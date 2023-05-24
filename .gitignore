@@ -42,3 +42,4 @@ example/.temp/*
 .eslintcache
 techUI*
 .husky/prepare-commit-msg
+docs-dist/

@@ -20,7 +20,6 @@ export default defineConfig({
   npmClient: 'pnpm',
   base: '/',
   publicPath: '/',
-  ssr: isProd ? {} : false,
   apiParser: isWin ? false : {},
   resolve: isWin
     ? undefined

@@ -20,9 +20,32 @@ export const PanelView: any = styled(DraggablePanel)`
     stroke: ${({ theme }) => theme.colorBgLayout};
   }
 
+  .studio-collapse-title {
+    margin: 0 8px;
+    font-size: 10px;
+  }
+
+  .ant-collapse-content-box,
+  .studio-collapse-title {
+    > div {
+      background: transparent !important;
+    }
+    .studio-collapse-title {
+      margin-top: 4px;
+      background: ${({ theme }) => theme.colorFillTertiary} !important;
+      border-radius: 4px !important;
+      > div > div > div > div {
+        border: none !important;
+      }
+    }
+    .studio-divider {
+      border-color: ${({ theme }) => theme.colorBorder} !important;
+    }
+  }
+
   div[class^='leva'] {
     --leva-sizes-controlWidth: 66%;
-    --leva-colors-elevation1: transparent;
+    --leva-colors-elevation1: ${({ theme }) => theme.colorFill};
     --leva-colors-elevation2: transparent;
     --leva-colors-elevation3: ${({ theme }) => theme.colorFillSecondary};
     --leva-colors-accent1: ${({ theme }) => theme.colorPrimary};
@@ -58,10 +81,7 @@ export const PanelView: any = styled(DraggablePanel)`
     border-bottom: 1px solid ${({ theme }) => theme.colorBorderSecondary};
     border-radius: 0 !important;
   }
-  .tech-studio-collapse-title {
-    margin: 0 8px;
-    font-size: 10px;
-  }
+
   .ant-tabs {
     position: relative;
     overflow: hidden;
@@ -88,18 +108,18 @@ const ContentView = styled.div`
   overflow-y: auto;
 
   width: 100%;
-  height: 100%;
+  height: calc(100% - 46px);
   padding: 24px;
 `
 
 export const ColorView: any = styled(ContentView)`
   padding-bottom: 48px;
-  background: ${({ darkMode }: any) => (darkMode ? '#222' : '#f1f1f1')};
 `
 
 export const CodeView = styled(ContentView)`
-  padding: 12px;
-  background-color: rgb(43, 48, 59);
+  pre {
+    background: none !important;
+  }
 `
 
 export const PanelTitle = styled.div`
