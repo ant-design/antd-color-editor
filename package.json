@@ -81,7 +81,7 @@
     "dumi": "^2",
     "dumi-assets-types": "^1",
     "dumi-theme-antd-style": "latest",
-    "html2sketch": "^0.4",
+    "html2sketch": "^1.0",
     "leva": "^0.9",
     "lodash-es": "^4",
     "polished": "^4",
