@@ -56,3 +56,12 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.GH_TOKEN }}
+
+      - name: Build docs
+        run: pnpm run docs:build
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GH_TOKEN }}
+          publish_dir: ./docs-dist
