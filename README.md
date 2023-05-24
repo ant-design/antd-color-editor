@@ -5,6 +5,8 @@
 <img width="160" src="https://gw.alipayobjects.com/mdn/rms_7d1485/afts/img/A*XDYxSJXBjjwAAAAAAAAAAAAAARQnAQ">
 
 <h1>kitchen Color Studio</h1>
+  
+[**🎨 Quick Start >>**](https://canisminor1990.github.io/kitchen-color-studio/~demos/colorstudio-demo-demo)
 
 An open-source color editor for designing color system
 
