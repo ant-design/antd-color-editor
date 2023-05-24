@@ -128,7 +128,7 @@ This project is [MIT](./LICENSE) licensed.
 
 <!-- release -->
 
-[release-shield]: https://img.shields.io/npm/kitchen-color-studio?label=kitchen-color-studio
+[release-shield]: https://img.shields.io/npm/v/kitchen-color-studio?logo=npm
 [release-url]: https://www.npmjs.com/package/kitchen-color-studio
 
 <!-- releaseDate -->
