@@ -44,9 +44,11 @@ pnpm add kitchen-color-studio
 
 ## 🎨 Usage
 
-### Color Space
+### Base on HCT
+Resources: [The Science of Color & Design](https://material.io/blog/science-of-color-design)
 
-![](https://raw.githubusercontent.com/canisminor1990/kitchen-color-studio/master/public/preview2.webp)
+|<img src="https://lh3.googleusercontent.com/FgfF6od_qjYXbXowPPgL3IQ8T0QnEAZnoehlRcXHSXK7QXfHe_LvBm3SeYIkxhSRn3gBjjH4GEO6DYOex8btaN34lVDSzP7ZULMMSqoE7bsxyCWA0Q=w1400-v0" height="240" />|<img src="https://lh3.googleusercontent.com/PWM-JWdCtOxcGHHoiZfm1HkSNNcMRXyGE4CRapU1lrFHo93W1dqHACB24x7FCuqFKA-6LTBMhEtSHsMkZcu8EsOrNaUWE6ixtknM1Sv7hhpHwvLWcG1-=w1400-v0" height="240" />|
+| --- | --- |
 
 ### Color Accessibility
 
@@ -104,6 +106,18 @@ $ pnpm start
 </a>
 
 <!-- CONTRIBUTION END -->
+
+<div align="right">
+
+[![][back-to-top]](#readme-top)
+
+</div>
+
+## 🔗 Links
+
+
+- material-color-utilities: https://github.com/material-foundation/material-color-utilities
+- Kitchen：https://github.com/ant-design/kitchen
 
 <div align="right">
 
