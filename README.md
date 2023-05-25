@@ -30,7 +30,7 @@ An open-source color editor for designing color system
 
 ## 📦 Installation
 
-To install Lobe Commit, run the following command:
+To install components, run the following command:
 
 ```bash
 pnpm add kitchen-color-studio
@@ -49,6 +49,10 @@ Resources: [The Science of Color & Design](https://material.io/blog/science-of-c
 
 |<img src="https://lh3.googleusercontent.com/FgfF6od_qjYXbXowPPgL3IQ8T0QnEAZnoehlRcXHSXK7QXfHe_LvBm3SeYIkxhSRn3gBjjH4GEO6DYOex8btaN34lVDSzP7ZULMMSqoE7bsxyCWA0Q=w1400-v0" height="240" />|<img src="https://lh3.googleusercontent.com/PWM-JWdCtOxcGHHoiZfm1HkSNNcMRXyGE4CRapU1lrFHo93W1dqHACB24x7FCuqFKA-6LTBMhEtSHsMkZcu8EsOrNaUWE6ixtknM1Sv7hhpHwvLWcG1-=w1400-v0" height="240" />|
 | --- | --- |
+
+### Color Space
+
+![](https://raw.githubusercontent.com/canisminor1990/kitchen-color-studio/master/public/preview2.webp)
 
 ### Color Accessibility
 
