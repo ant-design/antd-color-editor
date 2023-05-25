@@ -8,13 +8,13 @@
     "color-editor",
     "color-stytem"
   ],
-  "homepage": "https://github.com/canisminor1990/kitchen-color-studio",
+  "homepage": "https://github.com/ant-design/kitchen-color-studio",
   "bugs": {
-    "url": "https://github.com/canisminor1990/kitchen-color-studio/issues/new"
+    "url": "https://github.com/ant-design/kitchen-color-studio/issues/new"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/canisminor1990/kitchen-color-studio.git"
+    "url": "https://github.com/ant-design/kitchen-color-studio.git"
   },
   "author": "canisminor1990 <i@canisminor.cc>",
   "sideEffects": false,
