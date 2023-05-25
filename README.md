@@ -6,7 +6,7 @@
 
 <h1>kitchen Color Studio</h1>
   
-[**🎨 Quick Start >>**](https://canisminor1990.github.io/kitchen-color-studio/~demos/colorstudio-demo-demo)
+[**🎨 Quick Start >>**](https://ant-design.github.io/kitchen-color-studio/~demos/colorstudio-demo-demo)
 
 An open-source color editor for designing color system
 
@@ -24,7 +24,7 @@ An open-source color editor for designing color system
 [![stargazers][stargazers-shield]][stargazers-url]
 [![issues][issues-shield]][issues-url]
 
-[![](https://raw.githubusercontent.com/canisminor1990/kitchen-color-studio/master/public/preview1.webp)](https://canisminor1990.github.io/kitchen-color-studio/~demos/colorstudio-demo-demo)
+[![](https://raw.githubusercontent.com/ant-design/kitchen-color-studio/master/public/preview1.webp)](https://ant-design.github.io/kitchen-color-studio/~demos/colorstudio-demo-demo)
 
 </div>
 
@@ -52,19 +52,19 @@ Resources: [The Science of Color & Design](https://material.io/blog/science-of-c
 
 ### Color Space
 
-![](https://raw.githubusercontent.com/canisminor1990/kitchen-color-studio/master/public/preview2.webp)
+![](https://raw.githubusercontent.com/ant-design/kitchen-color-studio/master/public/preview2.webp)
 
 ### Color Accessibility
 
-![](https://raw.githubusercontent.com/canisminor1990/kitchen-color-studio/master/public/preview5.webp)
+![](https://raw.githubusercontent.com/ant-design/kitchen-color-studio/master/public/preview5.webp)
 
 ### Token Mode
 
-![](https://raw.githubusercontent.com/canisminor1990/kitchen-color-studio/master/public/preview3.webp)
+![](https://raw.githubusercontent.com/ant-design/kitchen-color-studio/master/public/preview3.webp)
 
 ### Setting Export
 
-![](https://raw.githubusercontent.com/canisminor1990/kitchen-color-studio/master/public/preview4.webp)
+![](https://raw.githubusercontent.com/ant-design/kitchen-color-studio/master/public/preview4.webp)
 
 <div align="right">
 
@@ -81,7 +81,7 @@ You can use Gitpod for online development:
 Or clone it for local development:
 
 ```bash
-$ git clone https://github.com/canisminor1990/kitchen-color-studio.git
+$ git clone https://github.com/ant-design/kitchen-color-studio.git
 $ cd kitchen-color-studio
 $ pnpm install
 $ pnpm start
@@ -99,7 +99,7 @@ $ pnpm start
 
 > 📊 Total: <kbd>**2**</kbd>
 
-<a href="https://github.com/canisminor1990" title="canisminor1990">
+<a href="https://github.com/ant-design" title="ant-design">
   <img src="https://avatars.githubusercontent.com/u/17870709?v=4" width="50" />
 </a>
 <a href="https://github.com/apps/dependabot" title="dependabot[bot]">
@@ -130,14 +130,13 @@ $ pnpm start
 
 #### 📝 License
 
-Copyright © 2023 [CanisMinor][profile-url]. <br />
 This project is [MIT](./LICENSE) licensed.
 
 <!-- LINK GROUP -->
 
-[profile-url]: https://github.com/canisminor1990
-[issues-url]: https://github.com/canisminor1990/kitchen-color-studio/issues/new/choose
-[gitpod-url]: https://gitpod.io/#https://github.com/canisminor1990/kitchen-color-studio
+[profile-url]: https://github.com/ant-design
+[issues-url]: https://github.com/ant-design/kitchen-color-studio/issues/new/choose
+[gitpod-url]: https://gitpod.io/#https://github.com/ant-design/kitchen-color-studio
 
 <!-- SHIELD LINK GROUP -->
 
@@ -150,35 +149,35 @@ This project is [MIT](./LICENSE) licensed.
 
 <!-- releaseDate -->
 
-[release-date-shield]: https://img.shields.io/github/release-date/canisminor1990/kitchen-color-studio?style=flat
-[release-date-url]: https://github.com/canisminor1990/kitchen-color-studio/releases
+[release-date-shield]: https://img.shields.io/github/release-date/ant-design/kitchen-color-studio?style=flat
+[release-date-url]: https://github.com/ant-design/kitchen-color-studio/releases
 
 <!-- ciTest -->
 
-[ci-test-shield]: https://github.com/canisminor1990/kitchen-color-studio/workflows/Test%20CI/badge.svg
-[ci-test-url]: https://github.com/canisminor1990/kitchen-color-studio/actions/workflows/test.yml
+[ci-test-shield]: https://github.com/ant-design/kitchen-color-studio/workflows/Test%20CI/badge.svg
+[ci-test-url]: https://github.com/ant-design/kitchen-color-studio/actions/workflows/test.yml
 
 <!-- ciRelease -->
 
-[ci-release-shield]: https://github.com/canisminor1990/kitchen-color-studio/workflows/Build%20and%20Release/badge.svg
-[ci-release-url]: https://github.com/canisminor1990/kitchen-color-studio/actions/workflows/release.yml
+[ci-release-shield]: https://github.com/ant-design/kitchen-color-studio/workflows/Build%20and%20Release/badge.svg
+[ci-release-url]: https://github.com/ant-design/kitchen-color-studio/actions/workflows/release.yml
 
 <!-- contributors -->
 
-[contributors-shield]: https://img.shields.io/github/contributors/canisminor1990/kitchen-color-studio.svg?style=flat
-[contributors-url]: https://github.com/canisminor1990/kitchen-color-studio/graphs/contributors
+[contributors-shield]: https://img.shields.io/github/contributors/ant-design/kitchen-color-studio.svg?style=flat
+[contributors-url]: https://github.com/ant-design/kitchen-color-studio/graphs/contributors
 
 <!-- forks -->
 
-[forks-shield]: https://img.shields.io/github/forks/canisminor1990/kitchen-color-studio.svg?style=flat
-[forks-url]: https://github.com/canisminor1990/kitchen-color-studio/network/members
+[forks-shield]: https://img.shields.io/github/forks/ant-design/kitchen-color-studio.svg?style=flat
+[forks-url]: https://github.com/ant-design/kitchen-color-studio/network/members
 
 <!-- stargazers -->
 
-[stargazers-shield]: https://img.shields.io/github/stars/canisminor1990/kitchen-color-studio.svg?style=flat
-[stargazers-url]: https://github.com/canisminor1990/kitchen-color-studio/stargazers
+[stargazers-shield]: https://img.shields.io/github/stars/ant-design/kitchen-color-studio.svg?style=flat
+[stargazers-url]: https://github.com/ant-design/kitchen-color-studio/stargazers
 
 <!-- issues -->
 
-[issues-shield]: https://img.shields.io/github/issues/canisminor1990/kitchen-color-studio.svg?style=flat
-[issues-url]: https://img.shields.io/github/issues/canisminor1990/kitchen-color-studio.svg?style=flat
+[issues-shield]: https://img.shields.io/github/issues/ant-design/kitchen-color-studio.svg?style=flat
+[issues-url]: https://img.shields.io/github/issues/ant-design/kitchen-color-studio.svg?style=flat
