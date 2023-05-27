@@ -81,7 +81,7 @@ const TokenView = memo<ITokenView>(({ data, config }) => {
 
         export interface ColorScales {
           ${Object.keys(obj)
-            .map((key) => `${key}: IScale;`)
+            .map((key) => `${key}: ColorScaleItem;`)
             .join('\n')}
         }
 
