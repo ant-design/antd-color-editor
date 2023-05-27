@@ -21,7 +21,7 @@
         }
 
         export interface ColorScales {
-          `.concat(Object.keys(A).map(function(d){return"".concat(d,": IScale;")}).join(`
+          `.concat(Object.keys(A).map(function(d){return"".concat(d,": ColorScaleItem;")}).join(`
 `),`
         }
 
