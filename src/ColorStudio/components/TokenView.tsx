@@ -45,20 +45,20 @@ const TokenView = memo<ITokenView>(({ data, config }) => {
       })
 
       content = `
-        export interface IScale {
-          solid: number[],
-          alpha: number[],
+        export interface ColorScaleItem {
+          solid: string[],
+          alpha: string[],
         }
 
-        export interface ITheme {
+        export interface ColorScales {
           ${Object.keys(objLight)
-            .map((key) => `${key}: IScale;`)
+            .map((key) => `${key}: ColorScaleItem;`)
             .join('\n')}
         }
 
-        export const LightTheme:ITheme = ${JSON.stringify(objLight)}
+        export const LightTheme:ColorScales = ${JSON.stringify(objLight)}
 
-        export const DarkTheme:ITheme = ${JSON.stringify(objDark)}
+        export const DarkTheme:ColorScales = ${JSON.stringify(objDark)}
       `
     } else {
       const obj: any = {}
@@ -72,20 +72,20 @@ const TokenView = memo<ITokenView>(({ data, config }) => {
       })
 
       content = `
-        export interface IScale {
-          light: number[],
-          lightA: number[],
-          dark: number[],
-          darkA: number[],
+        export interface ColorScaleItem {
+          light: string[],
+          lightA: string[],
+          dark: string[],
+          darkA: string[],
         }
 
-        export interface ITheme {
+        export interface ColorScales {
           ${Object.keys(obj)
             .map((key) => `${key}: IScale;`)
             .join('\n')}
         }
 
-        export const Theme:ITheme = ${JSON.stringify(obj)}
+        export const Theme:ColorScales = ${JSON.stringify(obj)}
       `
     }
     content = format(content)
