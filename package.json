@@ -71,7 +71,7 @@
     "@react-three/fiber": "8.13.0",
     "ahooks": "^3",
     "antd": "^5",
-    "antd-style": "^3.1.1",
+    "antd-style": "^3.2.1",
     "babel-plugin-import": "^1",
     "babel-plugin-styled-components": "^2",
     "bezier-easing": "^2",
