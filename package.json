@@ -104,7 +104,7 @@
     "@types/react-copy-to-clipboard": "^5.0.4",
     "@types/react-dom": "^18",
     "@types/styled-components": "^5",
-    "@types/three": "0.152.0",
+    "@types/three": "0.152.1",
     "@umijs/lint": "^4",
     "commitlint": "^17",
     "commitlint-config-gitmoji": "^2",
