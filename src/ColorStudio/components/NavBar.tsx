@@ -1,9 +1,8 @@
-import { memo } from 'react'
-import styled from 'styled-components'
-import { Segmented } from 'antd'
-import { Space } from 'antd'
-import { Tag } from 'antd'
-import PkgInfo from '../../../package.json'
+import { Segmented, Space, Tag } from 'antd';
+import { memo } from 'react';
+import styled from 'styled-components';
+
+import PkgInfo from '../../../package.json';
 
 /******************************************************
  *********************** Style *************************
@@ -19,7 +18,7 @@ const NavBarView = styled.div`
 
   background: ${({ theme }) => theme.colorBgContainer};
   border-bottom: 1px solid ${({ theme }) => theme.colorBorder};
-`
+`;
 
 const LogoText = styled.div`
   font-size: 16px;
@@ -36,11 +35,11 @@ const LogoText = styled.div`
 
     -webkit-text-fill-color: transparent;
   }
-`
+`;
 
 const AddonView = styled.div`
   width: 240px;
-`
+`;
 
 export enum TabKey {
   colors,
@@ -54,14 +53,14 @@ const tabsList = [
   { label: '模型', value: TabKey.three },
   { label: '变量', value: TabKey.token },
   { label: '配置', value: TabKey.config },
-]
+];
 
 export interface INavBar {
-  tabKey: TabKey
-  setTabKey: (v: any) => void
-  logo?: string
-  title?: string
-  logoHref?: string
+  logo?: string;
+  logoHref?: string;
+  setTabKey: (v: any) => void;
+  tabKey: TabKey;
+  title?: string;
 }
 
 const NavBar = memo<INavBar>(
@@ -76,7 +75,7 @@ const NavBar = memo<INavBar>(
     return (
       <NavBarView>
         <AddonView>
-          <a href={logoHref} target="_blank" rel="noreferrer">
+          <a href={logoHref} rel="noreferrer" target="_blank">
             <Space align="center">
               <img height={18} src={logo} />
               <LogoText>
@@ -86,11 +85,11 @@ const NavBar = memo<INavBar>(
             </Space>
           </a>
         </AddonView>
-        <Segmented value={tabKey} onChange={setTabKey} options={tabsList} />
+        <Segmented onChange={setTabKey} options={tabsList} value={tabKey} />
         <AddonView />
       </NavBarView>
-    )
-  }
-)
+    );
+  },
+);
 
-export default NavBar
+export default NavBar;

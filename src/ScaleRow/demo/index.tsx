@@ -1,4 +1,4 @@
-import { ScaleRow } from 'kitchen-color-studio'
+import { ScaleRow } from 'kitchen-color-studio';
 
 const scale = [
   '#f8f9fe',
@@ -12,6 +12,6 @@ const scale = [
   '#00409d',
   '#00297a',
   '#001355',
-]
+];
 
-export default () => <ScaleRow title="light" colorType="hex" scale={scale} />
+export default () => <ScaleRow colorType="hex" scale={scale} title="light" />;

@@ -31,6 +31,7 @@
     "docs:build": "dumi build",
     "doctor": "father doctor",
     "lint": "eslint \"{src,javascript}/**/*.{js,jsx,ts,tsx}\" --fix",
+    "lint:md": "remark . -f -q",
     "prepare": "husky install",
     "prettier": "prettier -c --write \"**/**\"",
     "release": "semantic-release",
@@ -41,12 +42,16 @@
     "type-check": "tsc -p tsconfig-check.json"
   },
   "lint-staged": {
+    "*.md": [
+      "remark -f -q",
+      "prettier --write --no-error-on-unmatched-pattern"
+    ],
+    "*.json": [
+      "prettier --write --no-error-on-unmatched-pattern"
+    ],
     "*.{css,less}": [
       "stylelint --fix",
       "prettier --write"
-    ],
-    "*.{md,json}": [
-      "prettier --write --no-error-on-unmatched-pattern"
     ],
     "*.{js,jsx}": [
       "stylelint --fix",
@@ -60,18 +65,18 @@
     ]
   },
   "dependencies": {
-    "@ant-design/colors": "^7.0.0",
+    "@ant-design/colors": "^7",
     "@ant-design/icons": "^5",
     "@ant-design/pro-editor": "latest",
     "@ctrl/tinycolor": "^3",
-    "@leva-ui/plugin-bezier": "^0.9",
+    "@leva-ui/plugin-bezier": "latest",
     "@material/material-color-utilities": "^0.2.6",
     "@radix-ui/react-icons": "^1",
     "@react-three/drei": "9.70.0",
     "@react-three/fiber": "8.13.0",
     "ahooks": "^3",
     "antd": "^5",
-    "antd-style": "^3.2.1",
+    "antd-style": "latest",
     "babel-plugin-import": "^1",
     "babel-plugin-styled-components": "^2",
     "bezier-easing": "^2",
@@ -88,29 +93,32 @@
     "react": "^18",
     "react-copy-to-clipboard": "^5",
     "react-dom": "^18",
-    "react-layout-kit": "^1.7.0",
+    "react-layout-kit": "^1",
     "styled-components": "^5",
-    "three": "0.152.2",
+    "three": "^0.152",
     "zustand": "^4"
   },
   "devDependencies": {
     "@commitlint/cli": "^17",
-    "@sketch-hq/sketch-file-format-ts": "^6.5.0",
-    "@types/chroma-js": "^2.4.0",
-    "@types/lodash-es": "^4.17.7",
+    "@sketch-hq/sketch-file-format-ts": "^6",
+    "@types/chroma-js": "^2",
+    "@types/lodash-es": "^4",
     "@types/node": "^20",
-    "@types/prettier": "^2.7.2",
+    "@types/prettier": "^2",
     "@types/react": "^18",
-    "@types/react-copy-to-clipboard": "^5.0.4",
+    "@types/react-copy-to-clipboard": "^5",
     "@types/react-dom": "^18",
     "@types/styled-components": "^5",
-    "@types/three": "0.152.1",
+    "@types/three": "^0.152",
     "@umijs/lint": "^4",
     "commitlint": "^17",
     "commitlint-config-gitmoji": "^2",
     "eslint": "^8",
     "eslint-import-resolver-alias": "^1",
     "eslint-import-resolver-typescript": "^3",
+    "eslint-plugin-import": "^2",
+    "eslint-plugin-simple-import-sort": "^10",
+    "eslint-plugin-typescript-sort-keys": "^2",
     "father": "^4",
     "husky": "^8",
     "lint-staged": "^13",
@@ -119,6 +127,11 @@
     "prettier": "^2",
     "prettier-plugin-organize-imports": "^3",
     "prettier-plugin-packagejson": "^2",
+    "remark": "^14",
+    "remark-cli": "^11",
+    "remark-lint": "^9",
+    "remark-lint-list-item-indent": "^3",
+    "remark-preset-lint-recommended": "^6",
     "semantic-release": "^21",
     "semantic-release-config-gitmoji": "^1",
     "stylelint": "^15",

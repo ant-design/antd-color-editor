@@ -45,10 +45,11 @@ pnpm add kitchen-color-studio
 ## 🎨 Usage
 
 ### Base on HCT
+
 Resources: [The Science of Color & Design](https://material.io/blog/science-of-color-design)
 
-|<img src="https://lh3.googleusercontent.com/FgfF6od_qjYXbXowPPgL3IQ8T0QnEAZnoehlRcXHSXK7QXfHe_LvBm3SeYIkxhSRn3gBjjH4GEO6DYOex8btaN34lVDSzP7ZULMMSqoE7bsxyCWA0Q=w1400-v0" height="240" />|<img src="https://lh3.googleusercontent.com/PWM-JWdCtOxcGHHoiZfm1HkSNNcMRXyGE4CRapU1lrFHo93W1dqHACB24x7FCuqFKA-6LTBMhEtSHsMkZcu8EsOrNaUWE6ixtknM1Sv7hhpHwvLWcG1-=w1400-v0" height="240" />|
-| --- | --- |
+| <img src="https://lh3.googleusercontent.com/FgfF6od_qjYXbXowPPgL3IQ8T0QnEAZnoehlRcXHSXK7QXfHe_LvBm3SeYIkxhSRn3gBjjH4GEO6DYOex8btaN34lVDSzP7ZULMMSqoE7bsxyCWA0Q=w1400-v0" height="240" /> | <img src="https://lh3.googleusercontent.com/PWM-JWdCtOxcGHHoiZfm1HkSNNcMRXyGE4CRapU1lrFHo93W1dqHACB24x7FCuqFKA-6LTBMhEtSHsMkZcu8EsOrNaUWE6ixtknM1Sv7hhpHwvLWcG1-=w1400-v0" height="240" /> |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 
 ### Color Space
 
@@ -119,7 +120,6 @@ $ pnpm start
 
 ## 🔗 Links
 
-
 - material-color-utilities: https://github.com/material-foundation/material-color-utilities
 - Kitchen：https://github.com/ant-design/kitchen
 
@@ -137,8 +137,6 @@ This project is [MIT](./LICENSE) licensed.
 
 <!-- LINK GROUP -->
 
-[profile-url]: https://github.com/ant-design
-[issues-url]: https://github.com/ant-design/kitchen-color-studio/issues/new/choose
 [gitpod-url]: https://gitpod.io/#https://github.com/ant-design/kitchen-color-studio
 
 <!-- SHIELD LINK GROUP -->
@@ -183,4 +181,4 @@ This project is [MIT](./LICENSE) licensed.
 <!-- issues -->
 
 [issues-shield]: https://img.shields.io/github/issues/ant-design/kitchen-color-studio.svg?style=flat
-[issues-url]: https://img.shields.io/github/issues/ant-design/kitchen-color-studio.svg?style=flat
+[issues-url]: https://github.com/ant-design/kitchen-color-studio/issues/new/choose

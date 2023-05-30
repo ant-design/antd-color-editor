@@ -1,9 +1,10 @@
-import { memo } from 'react'
-import { DumiSiteProvider, Highlighter } from 'dumi-theme-antd-style'
-import { CodeView } from '@/styles'
+import { DumiSiteProvider, Highlighter } from 'dumi-theme-antd-style';
+import { memo } from 'react';
+
+import { CodeView } from '@/styles';
 
 export interface IJsonView {
-  data: any
+  data: any;
 }
 
 const JsonView = memo<IJsonView>(({ data }) => {
@@ -15,7 +16,7 @@ const JsonView = memo<IJsonView>(({ data }) => {
         </Highlighter>
       </DumiSiteProvider>
     </CodeView>
-  )
-})
+  );
+});
 
-export default JsonView
+export default JsonView;

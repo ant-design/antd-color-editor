@@ -1,8 +1,9 @@
-import { memo, useEffect, useState } from 'react'
-import { useControls, LevaPanel, useCreateStore } from 'leva'
-import styled from 'styled-components'
-import { Popover } from 'antd'
-import { hexToHct, hctToHex, levaLightTheme } from '@/index'
+import { Popover } from 'antd';
+import { LevaPanel, useControls, useCreateStore } from 'leva';
+import { memo, useEffect, useState } from 'react';
+import styled from 'styled-components';
+
+import { hctToHex, hexToHct, levaLightTheme } from '@/index';
 
 /******************************************************
  *********************** Style *************************
@@ -10,7 +11,7 @@ import { hexToHct, hctToHex, levaLightTheme } from '@/index'
 
 const ControlView = styled.div`
   width: 240px;
-`
+`;
 
 const ColorAvatar = styled.div`
   cursor: pointer;
@@ -20,21 +21,21 @@ const ColorAvatar = styled.div`
   height: 24px;
 
   border-radius: 3px;
-`
+`;
 
 /******************************************************
  ************************* Dom *************************
  ******************************************************/
 
 export interface IHctPicker {
-  color?: string
-  onChange: (value?: any) => void
-  listModify?: boolean
+  color?: string;
+  listModify?: boolean;
+  onChange: (value?: any) => void;
 }
 
 const HctPicker = memo<IHctPicker>(({ color = '#1677FF', onChange, listModify }) => {
-  const [visible, setVisible] = useState(false)
-  const colorStore = useCreateStore()
+  const [visible, setVisible] = useState(false);
+  const colorStore = useCreateStore();
   // @ts-ignore
   const [{ HEX }, set] = useControls(
     // @ts-ignore
@@ -53,27 +54,30 @@ const HctPicker = memo<IHctPicker>(({ color = '#1677FF', onChange, listModify })
         transient: false,
       },
     }),
-    { store: colorStore }
-  )
+    { store: colorStore },
+  );
 
   useEffect(() => {
-    onChange(HEX)
-  }, [HEX])
+    onChange(HEX);
+  }, [HEX]);
 
   return (
     <Popover
       content={
         <ControlView>
-          <LevaPanel fill flat store={colorStore} titleBar={false} theme={levaLightTheme} />
+          <LevaPanel fill flat store={colorStore} theme={levaLightTheme} titleBar={false} />
         </ControlView>
       }
-      trigger="click"
-      open={visible}
       onOpenChange={setVisible}
+      open={visible}
+      trigger="click"
     >
-      <ColorAvatar onClick={() => listModify && set({ HEX: color })} style={{ background: listModify ? color : HEX }} />
+      <ColorAvatar
+        onClick={() => listModify && set({ HEX: color })}
+        style={{ background: listModify ? color : HEX }}
+      />
     </Popover>
-  )
-})
+  );
+});
 
-export default HctPicker
+export default HctPicker;

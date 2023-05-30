@@ -1,19 +1,20 @@
-import { memo } from 'react'
-import { SortableList } from '@ant-design/pro-editor'
-import ColorsListItem, { ColorsListHeader } from './ColorsListItem'
+import { SortableList } from '@ant-design/pro-editor';
+import { memo } from 'react';
+
+import ColorsListItem, { ColorsListHeader } from './ColorsListItem';
 
 export type ISchemaItem = {
-  title: string
-  valueType?: string
-  color: string
-  darkColor: string
-  type?: 'normal' | 'neutral'
-}
+  color: string;
+  darkColor: string;
+  title: string;
+  type?: 'normal' | 'neutral';
+  valueType?: string;
+};
 
 export interface IColorsList {
-  colorList: ISchemaItem[]
-  setColorList: (v: ISchemaItem[]) => void
-  isolateDark?: boolean | any
+  colorList: ISchemaItem[];
+  isolateDark?: boolean | any;
+  setColorList: (v: ISchemaItem[]) => void;
 }
 
 const ColorsList = memo<IColorsList>(({ colorList, setColorList, isolateDark }) => {
@@ -21,10 +22,6 @@ const ColorsList = memo<IColorsList>(({ colorList, setColorList, isolateDark }) 
     <div style={{ padding: '0 12px' }}>
       <SortableList
         compact
-        renderHeader={() => <ColorsListHeader isolateDark={isolateDark} />}
-        initialValues={colorList}
-        onChange={setColorList}
-        renderContent={(item, index) => <ColorsListItem item={item} index={index} isolateDark={isolateDark} />}
         creatorButtonProps={{
           creatorButtonText: '添加一个色板',
           record: (): ISchemaItem => ({
@@ -34,9 +31,15 @@ const ColorsList = memo<IColorsList>(({ colorList, setColorList, isolateDark }) 
             darkColor: '#1677FF',
           }),
         }}
+        initialValues={colorList}
+        onChange={setColorList}
+        renderContent={(item, index) => (
+          <ColorsListItem index={index} isolateDark={isolateDark} item={item} />
+        )}
+        renderHeader={() => <ColorsListHeader isolateDark={isolateDark} />}
       />
     </div>
-  )
-})
+  );
+});
 
-export default ColorsList
+export default ColorsList;

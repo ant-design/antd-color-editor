@@ -1,48 +1,50 @@
-import { memo } from 'react'
-import { kebabCase, camelCase } from 'lodash-es'
-import { usePrettier, getAlphaColor, colorTypeFormat } from '@/index'
-import { CodeView } from '@/styles'
-import type { IScales } from '@/ColorStudio/config'
-import { DumiSiteProvider, Highlighter } from 'dumi-theme-antd-style'
+import { DumiSiteProvider, Highlighter } from 'dumi-theme-antd-style';
+import { camelCase, kebabCase } from 'lodash-es';
+import { memo } from 'react';
+
+import type { IScales } from '@/ColorStudio/config';
+import { colorTypeFormat, getAlphaColor, usePrettier } from '@/index';
+import { CodeView } from '@/styles';
+
 export interface ITokenView {
   config: {
-    colorType: 'mix' | 'hex' | 'rgb' | 'hsl'
-    codeType: 'css' | 'less' | 'scss' | 'js'
-    isolateDarkToken: boolean
-  }
+    codeType: 'css' | 'less' | 'scss' | 'js';
+    colorType: 'mix' | 'hex' | 'rgb' | 'hsl';
+    isolateDarkToken: boolean;
+  };
   data: {
-    name: string
-    scales: IScales
-  }[]
+    name: string;
+    scales: IScales;
+  }[];
 }
 
 const TokenView = memo<ITokenView>(({ data, config }) => {
-  const { format } = usePrettier()
-  const { colorType, codeType, isolateDarkToken }: any = config
+  const { format } = usePrettier();
+  const { colorType, codeType, isolateDarkToken }: any = config;
   const tokenData = data.map((item) => ({
     name: item.name,
     light: item.scales.light.map((s) => colorTypeFormat(s, colorType)),
     lightA: item.scales.light.map((s) => colorTypeFormat(getAlphaColor(s, '#fff'), colorType)),
     dark: item.scales.dark.map((s) => colorTypeFormat(s, colorType)),
     darkA: item.scales.dark.map((s) => colorTypeFormat(getAlphaColor(s, '#000'), colorType)),
-  }))
+  }));
 
-  let content = null
+  let content = null;
 
   if (codeType === 'js') {
     if (isolateDarkToken) {
-      const objLight: any = {}
-      const objDark: any = {}
+      const objLight: any = {};
+      const objDark: any = {};
       tokenData.forEach((item) => {
         objLight[camelCase(item.name)] = {
           solid: item.light,
           alpha: item.lightA,
-        }
+        };
         objDark[camelCase(item.name)] = {
           solid: item.dark,
           alpha: item.darkA,
-        }
-      })
+        };
+      });
 
       content = `
         export interface ColorScaleItem {
@@ -59,17 +61,17 @@ const TokenView = memo<ITokenView>(({ data, config }) => {
         export const LightTheme:ColorScales = ${JSON.stringify(objLight)}
 
         export const DarkTheme:ColorScales = ${JSON.stringify(objDark)}
-      `
+      `;
     } else {
-      const obj: any = {}
+      const obj: any = {};
       tokenData.forEach((item) => {
         obj[camelCase(item.name)] = {
           light: item.light,
           lightA: item.lightA,
           dark: item.dark,
           darkA: item.darkA,
-        }
-      })
+        };
+      });
 
       content = `
         export interface ColorScaleItem {
@@ -86,30 +88,34 @@ const TokenView = memo<ITokenView>(({ data, config }) => {
         }
 
         export const Theme:ColorScales = ${JSON.stringify(obj)}
-      `
+      `;
     }
-    content = format(content)
+    content = format(content);
   } else {
-    let tokenLightList = isolateDarkToken ? [`/* light.${codeType} */`] : []
-    let tokenDarkList = isolateDarkToken ? ['\n', `/* dark.${codeType} */`] : []
+    let tokenLightList = isolateDarkToken ? [`/* light.${codeType} */`] : [];
+    let tokenDarkList = isolateDarkToken ? ['\n', `/* dark.${codeType} */`] : [];
     tokenData.forEach((item) => {
-      let lightName = kebabCase(item.name)
-      let darkName = kebabCase(item.name)
+      let lightName = kebabCase(item.name);
+      let darkName = kebabCase(item.name);
       if (!isolateDarkToken) {
-        lightName = 'light-' + lightName
-        darkName = 'dark-' + darkName
+        lightName = 'light-' + lightName;
+        darkName = 'dark-' + darkName;
       }
-      let prefix = '--'
-      if (codeType === 'less') prefix = '@'
-      if (codeType === 'scss') prefix = '$'
-      const light = item.light.map((c, index) => `${prefix}${lightName}-color-${index + 1}: ${c};`)
-      const lightA = item.lightA.map((c, index) => `${prefix}${lightName}-color-${index + 1}-alpha: ${c};`)
-      const dark = item.dark.map((c, index) => `${prefix}${darkName}-color-${index + 1}: ${c};`)
-      const darkA = item.darkA.map((c, index) => `${prefix}${darkName}-color-${index + 1}-alpha: ${c};`)
-      tokenLightList = [...tokenLightList, ...light, ...lightA]
-      tokenDarkList = [...tokenDarkList, ...dark, ...darkA]
-    })
-    content = [...tokenLightList, ...tokenDarkList].join('\n')
+      let prefix = '--';
+      if (codeType === 'less') prefix = '@';
+      if (codeType === 'scss') prefix = '$';
+      const light = item.light.map((c, index) => `${prefix}${lightName}-color-${index + 1}: ${c};`);
+      const lightA = item.lightA.map(
+        (c, index) => `${prefix}${lightName}-color-${index + 1}-alpha: ${c};`,
+      );
+      const dark = item.dark.map((c, index) => `${prefix}${darkName}-color-${index + 1}: ${c};`);
+      const darkA = item.darkA.map(
+        (c, index) => `${prefix}${darkName}-color-${index + 1}-alpha: ${c};`,
+      );
+      tokenLightList = [...tokenLightList, ...light, ...lightA];
+      tokenDarkList = [...tokenDarkList, ...dark, ...darkA];
+    });
+    content = [...tokenLightList, ...tokenDarkList].join('\n');
   }
   return (
     <CodeView>
@@ -119,7 +125,7 @@ const TokenView = memo<ITokenView>(({ data, config }) => {
         </Highlighter>
       </DumiSiteProvider>
     </CodeView>
-  )
-})
+  );
+});
 
-export default TokenView
+export default TokenView;

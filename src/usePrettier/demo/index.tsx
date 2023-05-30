@@ -1,8 +1,8 @@
-import { memo } from 'react'
-import { usePrettier } from 'kitchen-color-studio'
+import { usePrettier } from 'kitchen-color-studio';
+import { memo } from 'react';
 
 export default memo(() => {
-  const { format } = usePrettier()
+  const { format } = usePrettier();
   const content = `export const menus = {components: [{title: '装配器',
         children: ['Studio'],},{
             title: '面板模块',children: ['HctPicker',
@@ -10,7 +10,7 @@ export default memo(() => {
             'ScaleRow'],},{
         title: '工具类',children: ['useSketchJSON',
             'useDownload'],
-      },],};`
+      },],};`;
 
   return (
     <div>
@@ -23,5 +23,5 @@ export default memo(() => {
         <code>{format(content)}</code>
       </pre>
     </div>
-  )
-})
+  );
+});

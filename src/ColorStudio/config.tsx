@@ -1,48 +1,59 @@
+import { bezier } from '@leva-ui/plugin-bezier';
 import {
+  AngleIcon,
+  AspectRatioIcon,
   BlendingModeIcon,
+  CodeIcon,
   ColorWheelIcon,
+  ComponentBooleanIcon,
+  EyeNoneIcon,
+  HobbyKnifeIcon,
+  OpacityIcon,
   PinBottomIcon,
   PinTopIcon,
   ShadowIcon,
-  AngleIcon,
-  AspectRatioIcon,
-  ComponentBooleanIcon,
   TokensIcon,
-  OpacityIcon,
-  HobbyKnifeIcon,
-  EyeNoneIcon,
-  CodeIcon,
   TransformIcon,
   UpdateIcon,
-} from '@radix-ui/react-icons'
-import { folder } from 'leva'
-import { bezier } from '@leva-ui/plugin-bezier'
-import type { Schema } from 'leva/src/types/index'
-import { merge } from 'lodash-es'
-import { GenerateScale, Label, type IGenerateConfig, type IGenerateConfigItem, type ISchemaItem } from '@/index'
+} from '@radix-ui/react-icons';
+import { folder } from 'leva';
+import type { Schema } from 'leva/src/types/index';
+import { merge } from 'lodash-es';
 
-import { defaultEditorConfig, type IEditorConfig } from './defaultConfig'
+import {
+  GenerateScale,
+  Label,
+  type IGenerateConfig,
+  type IGenerateConfigItem,
+  type ISchemaItem,
+} from '@/index';
+
+import { defaultEditorConfig, type IEditorConfig } from './defaultConfig';
 
 export const getCacheEditorConfig = (): IEditorConfig => {
-  const localConfig = localStorage.getItem('kitchen-color-config')
+  const localConfig = localStorage.getItem('kitchen-color-config');
   const cacheConfig: IEditorConfig = localConfig
     ? merge(defaultEditorConfig, JSON.parse(localConfig).data)
-    : defaultEditorConfig
-  return cacheConfig
-}
+    : defaultEditorConfig;
+  return cacheConfig;
+};
 
-export const setForceConfig = (forceConfig: { data: IEditorConfig; name: string; time: number }) => {
+export const setForceConfig = (forceConfig: {
+  data: IEditorConfig;
+  name: string;
+  time: number;
+}) => {
   if (forceConfig?.data?.generate && forceConfig?.time && forceConfig?.name) {
-    let localConfig: any = localStorage.getItem('kitchen-color-config')
+    let localConfig: any = localStorage.getItem('kitchen-color-config');
     if (localConfig) {
-      localConfig = JSON.parse(localConfig)
-      if (localConfig?.name === name) return
+      localConfig = JSON.parse(localConfig);
+      if (localConfig?.name === name) return;
     }
-    localStorage.setItem('kitchen-color-config', JSON.stringify(forceConfig))
+    localStorage.setItem('kitchen-color-config', JSON.stringify(forceConfig));
   }
-}
+};
 
-export const cacheEditorConfig: IEditorConfig = getCacheEditorConfig()
+export const cacheEditorConfig: IEditorConfig = getCacheEditorConfig();
 
 /******************************************************
  ************************ 调色 *************************
@@ -70,42 +81,42 @@ const defineColorConfig = (defaultColorConfig: IGenerateConfigItem): Schema => (
     label: <Label icon={<ShadowIcon />} title="明度目标" />,
     step: 1,
   },
-})
+});
 
 export const colorConfig = {
   lightUp: defineColorConfig(cacheEditorConfig.generate.light.up),
   lightDown: defineColorConfig(cacheEditorConfig.generate.light.down),
   darkUp: defineColorConfig(cacheEditorConfig.generate.dark.up),
   darkDown: defineColorConfig(cacheEditorConfig.generate.dark.down),
-}
+};
 
 const defineAdvanceConfig = (defaultColorConfig: IGenerateConfigItem): Schema => ({
   ['色相曲线']: folder(
     {
       hEasing: bezier(defaultColorConfig.hEasing),
     },
-    { collapsed: true, color: '#8c92a4' }
+    { collapsed: true, color: '#8c92a4' },
   ),
   ['色度曲线']: folder(
     {
       cEasing: bezier(defaultColorConfig.cEasing),
     },
-    { collapsed: true, color: '#8c92a4' }
+    { collapsed: true, color: '#8c92a4' },
   ),
   ['明度曲线']: folder(
     {
       tEasing: bezier(defaultColorConfig.tEasing),
     },
-    { collapsed: true, color: '#8c92a4' }
+    { collapsed: true, color: '#8c92a4' },
   ),
-})
+});
 
 export const advanceConfig = {
   lightUp: defineAdvanceConfig(cacheEditorConfig.generate.light.up),
   lightDown: defineAdvanceConfig(cacheEditorConfig.generate.light.down),
   darkUp: defineAdvanceConfig(cacheEditorConfig.generate.dark.up),
   darkDown: defineAdvanceConfig(cacheEditorConfig.generate.dark.down),
-}
+};
 
 export const hueConfig: Schema = {
   segment: {
@@ -121,7 +132,7 @@ export const hueConfig: Schema = {
     max: 1,
     min: -1,
   },
-}
+};
 
 export const neutralConfig: Schema = {
   cStart: {
@@ -142,22 +153,22 @@ export const neutralConfig: Schema = {
     label: <Label icon={<OpacityIcon />} title="明度标准" />,
     value: cacheEditorConfig.generate.neutral.standard,
   },
-}
+};
 
 export const neutralAdvanceConfig = {
   ['上梯度 色度曲线']: folder(
     {
       cEasingUp: bezier(cacheEditorConfig.generate.neutral.cEasingUp),
     },
-    { collapsed: true, color: '#8c92a4' }
+    { collapsed: true, color: '#8c92a4' },
   ),
   ['下梯度 色度曲线']: folder(
     {
       cEasingDown: bezier(cacheEditorConfig.generate.neutral.cEasingDown),
     },
-    { collapsed: true, color: '#8c92a4' }
+    { collapsed: true, color: '#8c92a4' },
   ),
-}
+};
 
 /******************************************************
  ************************ 色板 *************************
@@ -177,7 +188,7 @@ export const patternConfig: Schema = {
     value: cacheEditorConfig.system.pattern.displayFliterStep,
     render: (get) => get('isFliterStep'),
   },
-}
+};
 
 export const stepConfig: Schema = {
   up: {
@@ -192,7 +203,7 @@ export const stepConfig: Schema = {
     step: 1,
     min: 1,
   },
-}
+};
 
 /******************************************************
  ************************ 视图 *************************
@@ -203,9 +214,9 @@ export const editConfig: Schema = {
     label: <Label icon={<ComponentBooleanIcon />} title="亮暗调节分离" />,
     value: cacheEditorConfig.system.edit.isolateEdit,
   },
-}
+};
 
-export const colorTypes = ['mix', 'hex', 'hct', 'rgb', 'hsl', 'hsv', 'cts']
+export const colorTypes = ['mix', 'hex', 'hct', 'rgb', 'hsl', 'hsv', 'cts'];
 export const genDisplapConfig = (button: any): Schema => ({
   colorType: {
     label: <Label icon={<TokensIcon />} title="色彩空间" />,
@@ -217,7 +228,7 @@ export const genDisplapConfig = (button: any): Schema => ({
     label: <Label icon={<AspectRatioIcon />} title="详细模式" />,
     value: true,
   },
-})
+});
 
 export const threeConfig = {
   threeZoom: {
@@ -242,7 +253,7 @@ export const threeConfig = {
     label: <Label icon={<EyeNoneIcon />} title="显示辅助线" />,
     value: true,
   },
-}
+};
 
 export const tokenConfig = {
   isolateDarkToken: {
@@ -259,7 +270,7 @@ export const tokenConfig = {
     value: 'css',
     options: ['css', 'less', 'scss', 'js'],
   },
-}
+};
 
 /******************************************************
  ******************* Define Config ********************
@@ -289,48 +300,50 @@ export const defineGenerateConfig = ({
       down: { ...lightDown, ...lightDownAdvance },
     },
     dark: {
-      up: edit.isolateEdit ? { ...darkUp, ...darkUpAdvance } : { ...lightDown, ...lightDownAdvance },
+      up: edit.isolateEdit
+        ? { ...darkUp, ...darkUpAdvance }
+        : { ...lightDown, ...lightDownAdvance },
       down: edit.isolateEdit ? { ...darkDown, darkDownAdvance } : { ...lightUp, ...lightUpAdvance },
     },
-  }
-  return JSON.parse(JSON.stringify(config))
-}
+  };
+  return JSON.parse(JSON.stringify(config));
+};
 
 export interface IScales {
-  light: string[]
-  dark: string[]
+  dark: string[];
+  light: string[];
 }
 
 export const genScales = (
   color: ISchemaItem,
-  config: IEditorConfig
+  config: IEditorConfig,
 ): {
-  scales: IScales
-  color: string
-  darkColor: string
+  color: string;
+  darkColor: string;
+  scales: IScales;
 } => {
-  const { system, stepFliter, generate } = config
-  const { pattern } = system
-  const scaleGeneration = new GenerateScale(generate)
+  const { system, stepFliter, generate } = config;
+  const { pattern } = system;
+  const scaleGeneration = new GenerateScale(generate);
   let scales = {
     light: scaleGeneration.gen(color.color, { theme: 'light', neutral: color.type === 'neutral' }),
     dark: scaleGeneration.gen(pattern.isolateDark ? color.darkColor : color.color, {
       theme: 'dark',
       neutral: color.type === 'neutral',
     }),
-  }
-  const rawScales = scales
+  };
+  const rawScales = scales;
   if (pattern.isFliterStep && pattern.displayFliterStep && stepFliter?.length > 0) {
     scales = {
       light: scales.light.filter((_, index) => stepFliter.includes(index)),
       dark: scales.dark.filter((_, index) => stepFliter.includes(index)),
-    }
+    };
   }
   return {
     scales,
     color: rawScales.light[generate.step.up],
     darkColor: rawScales.dark[generate.step.up],
-  }
-}
+  };
+};
 
-export * from './defaultConfig'
+export * from './defaultConfig';

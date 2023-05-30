@@ -1,7 +1,8 @@
-import { memo } from 'react'
-import styled from 'styled-components'
-import { readable } from './readable'
-import AccessBlock from './AccessBlock'
+import { memo } from 'react';
+import styled from 'styled-components';
+
+import AccessBlock from './AccessBlock';
+import { readable } from './readable';
 
 /******************************************************
  *********************** Style *************************
@@ -12,15 +13,15 @@ const View = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-`
+`;
 
 /******************************************************
  ************************* Dom *************************
  ******************************************************/
 
 export interface IAccessibility {
-  color1: string
-  color2: string
+  color1: string;
+  color2: string;
 }
 
 const Accessibility = memo<IAccessibility>(({ color1, color2 }) => {
@@ -39,8 +40,8 @@ const Accessibility = memo<IAccessibility>(({ color1, color2 }) => {
         {['Black text on', color2].join(' ')}
       </AccessBlock>
     </View>
-  )
-})
+  );
+});
 
-export default Accessibility
-export { readable }
+export default Accessibility;
+export { readable };

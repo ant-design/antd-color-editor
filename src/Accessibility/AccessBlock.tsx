@@ -1,7 +1,8 @@
-import { memo, type ReactNode } from 'react'
-import { W3cShield } from '@/index'
-import styled from 'styled-components'
-import { tinycolor } from '@ctrl/tinycolor'
+import { tinycolor } from '@ctrl/tinycolor';
+import { memo, type ReactNode } from 'react';
+import styled from 'styled-components';
+
+import { W3cShield } from '@/index';
 
 /******************************************************
  *********************** Style *************************
@@ -28,22 +29,22 @@ const Block = styled.div<IAccessBlock>`
   & + & {
     margin-top: 4px;
   }
-`
+`;
 
 const ShieldBlock = styled.div`
   display: flex;
   align-items: center;
   width: 80px;
-`
+`;
 
 /******************************************************
  ************************* Dom *************************
  ******************************************************/
 
 export interface IAccessBlock {
-  color1: string
-  color2: string
-  children?: ReactNode | string
+  children?: ReactNode | string;
+  color1: string;
+  color2: string;
 }
 
 const AccessBlock = memo<IAccessBlock>(({ color1, color2, children }) => {
@@ -53,10 +54,12 @@ const AccessBlock = memo<IAccessBlock>(({ color1, color2, children }) => {
         <W3cShield color1={color1} color2={color2} />
       </ShieldBlock>
       <div>
-        {children ? children : `${tinycolor(color1).toHexString(false)} on ${tinycolor(color2).toHexString(false)}`}
+        {children
+          ? children
+          : `${tinycolor(color1).toHexString(false)} on ${tinycolor(color2).toHexString(false)}`}
       </div>
     </Block>
-  )
-})
+  );
+});
 
-export default AccessBlock
+export default AccessBlock;

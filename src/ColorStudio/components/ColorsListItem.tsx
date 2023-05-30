@@ -1,13 +1,16 @@
-import { memo, type CSSProperties } from 'react'
-import { type ISchemaItem } from './ColorsList'
-import { Input, Select } from 'antd'
-import { useSortableList } from '@ant-design/pro-editor'
-import { Flexbox } from 'react-layout-kit'
-import { HctPicker } from '@/index'
+import { useSortableList } from '@ant-design/pro-editor';
+import { Input, Select } from 'antd';
+import { memo, type CSSProperties } from 'react';
+import { Flexbox } from 'react-layout-kit';
+
+import { HctPicker } from '@/index';
+
+import { type ISchemaItem } from './ColorsList';
+
 export interface IColorsListItem {
-  item: ISchemaItem
-  index: number
-  isolateDark: boolean
+  index: number;
+  isolateDark: boolean;
+  item: ISchemaItem;
 }
 
 const fieldStyle: CSSProperties = {
@@ -17,24 +20,26 @@ const fieldStyle: CSSProperties = {
   fontSize: '12px',
   borderRadius: '2px',
   minWidth: '48px',
-}
+};
 const ColorsListItem = memo<IColorsListItem>(({ item, index, isolateDark }) => {
-  const instance = useSortableList()
+  const instance = useSortableList();
 
   return (
-    <Flexbox horizontal align={'center'} gap={8} key={index} width={'100%'}>
+    <Flexbox align={'center'} gap={8} horizontal key={index} width={'100%'}>
       <div style={fieldStyle}>
         <Input
+          onChange={(e) => {
+            instance.updateItem({ title: e.target.value }, index);
+          }}
           size={'small'}
           value={item.title}
-          onChange={(e) => {
-            instance.updateItem({ title: e.target.value }, index)
-          }}
         />
       </div>
       <div style={fieldStyle}>
         <Select
-          size="small"
+          onChange={(e) => {
+            instance.updateItem({ type: e }, index);
+          }}
           options={[
             {
               label: '彩色',
@@ -45,60 +50,58 @@ const ColorsListItem = memo<IColorsListItem>(({ item, index, isolateDark }) => {
               value: 'neutral',
             },
           ]}
-          value={item.type}
+          size="small"
           style={{ width: '100%' }}
-          onChange={(e) => {
-            instance.updateItem({ type: e }, index)
-          }}
+          value={item.type}
         />
       </div>
       <div style={fieldStyle}>
         <Input
+          onChange={(e) => {
+            instance.updateItem({ color: e.target.value }, index);
+          }}
           size={'small'}
           value={item.color}
-          onChange={(e) => {
-            instance.updateItem({ color: e.target.value }, index)
-          }}
         />
       </div>
 
       <HctPicker
         color={item.color}
-        onChange={(e) => {
-          instance.updateItem({ color: e }, index)
-        }}
         listModify
+        onChange={(e) => {
+          instance.updateItem({ color: e }, index);
+        }}
       />
 
       {isolateDark && (
         <>
           <div style={fieldStyle}>
             <Input
+              onChange={(e) => {
+                instance.updateItem({ darkColor: e.target.value }, index);
+              }}
               size={'small'}
               value={item.darkColor}
-              onChange={(e) => {
-                instance.updateItem({ darkColor: e.target.value }, index)
-              }}
             />
           </div>
           <HctPicker
             color={item.darkColor}
-            onChange={(e) => {
-              instance.updateItem({ darkColor: e }, index)
-            }}
             listModify
+            onChange={(e) => {
+              instance.updateItem({ darkColor: e }, index);
+            }}
           />
         </>
       )}
     </Flexbox>
-  )
-})
+  );
+});
 
-export default ColorsListItem
+export default ColorsListItem;
 
 export const ColorsListHeader = memo(({ isolateDark }: { isolateDark: boolean }) => {
   return (
-    <Flexbox horizontal align={'center'} gap={8} style={{ paddingRight: 22 }}>
+    <Flexbox align={'center'} gap={8} horizontal style={{ paddingRight: 22 }}>
       <div style={fieldStyle}>名称</div>
       <div style={fieldStyle}>类型</div>
       <div style={fieldStyle}>色值</div>
@@ -110,5 +113,5 @@ export const ColorsListHeader = memo(({ isolateDark }: { isolateDark: boolean })
         </>
       )}
     </Flexbox>
-  )
-})
+  );
+});

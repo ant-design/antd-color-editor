@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import { DraggablePanel } from '@ant-design/pro-editor'
+import { DraggablePanel } from '@ant-design/pro-editor';
+import styled from 'styled-components';
 
 export const EditorView = styled.div`
   position: relative;
@@ -9,7 +9,7 @@ export const EditorView = styled.div`
   align-items: stretch;
 
   height: 100vh;
-`
+`;
 
 export const PanelView: any = styled(DraggablePanel)`
   position: relative;
@@ -91,14 +91,14 @@ export const PanelView: any = styled(DraggablePanel)`
     overflow-y: auto !important;
     height: 100%;
   }
-`
+`;
 
 export const CanvasView = styled.div`
   position: relative;
   overflow: hidden;
   flex: 1;
   height: 100%;
-`
+`;
 
 const ContentView = styled.div`
   position: relative;
@@ -109,17 +109,17 @@ const ContentView = styled.div`
   width: 100%;
   height: calc(100% - 46px);
   padding: 24px;
-`
+`;
 
 export const ColorView: any = styled(ContentView)`
   padding-bottom: 48px;
-`
+`;
 
 export const CodeView = styled(ContentView)`
   pre {
     background: none !important;
   }
-`
+`;
 
 export const PanelTitle = styled.div`
   display: flex;
@@ -127,4 +127,4 @@ export const PanelTitle = styled.div`
   > svg {
     margin-right: 4px;
   }
-`
+`;

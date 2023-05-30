@@ -1,20 +1,20 @@
-import type { ISchemaItem } from '@/components'
-import type { IGenerateConfig } from '@/utils/generateScale'
-import { defaultConfig } from '@/utils/generateScale'
+import type { ISchemaItem } from '@/components';
+import type { IGenerateConfig } from '@/utils/generateScale';
+import { defaultConfig } from '@/utils/generateScale';
 
 export interface IPatternConfig {
-  isolateDark: boolean
-  isFliterStep: boolean
-  displayFliterStep: boolean
+  displayFliterStep: boolean;
+  isFliterStep: boolean;
+  isolateDark: boolean;
 }
 
 export interface IEditConfig {
-  isolateEdit: boolean
+  isolateEdit: boolean;
 }
 
 interface ISystemConfig {
-  pattern: IPatternConfig
-  edit: IEditConfig
+  edit: IEditConfig;
+  pattern: IPatternConfig;
 }
 
 const defaultSystemConfig: ISystemConfig = {
@@ -26,7 +26,7 @@ const defaultSystemConfig: ISystemConfig = {
   edit: {
     isolateEdit: false,
   },
-}
+};
 
 const defaultColorList: ISchemaItem[] = [
   { title: 'Primary', color: '#1677FF', darkColor: '#1677FF', type: 'normal' },
@@ -61,13 +61,13 @@ const defaultColorList: ISchemaItem[] = [
     darkColor: '#9b59eb',
     type: 'normal',
   },
-]
+];
 
 export interface IEditorConfig {
-  generate: IGenerateConfig
-  system: ISystemConfig
-  colorList: ISchemaItem[]
-  stepFliter: number[]
+  colorList: ISchemaItem[];
+  generate: IGenerateConfig;
+  stepFliter: number[];
+  system: ISystemConfig;
 }
 
 export const defaultEditorConfig: IEditorConfig = {
@@ -75,4 +75,4 @@ export const defaultEditorConfig: IEditorConfig = {
   system: defaultSystemConfig,
   colorList: defaultColorList,
   stepFliter: undefined,
-}
+};

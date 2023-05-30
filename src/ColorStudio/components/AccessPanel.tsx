@@ -1,10 +1,11 @@
-import { memo } from 'react'
-import { useControls, useCreateStore } from 'leva'
-import type { IPanel } from '@/index'
-import { LevaPanel, PanelGroup, AccessBlock, genScaleTestList, AccessibilityTag } from '@/index'
-import styled from 'styled-components'
-import type { IScales } from '@/ColorStudio/config'
-import { useThemeMode } from 'antd-style'
+import { useThemeMode } from 'antd-style';
+import { useControls, useCreateStore } from 'leva';
+import { memo } from 'react';
+import styled from 'styled-components';
+
+import type { IScales } from '@/ColorStudio/config';
+import type { IPanel } from '@/index';
+import { AccessBlock, AccessibilityTag, genScaleTestList, LevaPanel, PanelGroup } from '@/index';
 
 /******************************************************
  *********************** Style *************************
@@ -12,7 +13,7 @@ import { useThemeMode } from 'antd-style'
 
 const PreviewView = styled.div`
   padding: 0 12px;
-`
+`;
 
 const ColorAvatar = styled.div`
   display: inline-block;
@@ -22,7 +23,7 @@ const ColorAvatar = styled.div`
   margin-right: 8px;
 
   border-radius: 3px;
-`
+`;
 
 const SubShowcase = styled.div<{ color2: string }>`
   position: relative;
@@ -33,7 +34,7 @@ const SubShowcase = styled.div<{ color2: string }>`
   background: ${({ color2 }) => color2};
   border: 1px solid ${({ theme }) => theme.colorBorderSecondary};
   border-radius: 4px;
-`
+`;
 
 /******************************************************
  ************************* Dom *************************
@@ -41,16 +42,16 @@ const SubShowcase = styled.div<{ color2: string }>`
 
 export interface IAccessPanel {
   data: {
-    name: string
-    color: string
-    darkColor: string
-    scales: IScales
-  }[]
+    color: string;
+    darkColor: string;
+    name: string;
+    scales: IScales;
+  }[];
 }
 
 const AccessPanel = memo<IAccessPanel>(({ data }) => {
-  const { isDarkMode } = useThemeMode()
-  const accessStore = useCreateStore()
+  const { isDarkMode } = useThemeMode();
+  const accessStore = useCreateStore();
   const { color1, color2 } = useControls(
     {
       color1: {
@@ -62,8 +63,8 @@ const AccessPanel = memo<IAccessPanel>(({ data }) => {
         value: isDarkMode ? '#000e5e' : '#f9f9fe',
       },
     },
-    { store: accessStore }
-  )
+    { store: accessStore },
+  );
 
   const demoPanel = (
     <>
@@ -84,15 +85,21 @@ const AccessPanel = memo<IAccessPanel>(({ data }) => {
             <div style={{ background: color1, flex: 1, opacity: 0.25 }} />
           </div>
           <div>
-            <h1 style={{ color: color1, lineHeight: 1, textAlign: 'justify' }}>ABCDEFG0123456789</h1>
-            <h2 style={{ color: color1, lineHeight: 1, textAlign: 'justify' }}>ABCDEFG0123456789</h2>
-            <h3 style={{ color: color1, lineHeight: 1, textAlign: 'justify' }}>ABCDEFG0123456789</h3>
+            <h1 style={{ color: color1, lineHeight: 1, textAlign: 'justify' }}>
+              ABCDEFG0123456789
+            </h1>
+            <h2 style={{ color: color1, lineHeight: 1, textAlign: 'justify' }}>
+              ABCDEFG0123456789
+            </h2>
+            <h3 style={{ color: color1, lineHeight: 1, textAlign: 'justify' }}>
+              ABCDEFG0123456789
+            </h3>
             <p style={{ color: color1, lineHeight: 1, textAlign: 'justify' }}>ABCDEFG0123456789</p>
           </div>
         </SubShowcase>
       </PreviewView>
     </>
-  )
+  );
 
   const accessPanelGroup: IPanel[] = [
     {
@@ -125,9 +132,9 @@ const AccessPanel = memo<IAccessPanel>(({ data }) => {
         </div>
       )),
     },
-  ]
+  ];
 
-  return <PanelGroup panels={accessPanelGroup} />
-})
+  return <PanelGroup panels={accessPanelGroup} />;
+});
 
-export default AccessPanel
+export default AccessPanel;

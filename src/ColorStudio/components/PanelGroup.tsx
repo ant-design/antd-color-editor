@@ -1,14 +1,15 @@
-import { memo, ReactNode } from 'react'
-import { CollapsePanel, Panel } from '@/index'
+import { memo, ReactNode } from 'react';
+
+import { CollapsePanel, Panel } from '@/index';
 
 export interface IPanel {
-  header: string
-  panel: ReactNode
-  hidden?: boolean | any
+  header: string;
+  hidden?: boolean | any;
+  panel: ReactNode;
 }
 
 export interface IPanelGroup {
-  panels: IPanel[]
+  panels: IPanel[];
 }
 
 const PanelGroup = memo<IPanelGroup>(({ panels }) => {
@@ -22,7 +23,7 @@ const PanelGroup = memo<IPanelGroup>(({ panels }) => {
           </Panel>
         ))}
     </CollapsePanel>
-  )
-})
+  );
+});
 
-export default PanelGroup
+export default PanelGroup;

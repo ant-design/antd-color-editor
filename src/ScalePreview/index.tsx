@@ -1,15 +1,16 @@
-import { memo, useRef } from 'react'
-import styled from 'styled-components'
-import { CollapseTitle } from '@ant-design/pro-editor'
-import { Space } from 'antd'
-import { SketchOutlined } from '@ant-design/icons'
-import { ActionIcon } from '@ant-design/pro-editor'
-import { ScaleBlock, useSketchJSON, AccessibilityTag, genScaleTestList } from '@/index'
-import type { IScales, IEditorConfig } from '@/ColorStudio/config'
-import { defaultEditorConfig } from '@/ColorStudio/config'
-import type { ISchemaItem } from '@/ColorStudio/components'
-import { useThemeMode } from 'antd-style'
-const Collapse: any = CollapseTitle
+import { SketchOutlined } from '@ant-design/icons';
+import { ActionIcon, CollapseTitle } from '@ant-design/pro-editor';
+import { Space } from 'antd';
+import { useThemeMode } from 'antd-style';
+import { memo, useRef } from 'react';
+import styled from 'styled-components';
+
+import type { ISchemaItem } from '@/ColorStudio/components';
+import type { IEditorConfig, IScales } from '@/ColorStudio/config';
+import { defaultEditorConfig } from '@/ColorStudio/config';
+import { AccessibilityTag, ScaleBlock, genScaleTestList, useSketchJSON } from '@/index';
+
+const Collapse: any = CollapseTitle;
 
 /******************************************************
  *********************** Style *************************
@@ -32,24 +33,24 @@ const CollapseView = styled.div<{ isDarkMode: boolean }>`
     margin-top: 8px !important;
     border-color: ${({ theme }) => theme.colorBorder};
   }
-`
+`;
 
 const ColorAvatar = styled.div`
   display: inline-block;
   width: 16px;
   height: 16px;
   border-radius: 3px;
-`
+`;
 
 /******************************************************
  ************************* Dom *************************
  ******************************************************/
 
 export interface IScalePreview {
-  color?: ISchemaItem
-  config?: IEditorConfig
-  displayConfig?: any
-  scales: IScales
+  color?: ISchemaItem;
+  config?: IEditorConfig;
+  displayConfig?: any;
+  scales: IScales;
 }
 
 const ScalePreview = memo<IScalePreview>(
@@ -66,23 +67,27 @@ const ScalePreview = memo<IScalePreview>(
     },
     scales,
   }) => {
-    const { isDarkMode } = useThemeMode()
-    const { generateGroup } = useSketchJSON()
-    const ref: any = useRef()
-    const { system, stepFliter, generate } = config
-    const { pattern } = system
-    const { colorType, showDetail } = displayConfig
-    const colorsTest: any = genScaleTestList(scales, [color.color, color?.darkColor || color.color])
+    const { isDarkMode } = useThemeMode();
+    const { generateGroup } = useSketchJSON();
+    const ref: any = useRef();
+    const { system, stepFliter, generate } = config;
+    const { pattern } = system;
+    const { colorType, showDetail } = displayConfig;
+    const colorsTest: any = genScaleTestList(scales, [
+      color.color,
+      color?.darkColor || color.color,
+    ]);
 
     return (
       <CollapseView isDarkMode={isDarkMode}>
         <Collapse
+          defaultExpand
           extra={() => (
             <Space>
               <ActionIcon
-                title={'复制为 Sketch 素材贴'}
                 icon={<SketchOutlined />}
                 onClick={() => generateGroup(ref.current)}
+                title={'复制为 Sketch 素材贴'}
               />
               {scales.dark.length >= 3 && <AccessibilityTag colors={colorsTest} />}
             </Space>
@@ -94,22 +99,21 @@ const ScalePreview = memo<IScalePreview>(
               {color.title}
             </Space>
           }
-          defaultExpand
         >
           <div ref={ref}>
             <ScaleBlock
-              scale={scales}
               colorType={colorType}
-              showDetail={showDetail}
-              isFliterStep={pattern.isFliterStep && !pattern.displayFliterStep}
               highLights={pattern.isFliterStep ? stepFliter : []}
+              isFliterStep={pattern.isFliterStep && !pattern.displayFliterStep}
               midHighLight={generate.step.up}
+              scale={scales}
+              showDetail={showDetail}
             />
           </div>
         </Collapse>
       </CollapseView>
-    )
-  }
-)
+    );
+  },
+);
 
-export default ScalePreview
+export default ScalePreview;

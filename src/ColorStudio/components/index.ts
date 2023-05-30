@@ -1,12 +1,12 @@
-export { default as NavBar, TabKey, type INavBar } from './NavBar'
-export { default as JsonView, type IJsonView } from './JsonView'
-export { default as TokenView, type ITokenView } from './TokenView'
-export { default as ThreeView, type IThreeView } from './ThreeView'
-export { default as AccessPanel, type IAccessPanel } from './AccessPanel'
-export { default as GenColor3D, type IGenColor3D } from './GenColor3D'
-export { CollapsePanel, Panel, LevaPanel } from './Panel'
-export { default as PanelGroup, type IPanel, type IPanelGroup } from './PanelGroup'
-export { default as ColorsList, type ISchemaItem, type IColorsList } from './ColorsList'
-export { default as ExportPanel, type IExportPanel } from './ExportPanel'
-export { default as StepFliter, type IStepFliter } from './StepFliter'
-export { default as Label, type ILabel } from './Label'
+export { default as AccessPanel, type IAccessPanel } from './AccessPanel';
+export { default as ColorsList, type IColorsList, type ISchemaItem } from './ColorsList';
+export { default as ExportPanel, type IExportPanel } from './ExportPanel';
+export { default as GenColor3D, type IGenColor3D } from './GenColor3D';
+export { default as JsonView, type IJsonView } from './JsonView';
+export { default as Label, type ILabel } from './Label';
+export { default as NavBar, TabKey, type INavBar } from './NavBar';
+export { CollapsePanel, LevaPanel, Panel } from './Panel';
+export { default as PanelGroup, type IPanel, type IPanelGroup } from './PanelGroup';
+export { default as StepFliter, type IStepFliter } from './StepFliter';
+export { default as ThreeView, type IThreeView } from './ThreeView';
+export { default as TokenView, type ITokenView } from './TokenView';
