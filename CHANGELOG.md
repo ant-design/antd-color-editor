@@ -1,5 +1,7 @@
 # Changelog
 
+## [1.1.1](https://github.com/ant-design/kitchen-color-studio/compare/v1.1.0...v1.1.1) (2023-05-30)
+
 # [1.1.0](https://github.com/canisminor1990/kitchen-color-studio/compare/v1.0.0...v1.1.0) (2023-05-24)
 
 ### ✨ Features
