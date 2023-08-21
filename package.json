@@ -121,7 +121,7 @@
     "eslint-plugin-typescript-sort-keys": "^2",
     "father": "^4",
     "husky": "^8",
-    "lint-staged": "^13",
+    "lint-staged": "^14",
     "postcss-less": "^6",
     "postcss-styled-syntax": "^0.4",
     "prettier": "^2",
