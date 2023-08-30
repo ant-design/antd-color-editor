@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 import type { IScales } from '@/ColorStudio/config';
 import type { IPanel } from '@/index';
-import { AccessBlock, AccessibilityTag, genScaleTestList, LevaPanel, PanelGroup } from '@/index';
+import { AccessBlock, AccessibilityTag, LevaPanel, PanelGroup, genScaleTestList } from '@/index';
 
 /******************************************************
  *********************** Style *************************
@@ -112,17 +112,17 @@ const AccessPanel = memo<IAccessPanel>(({ data }) => {
         <div
           key={index}
           style={{
-            padding: '0 12px',
-            display: 'flex',
             alignItems: 'center',
+            display: 'flex',
             justifyContent: 'space-between',
             marginBottom: 8,
+            padding: '0 12px',
           }}
         >
           <div
             style={{
-              display: 'flex',
               alignItems: 'center',
+              display: 'flex',
             }}
           >
             <ColorAvatar style={{ background: item.color }} />

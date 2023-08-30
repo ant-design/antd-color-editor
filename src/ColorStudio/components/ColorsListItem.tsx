@@ -1,6 +1,6 @@
 import { useSortableList } from '@ant-design/pro-editor';
 import { Input, Select } from 'antd';
-import { memo, type CSSProperties } from 'react';
+import { type CSSProperties, memo } from 'react';
 import { Flexbox } from 'react-layout-kit';
 
 import { HctPicker } from '@/index';
@@ -14,12 +14,12 @@ export interface IColorsListItem {
 }
 
 const fieldStyle: CSSProperties = {
-  flex: 1,
-  width: '100%',
-  height: '24px',
-  fontSize: '12px',
   borderRadius: '2px',
+  flex: 1,
+  fontSize: '12px',
+  height: '24px',
   minWidth: '48px',
+  width: '100%',
 };
 const ColorsListItem = memo<IColorsListItem>(({ item, index, isolateDark }) => {
   const instance = useSortableList();

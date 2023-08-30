@@ -1,5 +1,5 @@
 import { Space } from 'antd';
-import { Accessibility, readable } from 'kitchen-color-studio';
+import { Accessibility, readable } from 'antd-color-editor';
 import { LevaPanel, useControls, useCreateStore } from 'leva';
 
 export default () => {

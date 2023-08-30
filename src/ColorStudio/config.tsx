@@ -22,16 +22,16 @@ import { merge } from 'lodash-es';
 
 import {
   GenerateScale,
-  Label,
   type IGenerateConfig,
   type IGenerateConfigItem,
   type ISchemaItem,
+  Label,
 } from '@/index';
 
-import { defaultEditorConfig, type IEditorConfig } from './defaultConfig';
+import { type IEditorConfig, defaultEditorConfig } from './defaultConfig';
 
 export const getCacheEditorConfig = (): IEditorConfig => {
-  const localConfig = localStorage.getItem('kitchen-color-config');
+  const localConfig = localStorage.getItem('antd-color-config');
   const cacheConfig: IEditorConfig = localConfig
     ? merge(defaultEditorConfig, JSON.parse(localConfig).data)
     : defaultEditorConfig;
@@ -44,12 +44,12 @@ export const setForceConfig = (forceConfig: {
   time: number;
 }) => {
   if (forceConfig?.data?.generate && forceConfig?.time && forceConfig?.name) {
-    let localConfig: any = localStorage.getItem('kitchen-color-config');
+    let localConfig: any = localStorage.getItem('antd-color-config');
     if (localConfig) {
       localConfig = JSON.parse(localConfig);
       if (localConfig?.name === name) return;
     }
-    localStorage.setItem('kitchen-color-config', JSON.stringify(forceConfig));
+    localStorage.setItem('antd-color-config', JSON.stringify(forceConfig));
   }
 };
 
@@ -60,40 +60,40 @@ export const cacheEditorConfig: IEditorConfig = getCacheEditorConfig();
  ******************************************************/
 
 const defineColorConfig = (defaultColorConfig: IGenerateConfigItem): Schema => ({
-  hRotate: {
-    value: defaultColorConfig.hRotate,
-    label: <Label icon={<ColorWheelIcon />} title="色相旋转" />,
-    min: -360,
-    max: 360,
-    step: 1,
-  },
   cTarget: {
-    value: defaultColorConfig.cTarget,
     label: <Label icon={<BlendingModeIcon />} title="色度目标" />,
-    min: 1,
     max: 120,
+    min: 1,
     step: 1,
+    value: defaultColorConfig.cTarget,
+  },
+  hRotate: {
+    label: <Label icon={<ColorWheelIcon />} title="色相旋转" />,
+    max: 360,
+    min: -360,
+    step: 1,
+    value: defaultColorConfig.hRotate,
   },
   tTarget: {
-    value: defaultColorConfig.tTarget,
-    min: 1,
-    max: 100,
     label: <Label icon={<ShadowIcon />} title="明度目标" />,
+    max: 100,
+    min: 1,
     step: 1,
+    value: defaultColorConfig.tTarget,
   },
 });
 
 export const colorConfig = {
-  lightUp: defineColorConfig(cacheEditorConfig.generate.light.up),
-  lightDown: defineColorConfig(cacheEditorConfig.generate.light.down),
-  darkUp: defineColorConfig(cacheEditorConfig.generate.dark.up),
   darkDown: defineColorConfig(cacheEditorConfig.generate.dark.down),
+  darkUp: defineColorConfig(cacheEditorConfig.generate.dark.up),
+  lightDown: defineColorConfig(cacheEditorConfig.generate.light.down),
+  lightUp: defineColorConfig(cacheEditorConfig.generate.light.up),
 };
 
 const defineAdvanceConfig = (defaultColorConfig: IGenerateConfigItem): Schema => ({
-  ['色相曲线']: folder(
+  ['明度曲线']: folder(
     {
-      hEasing: bezier(defaultColorConfig.hEasing),
+      tEasing: bezier(defaultColorConfig.tEasing),
     },
     { collapsed: true, color: '#8c92a4' },
   ),
@@ -103,51 +103,51 @@ const defineAdvanceConfig = (defaultColorConfig: IGenerateConfigItem): Schema =>
     },
     { collapsed: true, color: '#8c92a4' },
   ),
-  ['明度曲线']: folder(
+  ['色相曲线']: folder(
     {
-      tEasing: bezier(defaultColorConfig.tEasing),
+      hEasing: bezier(defaultColorConfig.hEasing),
     },
     { collapsed: true, color: '#8c92a4' },
   ),
 });
 
 export const advanceConfig = {
-  lightUp: defineAdvanceConfig(cacheEditorConfig.generate.light.up),
-  lightDown: defineAdvanceConfig(cacheEditorConfig.generate.light.down),
-  darkUp: defineAdvanceConfig(cacheEditorConfig.generate.dark.up),
   darkDown: defineAdvanceConfig(cacheEditorConfig.generate.dark.down),
+  darkUp: defineAdvanceConfig(cacheEditorConfig.generate.dark.up),
+  lightDown: defineAdvanceConfig(cacheEditorConfig.generate.light.down),
+  lightUp: defineAdvanceConfig(cacheEditorConfig.generate.light.up),
 };
 
 export const hueConfig: Schema = {
+  multiply: {
+    label: <Label icon={<AngleIcon />} title="补偿乘阶" />,
+    max: 1,
+    min: -1,
+    value: cacheEditorConfig.generate.hue.multiply,
+  },
   segment: {
     label: <Label icon={<ColorWheelIcon />} title="补偿区间" />,
-    value: cacheEditorConfig.generate.hue.segment,
     max: 360,
     min: 0,
     step: 1,
-  },
-  multiply: {
-    label: <Label icon={<AngleIcon />} title="补偿乘阶" />,
-    value: cacheEditorConfig.generate.hue.multiply,
-    max: 1,
-    min: -1,
+    value: cacheEditorConfig.generate.hue.segment,
   },
 };
 
 export const neutralConfig: Schema = {
   cStart: {
-    value: cacheEditorConfig.generate.neutral.cStart,
     label: <Label icon={<BlendingModeIcon />} title="色度标准" />,
-    min: 1,
     max: 36,
+    min: 1,
     step: 1,
+    value: cacheEditorConfig.generate.neutral.cStart,
   },
   cTarget: {
-    value: cacheEditorConfig.generate.neutral.cTarget,
     label: <Label icon={<BlendingModeIcon />} title="色度目标" />,
-    min: 1,
     max: 36,
+    min: 1,
     step: 1,
+    value: cacheEditorConfig.generate.neutral.cTarget,
   },
   standard: {
     label: <Label icon={<OpacityIcon />} title="明度标准" />,
@@ -175,33 +175,33 @@ export const neutralAdvanceConfig = {
  ******************************************************/
 
 export const patternConfig: Schema = {
-  isolateDark: {
-    label: <Label icon={<ComponentBooleanIcon />} title="亮暗主色分离" />,
-    value: cacheEditorConfig.system.pattern.isolateDark,
+  displayFliterStep: {
+    label: <Label icon={<EyeNoneIcon />} title="只显示筛选后梯度" />,
+    render: (get) => get('isFliterStep'),
+    value: cacheEditorConfig.system.pattern.displayFliterStep,
   },
   isFliterStep: {
     label: <Label icon={<HobbyKnifeIcon />} title="开启梯度筛选" />,
     value: cacheEditorConfig.system.pattern.isFliterStep,
   },
-  displayFliterStep: {
-    label: <Label icon={<EyeNoneIcon />} title="只显示筛选后梯度" />,
-    value: cacheEditorConfig.system.pattern.displayFliterStep,
-    render: (get) => get('isFliterStep'),
+  isolateDark: {
+    label: <Label icon={<ComponentBooleanIcon />} title="亮暗主色分离" />,
+    value: cacheEditorConfig.system.pattern.isolateDark,
   },
 };
 
 export const stepConfig: Schema = {
-  up: {
-    label: <Label icon={<PinTopIcon />} title="向上梯度" />,
-    value: cacheEditorConfig.generate.step.up,
-    step: 1,
-    min: 1,
-  },
   down: {
     label: <Label icon={<PinBottomIcon />} title="向下梯度" />,
-    value: cacheEditorConfig.generate.step.down,
-    step: 1,
     min: 1,
+    step: 1,
+    value: cacheEditorConfig.generate.step.down,
+  },
+  up: {
+    label: <Label icon={<PinTopIcon />} title="向上梯度" />,
+    min: 1,
+    step: 1,
+    value: cacheEditorConfig.generate.step.up,
   },
 };
 
@@ -217,58 +217,57 @@ export const editConfig: Schema = {
 };
 
 export const colorTypes = ['mix', 'hex', 'hct', 'rgb', 'hsl', 'hsv', 'cts'];
-export const genDisplapConfig = (button: any): Schema => ({
+export const displayConfig = {
   colorType: {
     label: <Label icon={<TokensIcon />} title="色彩空间" />,
-    value: 'hct',
     options: colorTypes,
+    value: 'hct',
   },
-  ' ': button,
   showDetail: {
     label: <Label icon={<AspectRatioIcon />} title="详细模式" />,
     value: true,
   },
-});
+};
 
 export const threeConfig = {
-  threeZoom: {
-    label: <Label icon={<TransformIcon />} title="模型尺寸" />,
-    value: 8,
-    min: 1,
-    max: 100,
-    step: 1,
-  },
-  hueZoom: {
-    label: <Label icon={<EyeNoneIcon />} title="色相缩放" />,
-    value: 3.6,
-    min: 1,
-    max: 10,
-    step: 1,
-  },
   autoRotate: {
     label: <Label icon={<UpdateIcon />} title="自动旋转" />,
     value: true,
+  },
+  hueZoom: {
+    label: <Label icon={<EyeNoneIcon />} title="色相缩放" />,
+    max: 10,
+    min: 1,
+    step: 1,
+    value: 3.6,
   },
   showFloor: {
     label: <Label icon={<EyeNoneIcon />} title="显示辅助线" />,
     value: true,
   },
+  threeZoom: {
+    label: <Label icon={<TransformIcon />} title="模型尺寸" />,
+    max: 100,
+    min: 1,
+    step: 1,
+    value: 8,
+  },
 };
 
 export const tokenConfig = {
-  isolateDarkToken: {
-    label: <Label icon={<ComponentBooleanIcon />} title="亮暗变量分离" />,
-    value: true,
+  codeType: {
+    label: <Label icon={<CodeIcon />} title="变量格式" />,
+    options: ['css', 'less', 'scss', 'js'],
+    value: 'css',
   },
   colorType: {
     label: <Label icon={<TokensIcon />} title="色彩空间" />,
-    value: 'mix',
     options: ['mix', 'hex', 'rgb', 'hsl'],
+    value: 'mix',
   },
-  codeType: {
-    label: <Label icon={<CodeIcon />} title="变量格式" />,
-    value: 'css',
-    options: ['css', 'less', 'scss', 'js'],
+  isolateDarkToken: {
+    label: <Label icon={<ComponentBooleanIcon />} title="亮暗变量分离" />,
+    value: true,
   },
 };
 
@@ -292,19 +291,19 @@ export const defineGenerateConfig = ({
   darkDownAdvance,
 }: any): IGenerateConfig => {
   const config: IGenerateConfig = {
-    step,
-    hue,
-    neutral: { ...neutral, ...neutralAdvance },
-    light: {
-      up: { ...lightUp, ...lightUpAdvance },
-      down: { ...lightDown, ...lightDownAdvance },
-    },
     dark: {
+      down: edit.isolateEdit ? { ...darkDown, darkDownAdvance } : { ...lightUp, ...lightUpAdvance },
       up: edit.isolateEdit
         ? { ...darkUp, ...darkUpAdvance }
         : { ...lightDown, ...lightDownAdvance },
-      down: edit.isolateEdit ? { ...darkDown, darkDownAdvance } : { ...lightUp, ...lightUpAdvance },
     },
+    hue,
+    light: {
+      down: { ...lightDown, ...lightDownAdvance },
+      up: { ...lightUp, ...lightUpAdvance },
+    },
+    neutral: { ...neutral, ...neutralAdvance },
+    step,
   };
   return JSON.parse(JSON.stringify(config));
 };
@@ -326,23 +325,23 @@ export const genScales = (
   const { pattern } = system;
   const scaleGeneration = new GenerateScale(generate);
   let scales = {
-    light: scaleGeneration.gen(color.color, { theme: 'light', neutral: color.type === 'neutral' }),
     dark: scaleGeneration.gen(pattern.isolateDark ? color.darkColor : color.color, {
-      theme: 'dark',
       neutral: color.type === 'neutral',
+      theme: 'dark',
     }),
+    light: scaleGeneration.gen(color.color, { neutral: color.type === 'neutral', theme: 'light' }),
   };
   const rawScales = scales;
   if (pattern.isFliterStep && pattern.displayFliterStep && stepFliter?.length > 0) {
     scales = {
-      light: scales.light.filter((_, index) => stepFliter.includes(index)),
       dark: scales.dark.filter((_, index) => stepFliter.includes(index)),
+      light: scales.light.filter((_, index) => stepFliter.includes(index)),
     };
   }
   return {
-    scales,
     color: rawScales.light[generate.step.up],
     darkColor: rawScales.dark[generate.step.up],
+    scales,
   };
 };
 

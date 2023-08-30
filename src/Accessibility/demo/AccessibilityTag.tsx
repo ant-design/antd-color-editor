@@ -1,4 +1,4 @@
-import { AccessibilityTag } from 'kitchen-color-studio'
+import { AccessibilityTag } from 'antd-color-editor';
 
 export default () => {
   const colors: [string, string][] = [
@@ -8,7 +8,7 @@ export default () => {
     ['#000', '#1677ff'],
     ['#fff', '#001355'],
     ['#000', '#001355'],
-  ]
+  ];
 
-  return <AccessibilityTag colors={colors} />
-}
+  return <AccessibilityTag colors={colors} />;
+};

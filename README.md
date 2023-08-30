@@ -2,11 +2,11 @@
 
 <div align="center">
 
-<img width="160" src="https://gw.alipayobjects.com/mdn/rms_7d1485/afts/img/A*XDYxSJXBjjwAAAAAAAAAAAAAARQnAQ">
+<img width="160" src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg">
 
-<h1>kitchen Color Studio</h1>
-  
-[**🎨 Quick Start >>**](https://ant-design.github.io/kitchen-color-studio/~demos/colorstudio-demo-demo)
+<h1>Antd Color Studio</h1>
+
+[**🎨 Quick Start >>**](https://ant-design.github.io/antd-color-editor/~demos/colorstudio-demo-demo)
 
 An open-source color editor for designing color system
 
@@ -17,14 +17,13 @@ An open-source color editor for designing color system
 [![release][release-shield]][release-url]
 [![releaseDate][release-date-shield]][release-date-url]
 [![ciTest][ci-test-shield]][ci-test-url]
-[![ciRelease][ci-release-shield]][ci-release-url]
-<br/>
+[![ciRelease][ci-release-shield]][ci-release-url] <br/>
 [![contributors][contributors-shield]][contributors-url]
 [![forks][forks-shield]][forks-url]
 [![stargazers][stargazers-shield]][stargazers-url]
 [![issues][issues-shield]][issues-url]
 
-[![](https://raw.githubusercontent.com/ant-design/kitchen-color-studio/master/public/preview1.webp)](https://ant-design.github.io/kitchen-color-studio/~demos/colorstudio-demo-demo)
+[![](https://raw.githubusercontent.com/ant-design/antd-color-editor/master/public/preview1.webp)](https://ant-design.github.io/antd-color-editor/~demos/colorstudio-demo-demo)
 
 </div>
 
@@ -33,7 +32,7 @@ An open-source color editor for designing color system
 To install components, run the following command:
 
 ```bash
-pnpm add kitchen-color-studio
+pnpm add antd-color-editor
 ```
 
 <div align="right">
@@ -53,19 +52,19 @@ Resources: [The Science of Color & Design](https://material.io/blog/science-of-c
 
 ### Color Space
 
-![](https://raw.githubusercontent.com/ant-design/kitchen-color-studio/master/public/preview2.webp)
+![](https://raw.githubusercontent.com/ant-design/antd-color-editor/master/public/preview2.webp)
 
 ### Color Accessibility
 
-![](https://raw.githubusercontent.com/ant-design/kitchen-color-studio/master/public/preview5.webp)
+![](https://raw.githubusercontent.com/ant-design/antd-color-editor/master/public/preview5.webp)
 
 ### Token Mode
 
-![](https://raw.githubusercontent.com/ant-design/kitchen-color-studio/master/public/preview3.webp)
+![](https://raw.githubusercontent.com/ant-design/antd-color-editor/master/public/preview3.webp)
 
 ### Setting Export
 
-![](https://raw.githubusercontent.com/ant-design/kitchen-color-studio/master/public/preview4.webp)
+![](https://raw.githubusercontent.com/ant-design/antd-color-editor/master/public/preview4.webp)
 
 <div align="right">
 
@@ -82,8 +81,8 @@ You can use Gitpod for online development:
 Or clone it for local development:
 
 ```bash
-$ git clone https://github.com/ant-design/kitchen-color-studio.git
-$ cd kitchen-color-studio
+$ git clone https://github.com/ant-design/antd-color-editor.git
+$ cd antd-color-editor
 $ pnpm install
 $ pnpm start
 ```
@@ -120,8 +119,7 @@ $ pnpm start
 
 ## 🔗 Links
 
-- material-color-utilities: https://github.com/material-foundation/material-color-utilities
-- Kitchen：https://github.com/ant-design/kitchen
+- material-color-utilities: <https://github.com/material-foundation/material-color-utilities>
 
 <div align="right">
 
@@ -137,7 +135,7 @@ This project is [MIT](./LICENSE) licensed.
 
 <!-- LINK GROUP -->
 
-[gitpod-url]: https://gitpod.io/#https://github.com/ant-design/kitchen-color-studio
+[gitpod-url]: https://gitpod.io/#https://github.com/ant-design/antd-color-editor
 
 <!-- SHIELD LINK GROUP -->
 
@@ -145,40 +143,40 @@ This project is [MIT](./LICENSE) licensed.
 
 <!-- release -->
 
-[release-shield]: https://img.shields.io/npm/v/kitchen-color-studio?logo=npm
-[release-url]: https://www.npmjs.com/package/kitchen-color-studio
+[release-shield]: https://img.shields.io/npm/v/antd-color-editor?logo=npm
+[release-url]: https://www.npmjs.com/package/antd-color-editor
 
 <!-- releaseDate -->
 
-[release-date-shield]: https://img.shields.io/github/release-date/ant-design/kitchen-color-studio?style=flat
-[release-date-url]: https://github.com/ant-design/kitchen-color-studio/releases
+[release-date-shield]: https://img.shields.io/github/release-date/ant-design/antd-color-editor?style=flat
+[release-date-url]: https://github.com/ant-design/antd-color-editor/releases
 
 <!-- ciTest -->
 
-[ci-test-shield]: https://github.com/ant-design/kitchen-color-studio/workflows/Test%20CI/badge.svg
-[ci-test-url]: https://github.com/ant-design/kitchen-color-studio/actions/workflows/test.yml
+[ci-test-shield]: https://github.com/ant-design/antd-color-editor/workflows/Test%20CI/badge.svg
+[ci-test-url]: https://github.com/ant-design/antd-color-editor/actions/workflows/test.yml
 
 <!-- ciRelease -->
 
-[ci-release-shield]: https://github.com/ant-design/kitchen-color-studio/workflows/Build%20and%20Release/badge.svg
-[ci-release-url]: https://github.com/ant-design/kitchen-color-studio/actions/workflows/release.yml
+[ci-release-shield]: https://github.com/ant-design/antd-color-editor/workflows/Build%20and%20Release/badge.svg
+[ci-release-url]: https://github.com/ant-design/antd-color-editor/actions/workflows/release.yml
 
 <!-- contributors -->
 
-[contributors-shield]: https://img.shields.io/github/contributors/ant-design/kitchen-color-studio.svg?style=flat
-[contributors-url]: https://github.com/ant-design/kitchen-color-studio/graphs/contributors
+[contributors-shield]: https://img.shields.io/github/contributors/ant-design/antd-color-editor.svg?style=flat
+[contributors-url]: https://github.com/ant-design/antd-color-editor/graphs/contributors
 
 <!-- forks -->
 
-[forks-shield]: https://img.shields.io/github/forks/ant-design/kitchen-color-studio.svg?style=flat
-[forks-url]: https://github.com/ant-design/kitchen-color-studio/network/members
+[forks-shield]: https://img.shields.io/github/forks/ant-design/antd-color-editor.svg?style=flat
+[forks-url]: https://github.com/ant-design/antd-color-editor/network/members
 
 <!-- stargazers -->
 
-[stargazers-shield]: https://img.shields.io/github/stars/ant-design/kitchen-color-studio.svg?style=flat
-[stargazers-url]: https://github.com/ant-design/kitchen-color-studio/stargazers
+[stargazers-shield]: https://img.shields.io/github/stars/ant-design/antd-color-editor.svg?style=flat
+[stargazers-url]: https://github.com/ant-design/antd-color-editor/stargazers
 
 <!-- issues -->
 
-[issues-shield]: https://img.shields.io/github/issues/ant-design/kitchen-color-studio.svg?style=flat
-[issues-url]: https://github.com/ant-design/kitchen-color-studio/issues/new/choose
+[issues-shield]: https://img.shields.io/github/issues/ant-design/antd-color-editor.svg?style=flat
+[issues-url]: https://github.com/ant-design/antd-color-editor/issues/new/choose

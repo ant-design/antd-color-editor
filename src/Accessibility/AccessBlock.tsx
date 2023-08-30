@@ -1,5 +1,5 @@
 import { tinycolor } from '@ctrl/tinycolor';
-import { memo, type ReactNode } from 'react';
+import { type ReactNode, memo } from 'react';
 import styled from 'styled-components';
 
 import { W3cShield } from '@/index';
@@ -26,6 +26,7 @@ const Block = styled.div<IAccessBlock>`
   background: ${({ color2 }) => color2};
   border: 1px solid ${({ theme }) => theme.colorBorderSecondary};
   border-radius: 4px;
+
   & + & {
     margin-top: 4px;
   }

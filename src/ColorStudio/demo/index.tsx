@@ -1,7 +1,12 @@
 /**
  * iframe: true
  */
+import { ColorStudio, ThemeProvider } from 'antd-color-editor';
 
-import { ColorStudio } from 'kitchen-color-studio';
-
-export default () => <ColorStudio />;
+export default () => {
+  return (
+    <ThemeProvider themeMode={'light'}>
+      <ColorStudio />
+    </ThemeProvider>
+  );
+};

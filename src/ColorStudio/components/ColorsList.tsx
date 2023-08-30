@@ -25,11 +25,11 @@ const ColorsList = memo<IColorsList>(({ colorList, setColorList, isolateDark }) 
         creatorButtonProps={{
           creatorButtonText: '添加一个色板',
           record: (): ISchemaItem => ({
-            id: Math.ceil(Math.random() * 100000).toString(16),
-            title: '未命名色板',
-            type: 'normal',
             color: '#1677FF',
             darkColor: '#1677FF',
+            id: Math.ceil(Math.random() * 100_000).toString(16),
+            title: '未命名色板',
+            type: 'normal',
           }),
         }}
         initialValues={colorList}

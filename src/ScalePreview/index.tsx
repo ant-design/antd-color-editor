@@ -23,12 +23,14 @@ const CollapseView = styled.div<{ isDarkMode: boolean }>`
     padding-top: 8px;
     border-radius: 4px !important;
   }
+
   .studio-collapse-title-collapsed,
   .studio-collapse-title-expand {
     font-size: 14px;
     font-weight: 600;
     line-height: 1;
   }
+
   .studio-divider {
     margin-top: 8px !important;
     border-color: ${({ theme }) => theme.colorBorder};
@@ -56,9 +58,9 @@ export interface IScalePreview {
 const ScalePreview = memo<IScalePreview>(
   ({
     color = {
+      color: '#1677FF',
       title: 'nuname',
       type: 'normal',
-      color: '#1677FF',
     },
     config = defaultEditorConfig,
     displayConfig = {

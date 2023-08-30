@@ -41,17 +41,17 @@ const HctPicker = memo<IHctPicker>(({ color = '#1677FF', onChange, listModify })
     // @ts-ignore
     () => ({
       HCT: {
-        value: hexToHct(color),
-        min: 0,
         max: 360,
-        step: 1,
+        min: 0,
         onChange: (v) => set({ HEX: hctToHex(v) }),
+        step: 1,
         transient: false,
+        value: hexToHct(color),
       },
       HEX: {
-        value: color,
         onChange: (v) => set({ HCT: hexToHct(v) }),
         transient: false,
+        value: color,
       },
     }),
     { store: colorStore },

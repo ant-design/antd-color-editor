@@ -1,14 +1,19 @@
 import { CollapseTitle } from '@ant-design/pro-editor';
 import { useLocalStorageState } from 'ahooks';
 import { Tabs } from 'antd';
-import { buttonGroup, useControls, useCreateStore } from 'leva';
-import { memo, useEffect, useState, type ReactNode } from 'react';
+import type { TabsProps } from 'antd';
+import { useControls, useCreateStore } from 'leva';
+import { type ReactNode, memo, useEffect, useMemo, useState } from 'react';
 
 import {
   AccessPanel,
   ColorsList,
   ExportPanel,
   Footer,
+  type IPanel,
+  type ISchemaItem,
+  IThreeView,
+  ITokenView,
   JsonView,
   LevaPanel,
   NavBar,
@@ -18,19 +23,18 @@ import {
   TabKey,
   ThreeView,
   TokenView,
-  type IPanel,
-  type ISchemaItem,
 } from '@/index';
 import { CanvasView, ColorView, EditorView, PanelView } from '@/styles';
 
 import {
+  type IEditorConfig,
+  type IScales,
   advanceConfig,
   cacheEditorConfig,
   colorConfig,
-  colorTypes,
   defineGenerateConfig,
+  displayConfig,
   editConfig,
-  genDisplapConfig,
   genScales,
   hueConfig,
   neutralAdvanceConfig,
@@ -40,11 +44,8 @@ import {
   stepConfig,
   threeConfig,
   tokenConfig,
-  type IEditorConfig,
-  type IScales,
 } from './config';
 
-const { TabPane } = Tabs;
 const Collapse: any = CollapseTitle;
 
 enum PanelTabKey {
@@ -78,10 +79,10 @@ export interface IColorStudio {
 
 const ColorStudio = memo<IColorStudio>(
   ({ logo, logoHref, title, showFooter = true, forceConfig, onChange }) => {
-    const [tabKey, setTabKey] = useLocalStorageState<number>('kietchen-color-tabkey', {
+    const [tabKey, setTabKey] = useLocalStorageState<number>('antd-color-tabkey', {
       defaultValue: TabKey.colors,
     });
-    const [panelTabKey, setPanelTabKey] = useLocalStorageState<string>('kietchen-color-panelkey', {
+    const [panelTabKey, setPanelTabKey] = useLocalStorageState<string>('antd-color-panelkey', {
       defaultValue: PanelTabKey.edit,
     });
     const [colorList, setColorList] = useState<ISchemaItem[]>(cacheEditorConfig.colorList);
@@ -126,18 +127,18 @@ const ColorStudio = memo<IColorStudio>(
     const hue = useControls(hueConfig, { store: hueStore });
 
     // 调色-L&D
-    const lightUp: any = useControls(colorConfig.lightUp, { store: lightUpStore });
-    const lightDown: any = useControls(colorConfig.lightDown, { store: lightDownStore });
-    const darkUp: any = useControls(colorConfig.darkUp, { store: darkUpStore });
-    const darkDown: any = useControls(colorConfig.darkDown, { store: darkDownStore });
+    const lightUp = useControls(colorConfig.lightUp, { store: lightUpStore });
+    const lightDown = useControls(colorConfig.lightDown, { store: lightDownStore });
+    const darkUp = useControls(colorConfig.darkUp, { store: darkUpStore });
+    const darkDown = useControls(colorConfig.darkDown, { store: darkDownStore });
     // 调色-L&D Advance
-    const lightUpAdvance: any = useControls(advanceConfig.lightUp, { store: lightUpAdvanceStore });
-    const lightDownAdvance: any = useControls(advanceConfig.lightDown, {
+    const lightUpAdvance = useControls(advanceConfig.lightUp, { store: lightUpAdvanceStore });
+    const lightDownAdvance = useControls(advanceConfig.lightDown, {
       store: lightDownAdvanceStore,
     });
     // 调色-Neutral
-    const darkUpAdvance: any = useControls(advanceConfig.darkUp, { store: darkUpAdvanceStore });
-    const darkDownAdvance: any = useControls(advanceConfig.darkDown, {
+    const darkUpAdvance = useControls(advanceConfig.darkUp, { store: darkUpAdvanceStore });
+    const darkDownAdvance = useControls(advanceConfig.darkDown, {
       store: darkDownAdvanceStore,
     });
     // 调色-Neutral
@@ -147,41 +148,32 @@ const ColorStudio = memo<IColorStudio>(
     const pattern = useControls(patternConfig, { store: patternStore });
     const step = useControls(stepConfig, { store: stepStore });
     // 视图
-    const displayColorTypeSwitch: any = {};
-    const [display, setDisplayConfig] = useControls(
-      () => genDisplapConfig(buttonGroup(displayColorTypeSwitch)),
-      {
-        store: displayStore,
-      },
-    );
-    colorTypes.forEach((ct) => {
-      displayColorTypeSwitch[ct] = () => setDisplayConfig({ colorType: ct });
-    });
-    const three: any = useControls(threeConfig, { store: threeStore });
-    const token: any = useControls(tokenConfig, { store: tokenStore });
+    const display = useControls(displayConfig, { store: displayStore });
+    const three = useControls(threeConfig, { store: threeStore });
+    const token = useControls(tokenConfig, { store: tokenStore });
 
     /******************************************************
      ************************* Configs ********************
      ******************************************************/
     const generateConfig = defineGenerateConfig({
-      edit,
-      step,
-      hue,
-      neutral,
-      neutralAdvance,
-      lightUp,
-      lightUpAdvance,
-      lightDown,
-      lightDownAdvance,
-      darkUp,
-      darkUpAdvance,
       darkDown,
       darkDownAdvance,
+      darkUp,
+      darkUpAdvance,
+      edit,
+      hue,
+      lightDown,
+      lightDownAdvance,
+      lightUp,
+      lightUpAdvance,
+      neutral,
+      neutralAdvance,
+      step,
     });
 
     const editorConfig: IEditorConfig | any = {
-      generate: generateConfig,
       colorList,
+      generate: generateConfig,
       stepFliter,
       system: {
         edit,
@@ -271,6 +263,7 @@ const ColorStudio = memo<IColorStudio>(
       },
       {
         header: '梯度筛选',
+        hidden: !pattern.isFliterStep,
         panel: (
           <StepFliter
             color={colorList[0]}
@@ -279,7 +272,6 @@ const ColorStudio = memo<IColorStudio>(
             onChange={setStepFliter}
           />
         ),
-        hidden: !pattern.isFliterStep,
       },
       {
         header: '色板列表',
@@ -317,8 +309,6 @@ const ColorStudio = memo<IColorStudio>(
     const colorListScale: IColorListScale[] = colorList.map((c) => {
       const { scales, color, darkColor } = genScales(c, editorConfig);
       return {
-        name: c.title,
-        scales,
         color,
         darkColor,
         dom: (
@@ -329,6 +319,8 @@ const ColorStudio = memo<IColorStudio>(
             scales={scales}
           />
         ),
+        name: c.title,
+        scales,
       };
     });
 
@@ -336,6 +328,42 @@ const ColorStudio = memo<IColorStudio>(
       // @ts-ignore
       if (onChange) onChange(colorListScale.map((c) => ({ name: c.name, scales: c.scales })));
     }, [editorConfig]);
+
+    const items: TabsProps['items'] = useMemo(
+      () => [
+        {
+          children: <PanelGroup panels={editPanelGroup} />,
+          key: PanelTabKey.edit,
+          label: '调色',
+        },
+        {
+          children: <PanelGroup panels={patternPanelGroup} />,
+          key: PanelTabKey.pattern,
+          label: '色板',
+        },
+        {
+          children: <AccessPanel data={colorListScale} />,
+          key: PanelTabKey.access,
+          label: '可读性',
+        },
+        {
+          children: <PanelGroup panels={displayPanelGroup} />,
+          key: PanelTabKey.display,
+          label: '视图',
+        },
+        {
+          children: (
+            <>
+              <PanelGroup panels={exportPanelGroup} />
+              <ExportPanel config={editorConfig} />
+            </>
+          ),
+          key: PanelTabKey.export,
+          label: '存储',
+        },
+      ],
+      [editPanelGroup, patternPanelGroup, colorListScale, displayPanelGroup, exportPanelGroup],
+    );
 
     return (
       <EditorView>
@@ -354,30 +382,18 @@ const ColorStudio = memo<IColorStudio>(
             </ColorView>
           )}
           {tabKey === TabKey.three && (
-            <ThreeView config={{ ...three, ...display }} data={colorListScale} />
+            <ThreeView
+              config={{ ...three, ...display } as IThreeView['config']}
+              data={colorListScale}
+            />
           )}
-          {tabKey === TabKey.token && <TokenView config={token} data={colorListScale} />}
+          {tabKey === TabKey.token && (
+            <TokenView config={token as ITokenView['config']} data={colorListScale} />
+          )}
           {tabKey === TabKey.config && <JsonView data={editorConfig} />}
         </CanvasView>
         <PanelView>
-          <Tabs defaultActiveKey={panelTabKey} onChange={setPanelTabKey}>
-            <TabPane key={PanelTabKey.edit} tab="调色">
-              <PanelGroup panels={editPanelGroup} />
-            </TabPane>
-            <TabPane key={PanelTabKey.pattern} tab="色板">
-              <PanelGroup panels={patternPanelGroup} />
-            </TabPane>
-            <TabPane key={PanelTabKey.access} tab="可读性">
-              <AccessPanel data={colorListScale} />
-            </TabPane>
-            <TabPane key={PanelTabKey.display} tab="视图">
-              <PanelGroup panels={displayPanelGroup} />
-            </TabPane>
-            <TabPane key={PanelTabKey.export} tab="存储">
-              <PanelGroup panels={exportPanelGroup} />
-              <ExportPanel config={editorConfig} />
-            </TabPane>
-          </Tabs>
+          <Tabs defaultActiveKey={panelTabKey} items={items} onChange={setPanelTabKey} />
         </PanelView>
       </EditorView>
     );

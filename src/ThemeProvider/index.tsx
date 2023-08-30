@@ -1,6 +1,6 @@
 import { App } from 'antd';
-import { ThemeProvider as AntdThemeProvider, setupStyled, type ThemeMode } from 'antd-style';
-import { memo, type ReactNode } from 'react';
+import { ThemeProvider as AntdThemeProvider, type ThemeMode, setupStyled } from 'antd-style';
+import { type ReactNode, memo } from 'react';
 import { ThemeContext } from 'styled-components';
 
 import GlobalStyle from './GlobalStyle';

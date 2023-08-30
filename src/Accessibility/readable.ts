@@ -27,14 +27,14 @@ export const readable = (color1: string, color2: string): IReadable => {
   const aaa = aaaSmall || aaaLarge;
   const result = aaa ? 'AAA' : aa ? 'AA' : 'Fail';
   return {
+    aa,
+    aaLarge,
+    aaSmall,
+    aaa,
+    aaaLarge,
+    aaaSmall,
+    cts: readability(color1, color2).toFixed(2),
     result,
     shield: genShield(result),
-    cts: readability(color1, color2).toFixed(2),
-    aa,
-    aaa,
-    aaSmall,
-    aaLarge,
-    aaaSmall,
-    aaaLarge,
   };
 };

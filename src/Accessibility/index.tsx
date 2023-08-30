@@ -2,7 +2,6 @@ import { memo } from 'react';
 import styled from 'styled-components';
 
 import AccessBlock from './AccessBlock';
-import { readable } from './readable';
 
 /******************************************************
  *********************** Style *************************
@@ -44,4 +43,5 @@ const Accessibility = memo<IAccessibility>(({ color1, color2 }) => {
 });
 
 export default Accessibility;
-export { readable };
+
+export { readable } from './readable';

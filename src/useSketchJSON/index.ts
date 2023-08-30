@@ -15,8 +15,8 @@ declare global {
 
 if (typeof window !== 'undefined') {
   window.DUMI_HTML2SKETCH = {
-    nodeToSymbol,
     nodeToGroup,
+    nodeToSymbol,
   };
 }
 
@@ -30,11 +30,10 @@ const useSketchJSON = () => {
     try {
       console.groupCollapsed('[html2sketch]开始转换...');
       let result;
-      if (elements instanceof Array) {
+      if (Array.isArray(elements)) {
         const objects: any[] = [];
 
-        for (let i = 0; i < elements.length; i += 1) {
-          const el = elements[i];
+        for (const el of elements) {
           // eslint-disable-next-line no-await-in-loop
           const symbolJSON = await parserFunc(el);
           objects.push(symbolJSON);
@@ -50,12 +49,12 @@ const useSketchJSON = () => {
       setJSON(result);
       await message.success('转换成功🎉 已复制到剪切板');
       return result;
-    } catch (e) {
+    } catch (error) {
       await message.error('解析失败,请检查 Console 输出 😶');
       console.groupEnd();
       console.groupEnd();
       console.error('报错如下:');
-      console.error(e);
+      console.error(error);
     }
   };
 
@@ -65,15 +64,19 @@ const useSketchJSON = () => {
    */
 
   return {
-    sketchJSON,
-    generateSymbol: async (elements: Element | Element[]) => {
-      // @ts-ignore
-      await parserFactory(elements, async (el: Element) => (await nodeToSymbol(el)).toSketchJSON());
-    },
     generateGroup: async (elements: Element | Element[]) => {
-      // @ts-ignore
-      await parserFactory(elements, async (el: Element) => (await nodeToGroup(el)).toSketchJSON());
+      await parserFactory(elements, async (el: Element) => {
+        const group = await nodeToGroup(el);
+        return group.toSketchJSON();
+      });
     },
+    generateSymbol: async (elements: Element | Element[]) => {
+      await parserFactory(elements, async (el: Element) => {
+        const symbol = await nodeToSymbol(el);
+        return symbol.toSketchJSON();
+      });
+    },
+    sketchJSON,
   };
 };
 

@@ -25,13 +25,15 @@ const LogoText = styled.div`
   font-weight: 600;
   line-height: 18px;
   color: ${({ theme }) => theme.colorText};
+  white-space: nowrap;
+
   > span {
-    background-image: -webkit-linear-gradient(
-      left,
+    background-image: linear-gradient(
+      to left,
       ${({ theme }) => theme.colorPrimary},
       ${({ theme }) => theme.colorPrimaryHover}
     );
-    -webkit-background-clip: text;
+    background-clip: text;
 
     -webkit-text-fill-color: transparent;
   }
@@ -67,9 +69,9 @@ const NavBar = memo<INavBar>(
   ({
     tabKey,
     setTabKey,
-    logo = 'https://gw.alipayobjects.com/zos/bmw-prod/af1ea898-bf02-45d1-9f30-8ca851c70a5b.svg',
-    title = 'Kitchen',
-    logoHref = 'https://github.com/canisminor1990/kitchen-color-studio',
+    logo = 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
+    title = 'Antd Color Editor',
+    logoHref = 'https://github.com/canisminor1990/antd-color-editor',
   }) => {
     // @ts-ignore
     return (
@@ -77,10 +79,8 @@ const NavBar = memo<INavBar>(
         <AddonView>
           <a href={logoHref} rel="noreferrer" target="_blank">
             <Space align="center">
-              <img height={18} src={logo} />
-              <LogoText>
-                {title} <span>ColorStudio</span>
-              </LogoText>
+              <img alt={'logo'} height={18} src={logo} />
+              <LogoText>{title}</LogoText>
               {PkgInfo?.version && <Tag color="blue">v{PkgInfo.version}</Tag>}
             </Space>
           </a>

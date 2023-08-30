@@ -1,7 +1,8 @@
-import { usePrettier } from 'kitchen-color-studio';
-import { memo } from 'react';
+import { usePrettier } from 'antd-color-editor';
+import { memo, useEffect, useState } from 'react';
 
 export default memo(() => {
+  const [codeContent, setCodeContent] = useState<string>('');
   const { format } = usePrettier();
   const content = `export const menus = {components: [{title: '装配器',
         children: ['Studio'],},{
@@ -12,6 +13,10 @@ export default memo(() => {
             'useDownload'],
       },],};`;
 
+  useEffect(() => {
+    format(content).then((data) => setCodeContent(data));
+  });
+
   return (
     <div>
       <h2>Before</h2>
@@ -20,7 +25,7 @@ export default memo(() => {
       </pre>
       <h2>After</h2>
       <pre>
-        <code>{format(content)}</code>
+        <code>{codeContent}</code>
       </pre>
     </div>
   );

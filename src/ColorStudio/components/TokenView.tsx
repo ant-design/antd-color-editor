@@ -22,11 +22,11 @@ const TokenView = memo<ITokenView>(({ data, config }) => {
   const { format } = usePrettier();
   const { colorType, codeType, isolateDarkToken }: any = config;
   const tokenData = data.map((item) => ({
-    name: item.name,
-    light: item.scales.light.map((s) => colorTypeFormat(s, colorType)),
-    lightA: item.scales.light.map((s) => colorTypeFormat(getAlphaColor(s, '#fff'), colorType)),
     dark: item.scales.dark.map((s) => colorTypeFormat(s, colorType)),
     darkA: item.scales.dark.map((s) => colorTypeFormat(getAlphaColor(s, '#000'), colorType)),
+    light: item.scales.light.map((s) => colorTypeFormat(s, colorType)),
+    lightA: item.scales.light.map((s) => colorTypeFormat(getAlphaColor(s, '#fff'), colorType)),
+    name: item.name,
   }));
 
   let content = null;
@@ -35,16 +35,16 @@ const TokenView = memo<ITokenView>(({ data, config }) => {
     if (isolateDarkToken) {
       const objLight: any = {};
       const objDark: any = {};
-      tokenData.forEach((item) => {
+      for (const item of tokenData) {
         objLight[camelCase(item.name)] = {
-          solid: item.light,
           alpha: item.lightA,
+          solid: item.light,
         };
         objDark[camelCase(item.name)] = {
-          solid: item.dark,
           alpha: item.darkA,
+          solid: item.dark,
         };
-      });
+      }
 
       content = `
         export interface ColorScaleItem {
@@ -64,14 +64,14 @@ const TokenView = memo<ITokenView>(({ data, config }) => {
       `;
     } else {
       const obj: any = {};
-      tokenData.forEach((item) => {
+      for (const item of tokenData) {
         obj[camelCase(item.name)] = {
-          light: item.light,
-          lightA: item.lightA,
           dark: item.dark,
           darkA: item.darkA,
+          light: item.light,
+          lightA: item.lightA,
         };
-      });
+      }
 
       content = `
         export interface ColorScaleItem {
@@ -94,7 +94,7 @@ const TokenView = memo<ITokenView>(({ data, config }) => {
   } else {
     let tokenLightList = isolateDarkToken ? [`/* light.${codeType} */`] : [];
     let tokenDarkList = isolateDarkToken ? ['\n', `/* dark.${codeType} */`] : [];
-    tokenData.forEach((item) => {
+    for (const item of tokenData) {
       let lightName = kebabCase(item.name);
       let darkName = kebabCase(item.name);
       if (!isolateDarkToken) {
@@ -114,14 +114,14 @@ const TokenView = memo<ITokenView>(({ data, config }) => {
       );
       tokenLightList = [...tokenLightList, ...light, ...lightA];
       tokenDarkList = [...tokenDarkList, ...dark, ...darkA];
-    });
+    }
     content = [...tokenLightList, ...tokenDarkList].join('\n');
   }
   return (
     <CodeView>
       <DumiSiteProvider>
         <Highlighter background={false} language={codeType}>
-          {content}
+          {String(content)}
         </Highlighter>
       </DumiSiteProvider>
     </CodeView>

@@ -3,7 +3,7 @@ import { memo } from 'react';
 import styled from 'styled-components';
 
 import AccessBlock from './AccessBlock';
-import { readable, type IReadable } from './readable';
+import { type IReadable, readable } from './readable';
 
 /******************************************************
  *********************** Style *************************

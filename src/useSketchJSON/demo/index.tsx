@@ -1,5 +1,5 @@
 import { Button, Space } from 'antd';
-import { useSketchJSON } from 'kitchen-color-studio';
+import { useSketchJSON } from 'antd-color-editor';
 import { memo, useRef } from 'react';
 
 export default memo(() => {
@@ -7,7 +7,7 @@ export default memo(() => {
   const { generateGroup, generateSymbol } = useSketchJSON();
   return (
     <div>
-      <div ref={ref} style={{ width: 100, height: 100, background: 'blue', marginBottom: 24 }} />
+      <div ref={ref} style={{ background: 'blue', height: 100, marginBottom: 24, width: 100 }} />
       <Space>
         <Button onClick={() => generateGroup(ref.current)} type="primary">
           复制为 Sketch 图层

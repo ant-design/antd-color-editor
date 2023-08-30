@@ -1,6 +1,6 @@
-import { Environment, OrbitControls, Stage } from '@react-three/drei';
+import { Center, Environment, OrbitControls } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
-import { useThemeMode } from 'antd-style';
+import { useTheme, useThemeMode } from 'antd-style';
 import { Suspense, memo, useRef } from 'react';
 
 import type { IScales } from '@/ColorStudio/config';
@@ -31,25 +31,15 @@ export interface IThreeView {
 
 const ThreeView = memo<IThreeView>(({ config, data }) => {
   const { isDarkMode } = useThemeMode();
+  const theme = useTheme();
   const ref: any = useRef();
   const { colorType, threeZoom, autoRotate, showFloor, hueZoom } = config;
-  // @ts-ignore
+
   return (
-    <Canvas
-      camera={{ position: [0, 0, 0], fov: 55 }}
-      gl={{ preserveDrawingBuffer: true }}
-      shadows
-      style={{ width: '100%', height: '100%', background: isDarkMode ? '#222' : '#f1f1f1' }}
-    >
+    <Canvas style={{ background: isDarkMode ? '#222' : '#f1f1f1', height: '100%', width: '100%' }}>
       <Suspense fallback={null}>
-        <Stage
-          adjustCamera
-          // @ts-ignore
-          controls={ref}
-          environment={undefined}
-          shadows
-        >
-          <Environment files={cube} />
+        <Environment files={cube} />
+        <Center scale={0.02}>
           {data.map((item) => (
             <GenColor3D
               colorType={colorType}
@@ -60,12 +50,12 @@ const ThreeView = memo<IThreeView>(({ config, data }) => {
               zoom={threeZoom}
             />
           ))}
-        </Stage>
+        </Center>
       </Suspense>
       {showFloor && (
         <gridHelper
           /* eslint-disable-next-line react/no-unknown-property */
-          args={[1000, 50, isDarkMode ? '#444' : '#ccc', isDarkMode ? '#333' : '#ddd']}
+          args={[25, 100, theme.colorBorderSecondary, theme.colorBorder]}
           /* eslint-disable-next-line react/no-unknown-property */
           castShadow={false}
           /* eslint-disable-next-line react/no-unknown-property */

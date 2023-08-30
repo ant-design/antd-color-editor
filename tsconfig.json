@@ -1,5 +1,4 @@
 {
-  "include": ["src", ".dumi/**/*", ".dumirc.ts", "*.ts"],
   "compilerOptions": {
     "strict": true,
     "declaration": true,
@@ -11,8 +10,9 @@
     "paths": {
       "@@/*": [".dumi/tmp/*"],
       "@/*": ["src/*"],
-      "kitchen-color-studio": ["src"],
-      "kitchen-color-studio/*": ["src/*"]
+      "antd-color-editor": ["src"],
+      "antd-color-editor/*": ["src/*"]
     }
-  }
+  },
+  "include": ["src", ".dumi/**/*", ".dumirc.ts", "*.ts"]
 }

@@ -1,3 +1,3 @@
-import { HctPicker } from 'kitchen-color-studio'
+import { HctPicker } from 'antd-color-editor';
 
-export default () => <HctPicker onChange={() => {}} />
+export default () => <HctPicker onChange={() => {}} />;

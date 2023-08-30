@@ -40,17 +40,17 @@ const StepFliter = memo<IStepFliter>(
   ({
     config,
     color = {
+      color: '#1677FF',
       title: 'nuname',
       type: 'normal',
-      color: '#1677FF',
     },
     defaultFliter,
     onChange,
   }) => {
     const generate = new GenerateScale(config);
     const colorList = generate.gen(color.color, {
-      theme: 'light',
       neutral: color.type === 'neutral',
+      theme: 'light',
     });
 
     const defaultValue = defaultFliter || [];

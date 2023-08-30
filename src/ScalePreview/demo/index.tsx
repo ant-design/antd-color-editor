@@ -1,19 +1,6 @@
-import { ScalePreview } from 'kitchen-color-studio'
+import { ScalePreview } from 'antd-color-editor';
 
 const scales = {
-  light: [
-    '#f8f9fe',
-    '#d5e5fa',
-    '#b1d0f8',
-    '#8bbbf8',
-    '#60a6fa',
-    '#1677FF',
-    '#0f74de',
-    '#025abf',
-    '#00409d',
-    '#00297a',
-    '#001355',
-  ],
   dark: [
     '#001355',
     '#00297a',
@@ -27,6 +14,19 @@ const scales = {
     '#d5e5fa',
     '#f8f9fe',
   ],
-}
+  light: [
+    '#f8f9fe',
+    '#d5e5fa',
+    '#b1d0f8',
+    '#8bbbf8',
+    '#60a6fa',
+    '#1677FF',
+    '#0f74de',
+    '#025abf',
+    '#00409d',
+    '#00297a',
+    '#001355',
+  ],
+};
 
-export default () => <ScalePreview scales={scales} />
+export default () => <ScalePreview scales={scales} />;

@@ -38,56 +38,56 @@ export interface IGenerateConfig {
 }
 
 export const defaultConfig: IGenerateConfig = {
-  step: {
-    up: 5,
-    down: 5,
+  dark: {
+    down: {
+      cEasing: [0, 0, 1, 1],
+      cTarget: 5,
+      hEasing: [0, 0, 1, 1],
+      hRotate: -10,
+      tEasing: [0, 0, 1, 1],
+      tTarget: 98,
+    },
+    up: {
+      cEasing: [0, 0, 1, 1],
+      cTarget: 50,
+      hEasing: [0, 0, 1, 1],
+      hRotate: 20,
+      tEasing: [0, 0, 1, 1],
+      tTarget: 10,
+    },
   },
   hue: {
-    segment: [100, 200],
     multiply: -0.5,
-  },
-  neutral: {
-    standard: '#888',
-    cStart: 15,
-    cTarget: 10,
-    cEasingUp: [0, 0, 1, 1],
-    cEasingDown: [0, 0, 1, 1],
+    segment: [100, 200],
   },
   light: {
-    up: {
-      hRotate: -10,
-      cTarget: 5,
-      tTarget: 98,
-      hEasing: [0, 0, 1, 1],
-      cEasing: [0, 0, 1, 1],
-      tEasing: [0, 0, 1, 1],
-    },
     down: {
-      hRotate: 20,
-      cTarget: 50,
-      tTarget: 10,
-      hEasing: [0, 0, 1, 1],
       cEasing: [0, 0, 1, 1],
+      cTarget: 50,
+      hEasing: [0, 0, 1, 1],
+      hRotate: 20,
       tEasing: [0, 0, 1, 1],
+      tTarget: 10,
+    },
+    up: {
+      cEasing: [0, 0, 1, 1],
+      cTarget: 5,
+      hEasing: [0, 0, 1, 1],
+      hRotate: -10,
+      tEasing: [0, 0, 1, 1],
+      tTarget: 98,
     },
   },
-  dark: {
-    up: {
-      hRotate: 20,
-      cTarget: 50,
-      tTarget: 10,
-      hEasing: [0, 0, 1, 1],
-      cEasing: [0, 0, 1, 1],
-      tEasing: [0, 0, 1, 1],
-    },
-    down: {
-      hRotate: -10,
-      cTarget: 5,
-      tTarget: 98,
-      hEasing: [0, 0, 1, 1],
-      cEasing: [0, 0, 1, 1],
-      tEasing: [0, 0, 1, 1],
-    },
+  neutral: {
+    cEasingDown: [0, 0, 1, 1],
+    cEasingUp: [0, 0, 1, 1],
+    cStart: 15,
+    cTarget: 10,
+    standard: '#888',
+  },
+  step: {
+    down: 5,
+    up: 5,
   },
 };
 
@@ -100,9 +100,10 @@ class GenerateScale {
 
   gen(
     color: string,
+    // eslint-disable-next-line unicorn/no-object-as-default-parameter
     opts: { neutral?: boolean; theme: 'light' | 'dark' } = {
-      theme: 'light',
       neutral: false,
+      theme: 'light',
     },
   ): string[] {
     if (opts.neutral) return this.genNeutral(color, opts);

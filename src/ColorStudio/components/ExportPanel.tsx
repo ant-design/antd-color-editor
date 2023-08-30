@@ -30,9 +30,11 @@ const Flex = styled(Space)`
   display: flex;
   width: 100%;
   padding: 0 12px;
+
   > div {
     flex: 1;
   }
+
   .ant-upload.ant-upload-select {
     width: 100%;
   }
@@ -51,7 +53,7 @@ const ExportPanel = memo<IExportPanel>(({ config }) => {
     data: IEditorConfig;
     name: string;
     time: number;
-  }>('kitchen-color-config', {
+  }>('antd-color-config', {
     defaultValue: undefined,
   });
 
@@ -68,7 +70,7 @@ const ExportPanel = memo<IExportPanel>(({ config }) => {
   );
 
   const genConfgFile = () => {
-    return { data: config, name, time: new Date().getTime() };
+    return { data: config, name, time: Date.now() };
   };
 
   const handleSave = () => {
@@ -89,9 +91,9 @@ const ExportPanel = memo<IExportPanel>(({ config }) => {
       // if (info.file.status !== 'done') return;
       const reader = new FileReader();
       //@ts-ignore file 类型不明确
-      reader.readAsText(info.file.originFileObj, 'UTF-8');
+      reader.readAsText(info.file.originFileObj, 'utf8');
       //读取完文件之后的回调函数
-      reader.onload = (evt) => {
+      reader.addEventListener('load', (evt) => {
         const fileString = evt.target?.result;
         const fileJson = fileString as string;
         const uploadConfig: {
@@ -106,13 +108,13 @@ const ExportPanel = memo<IExportPanel>(({ config }) => {
         } else {
           message.error('配置文件不正确');
         }
-      };
+      });
     },
     [setLocalData],
   );
 
   const handleClean = () => {
-    setLocalData(undefined);
+    setLocalData();
     location.reload();
   };
 

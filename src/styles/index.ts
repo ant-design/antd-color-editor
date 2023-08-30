@@ -30,14 +30,17 @@ export const PanelView: any = styled(DraggablePanel)`
     > div {
       background: transparent !important;
     }
+
     .studio-collapse-title {
       margin-top: 4px;
       background: ${({ theme }) => theme.colorFillTertiary} !important;
       border-radius: 4px !important;
+
       > div > div > div > div {
         border: none !important;
       }
     }
+
     .studio-divider {
       border-color: ${({ theme }) => theme.colorBorder} !important;
     }
@@ -62,14 +65,17 @@ export const PanelView: any = styled(DraggablePanel)`
   .ant-tabs-nav-list {
     padding: 1px 24px 2px;
   }
+
   .ant-tabs-tab-btn {
     font-size: 12px;
   }
+
   .ant-collapse-header {
     padding: 12px 14px !important;
     font-size: 10px;
     font-weight: 700;
   }
+
   .ant-tabs-nav {
     margin-bottom: 0;
   }
@@ -77,15 +83,18 @@ export const PanelView: any = styled(DraggablePanel)`
   .ant-collapse-content-box {
     padding: 0 4px 8px !important;
   }
+
   .ant-collapse-item:not(:last-child) {
     border-bottom: 1px solid ${({ theme }) => theme.colorBorderSecondary};
     border-radius: 0 !important;
   }
+
   .ant-tabs {
     position: relative;
     overflow: hidden;
     height: 100%;
   }
+
   .ant-tabs-content-holder {
     position: relative;
     overflow-y: auto !important;
@@ -124,6 +133,7 @@ export const CodeView = styled(ContentView)`
 export const PanelTitle = styled.div`
   display: flex;
   align-items: center;
+
   > svg {
     margin-right: 4px;
   }

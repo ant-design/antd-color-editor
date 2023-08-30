@@ -3,7 +3,7 @@ import { memo } from 'react';
 import styled from 'styled-components';
 
 import type { IScales } from '@/ColorStudio/config';
-import { getAlphaColor, ScaleRow } from '@/index';
+import { ScaleRow, getAlphaColor } from '@/index';
 
 /******************************************************
  *********************** Style *************************
@@ -17,8 +17,13 @@ const ScaleBox = styled.div`
   width: 48px;
   height: 32px;
 
-  background-position: 0 0, 0 8px, 8px -8px, -8px 0;
+  background-position:
+    0 0,
+    0 8px,
+    8px -8px,
+    -8px 0;
   background-size: 16px 16px;
+
   &:active {
     transform: scale(0.95);
   }
@@ -74,26 +79,28 @@ const ScaleBlock = memo<IScaleBlock>(
       <View>
         <ColorView>
           <Space direction={showDetail ? 'horizontal' : 'vertical'} size={2}>
-            <Space direction={!showDetail ? 'horizontal' : 'vertical'} key="scale-title" size={2}>
+            <Space direction={showDetail ? 'vertical' : 'horizontal'} key="scale-title" size={2}>
               <ScaleRowTitle key="scale-num" style={showDetail ? { width: 32 } : {}} />
-              {new Array(scale.light.length).fill('').map((_, index) => {
-                const isHighlight = highLights?.includes(index);
-                const isMidHighlight = midHighLight === index;
-                return (
-                  <ScaleBox key={'num' + index} style={showDetail ? { width: 32 } : {}}>
-                    <ScaleItem>
-                      <Text
-                        style={{
-                          opacity: isFliterStep ? (isHighlight ? 1 : 0.1) : 0.5,
-                          fontWeight: isMidHighlight ? 700 : 400,
-                        }}
-                      >
-                        {index + 1}
-                      </Text>
-                    </ScaleItem>
-                  </ScaleBox>
-                );
-              })}
+              {Array.from({ length: scale.light.length })
+                .fill('')
+                .map((_, index) => {
+                  const isHighlight = highLights?.includes(index);
+                  const isMidHighlight = midHighLight === index;
+                  return (
+                    <ScaleBox key={'num' + index} style={showDetail ? { width: 32 } : {}}>
+                      <ScaleItem>
+                        <Text
+                          style={{
+                            fontWeight: isMidHighlight ? 700 : 400,
+                            opacity: isFliterStep ? (isHighlight ? 1 : 0.1) : 0.5,
+                          }}
+                        >
+                          {index + 1}
+                        </Text>
+                      </ScaleItem>
+                    </ScaleBox>
+                  );
+                })}
             </Space>
             <ScaleRow
               colorType={colorType}

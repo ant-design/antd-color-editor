@@ -1,4 +1,4 @@
-import { ScaleRow } from 'kitchen-color-studio';
+import { ScaleRow } from 'antd-color-editor';
 
 const scale = [
   '#f8f9fe',

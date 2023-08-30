@@ -1,15 +1,9 @@
+const config = require('@lobehub/lint').stylelint;
+
 module.exports = {
-  extends: ['stylelint-config-recommended', 'stylelint-config-clean-order'],
-  overrides: [
-    {
-      files: ['*.less', '*.css'],
-      plugins: ['stylelint-order'],
-      customSyntax: 'postcss-less',
-    },
-    {
-      files: ['*.js', '*.jsx', '*.ts', '*.tsx'],
-      plugins: ['stylelint-order'],
-      customSyntax: 'postcss-styled-syntax',
-    },
-  ],
-}
+  ...config,
+  rules: {
+    'custom-property-pattern': null,
+    'selector-pseudo-element-no-unknown': null,
+  },
+};

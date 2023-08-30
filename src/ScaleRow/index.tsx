@@ -1,4 +1,4 @@
-import { message, Space } from 'antd';
+import { Space, message } from 'antd';
 import { readableColor } from 'polished';
 import { memo } from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
@@ -24,8 +24,13 @@ const ScaleBox = styled.div`
   width: 48px;
   height: 32px;
 
-  background-position: 0 0, 0 8px, 8px -8px, -8px 0;
+  background-position:
+    0 0,
+    0 8px,
+    8px -8px,
+    -8px 0;
   background-size: 16px 16px;
+
   &:active {
     transform: scale(0.95);
   }
@@ -75,18 +80,21 @@ const ScaleRow = memo<IScaleRow>(({ title, scale, solidScale, colorType, showDet
   let style = {};
 
   switch (title) {
-    case 'lightA':
-      style = { backgroundColor: '#fff', background: AlphaLightBg };
+    case 'lightA': {
+      style = { background: AlphaLightBg, backgroundColor: '#fff' };
       break;
-    case 'darkA':
-      style = { backgroundColor: '#000', background: AlphaDarkBg };
+    }
+    case 'darkA': {
+      style = { background: AlphaDarkBg, backgroundColor: '#000' };
       break;
-    default:
+    }
+    default: {
       break;
+    }
   }
 
   return (
-    <Space direction={!showDetail ? 'horizontal' : 'vertical'} size={2}>
+    <Space direction={showDetail ? 'vertical' : 'horizontal'} size={2}>
       <ScaleRowTitle key="title" style={showDetail ? {} : { padding: 8 }}>
         <Text>{title}</Text>
       </ScaleRowTitle>
@@ -102,7 +110,7 @@ const ScaleRow = memo<IScaleRow>(({ title, scale, solidScale, colorType, showDet
         // ------showDetail
 
         let text: string = colorTypeFormat(color, colorType, isDark);
-        text = text.replace(/ /g, '');
+        text = text.replace(' ', '');
         return (
           <CopyToClipboard key={color + index} text={text}>
             <ScaleBoxWide onClick={() => message.success(text)} style={style} title={color}>

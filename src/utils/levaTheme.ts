@@ -7,10 +7,10 @@ export const levaLightTheme = {
     highlight2: '#666',
     highlight3: '#333',
   },
-}
+};
 
 export const levaDarkTheme = {
   colors: {
     elevation2: '#000',
   },
-}
+};

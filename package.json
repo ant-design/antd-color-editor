@@ -1,20 +1,19 @@
 {
-  "name": "kitchen-color-studio",
+  "name": "antd-color-editor",
   "version": "1.1.1",
-  "description": "an open-source color editor for designing color system",
+  "description": "An open-source color editor for designing color system",
   "keywords": [
-    "kitchen",
     "antd",
     "color-editor",
     "color-stytem"
   ],
-  "homepage": "https://github.com/ant-design/kitchen-color-studio",
+  "homepage": "https://github.com/ant-design/antd-color-editor",
   "bugs": {
-    "url": "https://github.com/ant-design/kitchen-color-studio/issues/new"
+    "url": "https://github.com/ant-design/antd-color-editor/issues/new"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ant-design/kitchen-color-studio.git"
+    "url": "https://github.com/ant-design/antd-color-editor.git"
   },
   "author": "canisminor1990 <i@canisminor.cc>",
   "sideEffects": false,
@@ -30,8 +29,9 @@
     "dev": "dumi dev",
     "docs:build": "dumi build",
     "doctor": "father doctor",
-    "lint": "eslint \"{src,javascript}/**/*.{js,jsx,ts,tsx}\" --fix",
-    "lint:md": "remark . -f -q",
+    "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --fix",
+    "lint:md": "remark . --quiet --frail --output",
+    "lint:style": "stylelint \"src/**/*.{js,jsx,ts,tsx}\" --fix",
     "prepare": "husky install",
     "prettier": "prettier -c --write \"**/**\"",
     "release": "semantic-release",
@@ -43,25 +43,21 @@
   },
   "lint-staged": {
     "*.md": [
-      "remark -f -q",
+      "remark --quiet --output --",
       "prettier --write --no-error-on-unmatched-pattern"
     ],
     "*.json": [
       "prettier --write --no-error-on-unmatched-pattern"
     ],
-    "*.{css,less}": [
-      "stylelint --fix",
-      "prettier --write"
-    ],
     "*.{js,jsx}": [
+      "prettier --write",
       "stylelint --fix",
-      "eslint --fix",
-      "prettier --write"
+      "eslint --fix"
     ],
     "*.{ts,tsx}": [
+      "prettier --parser=typescript --write",
       "stylelint --fix",
-      "eslint --fix",
-      "prettier --parser=typescript --write"
+      "eslint --fix"
     ]
   },
   "dependencies": {
@@ -72,8 +68,8 @@
     "@leva-ui/plugin-bezier": "latest",
     "@material/material-color-utilities": "^0.2.6",
     "@radix-ui/react-icons": "^1",
-    "@react-three/drei": "9.70.0",
-    "@react-three/fiber": "8.13.0",
+    "@react-three/drei": "^9",
+    "@react-three/fiber": "^8",
     "ahooks": "^3",
     "antd": "^5",
     "antd-style": "latest",
@@ -95,50 +91,33 @@
     "react-dom": "^18",
     "react-layout-kit": "^1",
     "styled-components": "^5",
-    "three": "^0.152",
+    "three": "^0.150",
     "zustand": "^4"
   },
   "devDependencies": {
     "@commitlint/cli": "^17",
+    "@lobehub/lint": "latest",
     "@sketch-hq/sketch-file-format-ts": "^6",
     "@types/chroma-js": "^2",
     "@types/lodash-es": "^4",
     "@types/node": "^20",
-    "@types/prettier": "^2",
+    "@types/prettier": "^3",
     "@types/react": "^18",
     "@types/react-copy-to-clipboard": "^5",
     "@types/react-dom": "^18",
     "@types/styled-components": "^5",
-    "@types/three": "^0.152",
-    "@umijs/lint": "^4",
+    "@types/three": "^0.149",
     "commitlint": "^17",
-    "commitlint-config-gitmoji": "^2",
     "eslint": "^8",
-    "eslint-import-resolver-alias": "^1",
-    "eslint-import-resolver-typescript": "^3",
-    "eslint-plugin-import": "^2",
-    "eslint-plugin-simple-import-sort": "^10",
-    "eslint-plugin-typescript-sort-keys": "^2",
     "father": "^4",
     "husky": "^8",
-    "lint-staged": "^13",
-    "postcss-less": "^6",
-    "postcss-styled-syntax": "^0.4",
-    "prettier": "^2",
-    "prettier-plugin-organize-imports": "^3",
-    "prettier-plugin-packagejson": "^2",
+    "lint-staged": "^14",
+    "prettier": "^3",
     "remark": "^14",
     "remark-cli": "^11",
-    "remark-lint": "^9",
-    "remark-lint-list-item-indent": "^3",
-    "remark-preset-lint-recommended": "^6",
     "semantic-release": "^21",
-    "semantic-release-config-gitmoji": "^1",
     "stylelint": "^15",
-    "stylelint-config-clean-order": "^5",
-    "stylelint-config-recommended": "^12",
-    "stylelint-order": "^6",
-    "typescript": "~5.1.6"
+    "typescript": "^5"
   },
   "peerDependencies": {
     "antd": ">=5",
@@ -148,8 +127,5 @@
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org"
-  },
-  "gitmoji": {
-    "capitalizeTitle": false
   }
 }

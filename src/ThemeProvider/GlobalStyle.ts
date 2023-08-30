@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'antd-style'
+import { createGlobalStyle } from 'antd-style';
 
 const GlobalStyle = createGlobalStyle`
   
@@ -46,6 +46,6 @@ const GlobalStyle = createGlobalStyle`
 		}
     
 	}
-`
+`;
 
-export default GlobalStyle
+export default GlobalStyle;

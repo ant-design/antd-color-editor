@@ -1,5 +1,5 @@
 import { Button } from 'antd';
-import { useDownload } from 'kitchen-color-studio';
+import { useDownload } from 'antd-color-editor';
 import { memo } from 'react';
 
 export default memo(() => {

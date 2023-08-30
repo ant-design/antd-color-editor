@@ -1,4 +1,4 @@
-import type { ISchemaItem } from '@/components';
+import type { ISchemaItem } from '@/ColorStudio/components/ColorsList';
 import type { IGenerateConfig } from '@/utils/generateScale';
 import { defaultConfig } from '@/utils/generateScale';
 
@@ -18,52 +18,52 @@ interface ISystemConfig {
 }
 
 const defaultSystemConfig: ISystemConfig = {
-  pattern: {
-    isolateDark: false,
-    isFliterStep: false,
-    displayFliterStep: false,
-  },
   edit: {
     isolateEdit: false,
+  },
+  pattern: {
+    displayFliterStep: false,
+    isFliterStep: false,
+    isolateDark: false,
   },
 };
 
 const defaultColorList: ISchemaItem[] = [
-  { id: 'Primary', title: 'Primary', color: '#1677FF', darkColor: '#1677FF', type: 'normal' },
-  { id: 'Neutral', title: 'Neutral', color: '#1677FF', darkColor: '#1677FF', type: 'neutral' },
+  { color: '#1677FF', darkColor: '#1677FF', id: 'Primary', title: 'Primary', type: 'normal' },
+  { color: '#1677FF', darkColor: '#1677FF', id: 'Neutral', title: 'Neutral', type: 'neutral' },
   {
-    id: 'Red',
-    title: 'Red',
     color: '#da4a45',
     darkColor: '#da4a45',
+    id: 'Red',
+    title: 'Red',
     type: 'normal',
   },
   {
-    id: 'Yellow',
-    title: 'Yellow',
     color: '#e09f00',
     darkColor: '#be8600',
+    id: 'Yellow',
+    title: 'Yellow',
     type: 'normal',
   },
   {
-    id: 'Green',
-    title: 'Green',
     color: '#67c03a',
     darkColor: '#4ca41f',
+    id: 'Green',
+    title: 'Green',
     type: 'normal',
   },
   {
-    id: 'Sky',
-    title: 'Sky',
     color: '#00bec3',
     darkColor: '#00a1a5',
+    id: 'Sky',
+    title: 'Sky',
     type: 'normal',
   },
   {
-    id: 'Purple',
-    title: 'Purple',
     color: '#9b59eb',
     darkColor: '#9b59eb',
+    id: 'Purple',
+    title: 'Purple',
     type: 'normal',
   },
 ];
@@ -76,8 +76,8 @@ export interface IEditorConfig {
 }
 
 export const defaultEditorConfig: IEditorConfig = {
-  generate: defaultConfig,
-  system: defaultSystemConfig,
   colorList: defaultColorList,
-  stepFliter: undefined,
+  generate: defaultConfig,
+  stepFliter: [],
+  system: defaultSystemConfig,
 };

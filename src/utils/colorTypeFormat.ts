@@ -12,29 +12,37 @@ const colorTypeFormat = (
   const alpha = chroma(color).alpha() !== 1;
   const c: TinyColor = new TinyColor(color);
   switch (colorType) {
-    case 'mix':
+    case 'mix': {
       text = alpha ? c.toRgbString() : c.toHexString(false);
       break;
-    case 'hex':
+    }
+    case 'hex': {
       text = alpha ? c.toHex8String(false) : c.toHexString(false);
       break;
-    case 'hct':
+    }
+    case 'hct': {
       text = toHctString(color, alpha);
       break;
-    case 'rgb':
+    }
+    case 'rgb': {
       text = c.toRgbString();
       break;
-    case 'hsl':
+    }
+    case 'hsl': {
       text = c.toHslString();
       break;
-    case 'hsv':
+    }
+    case 'hsv': {
       text = c.toHsvString();
       break;
-    case 'cts':
+    }
+    case 'cts': {
       text = toCtsString(color, isDark ? '#000' : '#fff', alpha);
       break;
-    default:
+    }
+    default: {
       break;
+    }
   }
   return text;
 };
