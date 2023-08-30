@@ -27,6 +27,7 @@ export default defineConfig({
   define: {
     'process.env': process.env,
   },
+  devtool: isProdSite ? false : 'source-map',
   exportStatic: {},
   extraBabelPlugins: [
     [

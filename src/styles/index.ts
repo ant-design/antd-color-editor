@@ -121,6 +121,9 @@ const ContentView = styled.div`
 `;
 
 export const ColorView: any = styled(ContentView)`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
   padding-bottom: 48px;
 `;
 

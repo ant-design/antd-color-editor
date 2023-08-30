@@ -1,4 +1,4 @@
-import { DumiSiteProvider, Highlighter } from 'dumi-theme-antd-style';
+import { Highlighter } from 'dumi-theme-antd-style';
 import { memo } from 'react';
 
 import { CodeView } from '@/styles';
@@ -10,11 +10,9 @@ export interface IJsonView {
 const JsonView = memo<IJsonView>(({ data }) => {
   return (
     <CodeView>
-      <DumiSiteProvider>
-        <Highlighter background={false} language="json">
-          {JSON.stringify(data, null, 4)}
-        </Highlighter>
-      </DumiSiteProvider>
+      <Highlighter background={false} language="json">
+        {JSON.stringify(data, null, 4)}
+      </Highlighter>
     </CodeView>
   );
 });

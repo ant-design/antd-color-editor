@@ -39,6 +39,7 @@ const ThreeView = memo<IThreeView>(({ config, data }) => {
     <Canvas style={{ background: isDarkMode ? '#222' : '#f1f1f1', height: '100%', width: '100%' }}>
       <Suspense fallback={null}>
         <Environment files={cube} />
+        <ambientLight />
         <Center scale={0.02}>
           {data.map((item) => (
             <GenColor3D

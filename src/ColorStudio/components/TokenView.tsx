@@ -1,4 +1,4 @@
-import { DumiSiteProvider, Highlighter } from 'dumi-theme-antd-style';
+import { Highlighter } from 'dumi-theme-antd-style';
 import { camelCase, kebabCase } from 'lodash-es';
 import { memo } from 'react';
 
@@ -119,11 +119,9 @@ const TokenView = memo<ITokenView>(({ data, config }) => {
   }
   return (
     <CodeView>
-      <DumiSiteProvider>
-        <Highlighter background={false} language={codeType}>
-          {String(content)}
-        </Highlighter>
-      </DumiSiteProvider>
+      <Highlighter background={false} language={codeType}>
+        {String(content)}
+      </Highlighter>
     </CodeView>
   );
 });

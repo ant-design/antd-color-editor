@@ -306,7 +306,7 @@ const ColorStudio = memo<IColorStudio>(
       },
     ];
 
-    const colorListScale: IColorListScale[] = colorList.map((c) => {
+    const colorListScale: IColorListScale[] = colorList.map((c, index) => {
       const { scales, color, darkColor } = genScales(c, editorConfig);
       return {
         color,
@@ -316,6 +316,7 @@ const ColorStudio = memo<IColorStudio>(
             color={{ ...c, color, darkColor }}
             config={editorConfig}
             displayConfig={display}
+            key={index}
             scales={scales}
           />
         ),

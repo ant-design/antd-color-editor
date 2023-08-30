@@ -19,9 +19,8 @@ const Collapse: any = CollapseTitle;
 const CollapseView = styled.div<{ isDarkMode: boolean }>`
   .studio-collapse-title {
     overflow: auto;
-    margin-bottom: 8px;
-    padding-top: 8px;
-    border-radius: 4px !important;
+    background: ${({ theme }) => theme.colorBgContainer};
+    border-radius: ${({ theme }) => theme.borderRadius}px !important;
   }
 
   .studio-collapse-title-collapsed,
@@ -33,7 +32,7 @@ const CollapseView = styled.div<{ isDarkMode: boolean }>`
 
   .studio-divider {
     margin-top: 8px !important;
-    border-color: ${({ theme }) => theme.colorBorder};
+    border-color: ${({ theme }) => theme.colorBorderSecondary};
   }
 `;
 
