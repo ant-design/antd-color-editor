@@ -27,6 +27,31 @@ An open-source color editor for designing color system
 
 </div>
 
+<details>
+<summary><kbd>Table of contents</kbd></summary>
+
+#### TOC
+
+- [📦 Installation](#-installation)
+
+- [🎨 Usage](#-usage)
+
+  - [Base on HCT](#base-on-hct)
+  - [Color Space](#color-space)
+  - [Color Accessibility](#color-accessibility)
+  - [Token Mode](#token-mode)
+  - [Setting Export](#setting-export)
+
+- [⌨️ Local Development](#️-local-development)
+
+- [🤝 Contributing](#-contributing)
+
+- [🔗 Links](#-links)
+
+####
+
+</details>
+
 ## 📦 Installation
 
 To install components, run the following command:
