@@ -2,7 +2,7 @@ import { Segmented, Space, Tag } from 'antd';
 import { memo } from 'react';
 import styled from 'styled-components';
 
-import PkgInfo from '../../../package.json';
+import PkgInfo from '@/../package.json';
 
 /******************************************************
  *********************** Style *************************
@@ -70,8 +70,8 @@ const NavBar = memo<INavBar>(
     tabKey,
     setTabKey,
     logo = 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
-    title = 'Antd Color Editor',
-    logoHref = 'https://github.com/canisminor1990/antd-color-editor',
+    title = PkgInfo.name,
+    logoHref = PkgInfo.homepage,
   }) => {
     // @ts-ignore
     return (
