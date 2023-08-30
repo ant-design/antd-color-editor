@@ -2,7 +2,7 @@ import { Segmented, Space, Tag } from 'antd';
 import { memo } from 'react';
 import styled from 'styled-components';
 
-import PkgInfo from '@/../package.json';
+import PkgInfo from '../../../package.json';
 
 /******************************************************
  *********************** Style *************************
