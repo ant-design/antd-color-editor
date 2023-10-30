@@ -95,7 +95,7 @@
     "zustand": "^4"
   },
   "devDependencies": {
-    "@commitlint/cli": "^17",
+    "@commitlint/cli": "^18",
     "@lobehub/lint": "latest",
     "@sketch-hq/sketch-file-format-ts": "^6",
     "@types/chroma-js": "^2",
