@@ -2,8 +2,8 @@ import { Highlighter } from 'dumi-theme-antd-style';
 import { camelCase, kebabCase } from 'lodash-es';
 import { memo } from 'react';
 
-import type { IScales } from '@/ColorStudio/config';
-import { colorTypeFormat, getAlphaColor, usePrettier } from '@/index';
+import type { IScales } from '@/genScales';
+import { colorTypeFormat, getAlphaColor } from '@/index';
 import { CodeView } from '@/styles';
 
 export interface ITokenView {
@@ -19,7 +19,6 @@ export interface ITokenView {
 }
 
 const TokenView = memo<ITokenView>(({ data, config }) => {
-  const { format } = usePrettier();
   const { colorType, codeType, isolateDarkToken }: any = config;
   const tokenData = data.map((item) => ({
     dark: item.scales.dark.map((s) => colorTypeFormat(s, colorType)),
@@ -47,20 +46,20 @@ const TokenView = memo<ITokenView>(({ data, config }) => {
       }
 
       content = `
-        export interface ColorScaleItem {
-          solid: string[],
-          alpha: string[],
-        }
+export interface ColorScaleItem {
+  solid: string[],
+  alpha: string[],
+}
 
-        export interface ColorScales {
-          ${Object.keys(objLight)
-            .map((key) => `${key}: ColorScaleItem;`)
-            .join('\n')}
-        }
+export interface ColorScales {
+  ${Object.keys(objLight)
+    .map((key) => `${key}: ColorScaleItem;`)
+    .join('\n')}
+}
 
-        export const LightTheme:ColorScales = ${JSON.stringify(objLight)}
+export const LightTheme:ColorScales = ${JSON.stringify(objLight, null, 2)}
 
-        export const DarkTheme:ColorScales = ${JSON.stringify(objDark)}
+export const DarkTheme:ColorScales = ${JSON.stringify(objDark, null, 2)}
       `;
     } else {
       const obj: any = {};
@@ -74,23 +73,22 @@ const TokenView = memo<ITokenView>(({ data, config }) => {
       }
 
       content = `
-        export interface ColorScaleItem {
-          light: string[],
-          lightA: string[],
-          dark: string[],
-          darkA: string[],
-        }
+export interface ColorScaleItem {
+  light: string[],
+  lightA: string[],
+  dark: string[],
+  darkA: string[],
+}
 
-        export interface ColorScales {
-          ${Object.keys(obj)
-            .map((key) => `${key}: ColorScaleItem;`)
-            .join('\n')}
-        }
+export interface ColorScales {
+  ${Object.keys(obj)
+    .map((key) => `${key}: ColorScaleItem;`)
+    .join('\n')}
+}
 
-        export const Theme:ColorScales = ${JSON.stringify(obj)}
+export const Theme:ColorScales = ${JSON.stringify(obj, null, 2)}
       `;
     }
-    content = format(content);
   } else {
     let tokenLightList = isolateDarkToken ? [`/* light.${codeType} */`] : [];
     let tokenDarkList = isolateDarkToken ? ['\n', `/* dark.${codeType} */`] : [];
@@ -117,6 +115,7 @@ const TokenView = memo<ITokenView>(({ data, config }) => {
     }
     content = [...tokenLightList, ...tokenDarkList].join('\n');
   }
+
   return (
     <CodeView>
       <Highlighter background={false} language={codeType}>

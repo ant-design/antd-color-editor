@@ -6,6 +6,25 @@ import { useControls, useCreateStore } from 'leva';
 import { type ReactNode, memo, useEffect, useMemo, useState } from 'react';
 
 import {
+  type IEditorConfig,
+  type IScales,
+  advanceConfig,
+  cacheEditorConfig,
+  colorConfig,
+  defineGenerateConfig,
+  displayConfig,
+  editConfig,
+  genScales,
+  hueConfig,
+  neutralAdvanceConfig,
+  neutralConfig,
+  patternConfig,
+  setForceConfig,
+  stepConfig,
+  threeConfig,
+  tokenConfig,
+} from '@/genScales';
+import {
   AccessPanel,
   ColorsList,
   ExportPanel,
@@ -25,26 +44,6 @@ import {
   TokenView,
 } from '@/index';
 import { CanvasView, ColorView, EditorView, PanelView } from '@/styles';
-
-import {
-  type IEditorConfig,
-  type IScales,
-  advanceConfig,
-  cacheEditorConfig,
-  colorConfig,
-  defineGenerateConfig,
-  displayConfig,
-  editConfig,
-  genScales,
-  hueConfig,
-  neutralAdvanceConfig,
-  neutralConfig,
-  patternConfig,
-  setForceConfig,
-  stepConfig,
-  threeConfig,
-  tokenConfig,
-} from './config';
 
 const Collapse: any = CollapseTitle;
 

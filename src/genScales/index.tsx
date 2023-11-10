@@ -26,6 +26,8 @@ import {
   type IGenerateConfigItem,
   type ISchemaItem,
   Label,
+  colorTypeFormat,
+  getAlphaColor,
 } from '@/index';
 
 import { type IEditorConfig, defaultEditorConfig } from './defaultConfig';
@@ -315,7 +317,7 @@ export interface IScales {
 
 export const genScales = (
   color: ISchemaItem,
-  config: IEditorConfig,
+  config: Pick<IEditorConfig, 'system' | 'stepFliter' | 'generate'>,
 ): {
   color: string;
   darkColor: string;
@@ -343,6 +345,22 @@ export const genScales = (
     darkColor: rawScales.dark[generate.step.up],
     scales,
   };
+};
+
+export const genScalesByConfig = (config: IEditorConfig) => {
+  const { colorList, ...rest } = config;
+
+  const data: any = {};
+  for (const color of colorList) {
+    const { dark, light } = genScales(color, rest).scales;
+    data[color.id.toLowerCase()] = {
+      dark,
+      darkA: dark.map((c) => colorTypeFormat(getAlphaColor(c, '#000'), 'rgb')),
+      light,
+      lightA: light.map((c) => colorTypeFormat(getAlphaColor(c, '#fff'), 'rgb')),
+    };
+  }
+  return data;
 };
 
 export * from './defaultConfig';

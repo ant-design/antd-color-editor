@@ -33,9 +33,9 @@ export { default as HctPicker, type IHctPicker } from './HctPicker';
 export { type IScaleBlock, default as ScaleBlock } from './ScaleBlock';
 export { type IScalePreview, default as ScalePreview } from './ScalePreview';
 export { type IScaleRow, default as ScaleRow } from './ScaleRow';
+export { genScalesByConfig } from '@/genScales';
 // Hook
 export { default as ThemeProvider } from './ThemeProvider';
 export { default as useDownload } from './useDownload';
-export { default as usePrettier } from './usePrettier';
 export { default as useSketchJSON } from './useSketchJSON';
 export * from './utils';

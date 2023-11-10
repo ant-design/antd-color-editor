@@ -95,7 +95,7 @@
     "zustand": "^4"
   },
   "devDependencies": {
-    "@commitlint/cli": "^17",
+    "@commitlint/cli": "^18",
     "@lobehub/lint": "latest",
     "@sketch-hq/sketch-file-format-ts": "^6",
     "@types/chroma-js": "^2",
@@ -107,11 +107,11 @@
     "@types/react-dom": "^18",
     "@types/styled-components": "^5",
     "@types/three": "^0.158",
-    "commitlint": "^17",
+    "commitlint": "^18",
     "eslint": "^8",
     "father": "^4",
     "husky": "^8",
-    "lint-staged": "^14",
+    "lint-staged": "^15",
     "prettier": "^3",
     "remark": "^14",
     "remark-cli": "^11",

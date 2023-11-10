@@ -1,11 +1,12 @@
-import { SortableItem, SortableList } from '@ant-design/pro-editor';
+import { SortableList } from '@ant-design/pro-editor';
 import { memo } from 'react';
 
 import ColorsListItem, { ColorsListHeader } from './ColorsListItem';
 
-export interface ISchemaItem extends SortableItem {
+export interface ISchemaItem {
   color: string;
   darkColor: string;
+  id: string;
   title: string;
   type?: 'normal' | 'neutral';
   valueType?: string;

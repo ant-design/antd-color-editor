@@ -3,7 +3,7 @@ import { Canvas } from '@react-three/fiber';
 import { useTheme, useThemeMode } from 'antd-style';
 import { Suspense, memo, useRef } from 'react';
 
-import type { IScales } from '@/ColorStudio/config';
+import type { IScales } from '@/genScales';
 import { GenColor3D } from '@/index';
 
 const cube = [

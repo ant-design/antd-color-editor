@@ -6,8 +6,8 @@ import { memo, useRef } from 'react';
 import styled from 'styled-components';
 
 import type { ISchemaItem } from '@/ColorStudio/components';
-import type { IEditorConfig, IScales } from '@/ColorStudio/config';
-import { defaultEditorConfig } from '@/ColorStudio/config';
+import type { IEditorConfig, IScales } from '@/genScales';
+import { defaultEditorConfig } from '@/genScales';
 import { AccessibilityTag, ScaleBlock, genScaleTestList, useSketchJSON } from '@/index';
 
 const Collapse: any = CollapseTitle;

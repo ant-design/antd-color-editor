@@ -3,7 +3,7 @@ import { useControls, useCreateStore } from 'leva';
 import { memo } from 'react';
 import styled from 'styled-components';
 
-import type { IScales } from '@/ColorStudio/config';
+import type { IScales } from '@/genScales';
 import type { IPanel } from '@/index';
 import { AccessBlock, AccessibilityTag, LevaPanel, PanelGroup, genScaleTestList } from '@/index';
 
