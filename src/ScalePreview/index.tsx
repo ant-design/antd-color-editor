@@ -3,11 +3,11 @@ import { ActionIcon, CollapseTitle } from '@ant-design/pro-editor';
 import { Space } from 'antd';
 import { useThemeMode } from 'antd-style';
 import { memo, useRef } from 'react';
+import type { IEditorConfig, IScales } from 'src/genScalesByConfig';
+import { defaultEditorConfig } from 'src/genScalesByConfig';
 import styled from 'styled-components';
 
 import type { ISchemaItem } from '@/ColorStudio/components';
-import type { IEditorConfig, IScales } from '@/genScales';
-import { defaultEditorConfig } from '@/genScales';
 import { AccessibilityTag, ScaleBlock, genScaleTestList, useSketchJSON } from '@/index';
 
 const Collapse: any = CollapseTitle;

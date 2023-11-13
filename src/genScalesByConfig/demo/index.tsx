@@ -24,34 +24,6 @@ export default () => {
         title: 'Red',
         type: 'normal',
       },
-      {
-        color: '#e09f00',
-        darkColor: '#be8600',
-        id: 'Yellow',
-        title: 'Yellow',
-        type: 'normal',
-      },
-      {
-        color: '#67c03a',
-        darkColor: '#4ca41f',
-        id: 'Green',
-        title: 'Green',
-        type: 'normal',
-      },
-      {
-        color: '#00bec3',
-        darkColor: '#00a1a5',
-        id: 'Sky',
-        title: 'Sky',
-        type: 'normal',
-      },
-      {
-        color: '#9b59eb',
-        darkColor: '#9b59eb',
-        id: 'Purple',
-        title: 'Purple',
-        type: 'normal',
-      },
     ],
     generate: {
       dark: {

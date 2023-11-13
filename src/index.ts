@@ -38,10 +38,10 @@ export {
   type IColorConfig,
   type IColorScaleItem,
   type IColorScales,
-} from '@/genScales';
+} from 'src/genScalesByConfig';
 // Hook
 export { default as ThemeProvider } from './ThemeProvider';
 export { default as useDownload } from './useDownload';
 export { default as useSketchJSON } from './useSketchJSON';
 export * from './utils';
-export { type IEditorConfig } from '@/genScales/defaultConfig';
+export { type IEditorConfig } from '@/genScalesByConfig/defaultConfig';

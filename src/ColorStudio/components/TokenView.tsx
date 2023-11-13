@@ -1,8 +1,8 @@
 import { Highlighter } from 'dumi-theme-antd-style';
 import { camelCase, kebabCase } from 'lodash-es';
 import { memo } from 'react';
+import type { IScales } from 'src/genScalesByConfig';
 
-import type { IScales } from '@/genScales';
 import { colorTypeFormat, getAlphaColor } from '@/index';
 import { CodeView } from '@/styles';
 

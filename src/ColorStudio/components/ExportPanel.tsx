@@ -13,7 +13,7 @@ import { useControls, useCreateStore } from 'leva';
 import { memo, useCallback } from 'react';
 import styled from 'styled-components';
 
-import type { IEditorConfig } from '@/genScales/defaultConfig';
+import type { IEditorConfig } from '@/genScalesByConfig/defaultConfig';
 import type { IPanel } from '@/index';
 import { LevaPanel, PanelGroup, useDownload } from '@/index';
 

@@ -1,4 +1,4 @@
-import { IScales } from '@/genScales';
+import { IScales } from 'src/genScalesByConfig';
 
 const genScaleTestList = (scales: IScales, color: [string, string]): [string, string][] => {
   const lightColor = color[0];
