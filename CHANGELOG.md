@@ -2,6 +2,31 @@
 
 # Changelog
 
+### [Version 1.1.1](https://github.com/ant-design/antd-color-editor/compare/v1.1.0...v1.1.1)
+
+<sup>Released on **2023-11-13**</sup>
+
+#### 🐛 Bug Fixes
+
+- **misc**: Fix func name.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's fixed
+
+- **misc**: Fix func name ([12aa1ae](https://github.com/ant-design/antd-color-editor/commit/12aa1ae))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
 ## [Version 1.1.0](https://github.com/ant-design/antd-color-editor/compare/v1.0.1...v1.1.0)
 
 <sup>Released on **2023-11-13**</sup>
