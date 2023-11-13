@@ -3,7 +3,7 @@ const useDownload = (): {
   setContent: (data: string, fileName: string) => void;
   startDownload: () => void;
 } => {
-  let content;
+  let content: string = '';
   const linkNode = document.createElement('a');
   const setContent = (data: string, fileName: string) => {
     content = 'data:text/Json;charset=utf-8,' + encodeURIComponent(data);

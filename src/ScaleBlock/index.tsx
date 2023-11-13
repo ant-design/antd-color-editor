@@ -2,7 +2,7 @@ import { Space } from 'antd';
 import { memo } from 'react';
 import styled from 'styled-components';
 
-import type { IScales } from '@/ColorStudio/config';
+import type { IScales } from '@/genScales';
 import { ScaleRow, getAlphaColor } from '@/index';
 
 /******************************************************

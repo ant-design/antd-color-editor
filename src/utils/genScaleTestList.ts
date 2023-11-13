@@ -1,4 +1,4 @@
-import { IScales } from '@/ColorStudio/config';
+import { IScales } from '@/genScales';
 
 const genScaleTestList = (scales: IScales, color: [string, string]): [string, string][] => {
   const lightColor = color[0];

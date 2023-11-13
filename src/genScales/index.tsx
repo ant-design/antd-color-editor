@@ -347,10 +347,23 @@ export const genScales = (
   };
 };
 
-export const genScalesByConfig = (config: IEditorConfig) => {
+export interface IColorScaleItem {
+  dark: string[];
+  darkA: string[];
+  light: string[];
+  lightA: string[];
+}
+
+export interface IColorScales {
+  [name: string]: IColorScaleItem;
+}
+
+export type IColorConfig = Pick<IEditorConfig, 'colorList' | 'system' | 'stepFliter' | 'generate'>;
+
+export const genScalesByConfig = (config: IColorConfig): IColorScales => {
   const { colorList, ...rest } = config;
 
-  const data: any = {};
+  const data: IColorScales = {};
   for (const color of colorList) {
     const { dark, light } = genScales(color, rest).scales;
     data[color.id.toLowerCase()] = {

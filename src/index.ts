@@ -33,9 +33,15 @@ export { default as HctPicker, type IHctPicker } from './HctPicker';
 export { type IScaleBlock, default as ScaleBlock } from './ScaleBlock';
 export { type IScalePreview, default as ScalePreview } from './ScalePreview';
 export { type IScaleRow, default as ScaleRow } from './ScaleRow';
-export { genScalesByConfig } from '@/genScales';
+export {
+  genScalesByConfig,
+  type IColorConfig,
+  type IColorScaleItem,
+  type IColorScales,
+} from '@/genScales';
 // Hook
 export { default as ThemeProvider } from './ThemeProvider';
 export { default as useDownload } from './useDownload';
 export { default as useSketchJSON } from './useSketchJSON';
 export * from './utils';
+export { type IEditorConfig } from '@/genScales/defaultConfig';

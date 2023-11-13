@@ -14,5 +14,5 @@
       "antd-color-editor/*": ["src/*"]
     }
   },
-  "include": ["src", ".dumi/**/*", ".dumirc.ts", "*.ts"]
+  "include": ["src", ".dumirc.ts", "*.ts"]
 }
