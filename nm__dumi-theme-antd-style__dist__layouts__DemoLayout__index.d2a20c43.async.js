@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkantd_color_editor=self.webpackChunkantd_color_editor||[]).push([[946],{32010:function(r,t,n){n.r(t);var o=n(96820),_=n(80821),u=n(85893);t.default=function(){var d=(0,o.pC)();return(0,u.jsx)(_.Z,{children:d})}}}]);
