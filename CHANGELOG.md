@@ -2,7 +2,40 @@
 
 # Changelog
 
-### [Version 1.0.1](https://github.com/ant-design/antd-color-editor/compare/v1.0.0...v1.0.1)
+## [Version 1.1.0](https://github.com/ant-design/antd-color-editor/compare/v1.0.1...v1.1.0)
+
+<sup>Released on **2023-11-13**</sup>
+
+#### ✨ Features
+
+- **misc**: Add genScale func.
+
+#### 🐛 Bug Fixes
+
+- **misc**: Fix types.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's improved
+
+- **misc**: Add genScale func ([b82cf91](https://github.com/ant-design/antd-color-editor/commit/b82cf91))
+
+#### What's fixed
+
+- **misc**: Fix types ([9eb3252](https://github.com/ant-design/antd-color-editor/commit/9eb3252))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
+### [Version 1.0.1](https://github.com/ant-design/antd-color-editor/compare/v1.0.0...v1.0.1)
 
 <sup>Released on **2023-08-30**</sup>
 
@@ -27,7 +60,7 @@
 
 </div>
 
-## Version 1.0.0
+## Version 1.0.0
 
 <sup>Released on **2023-08-30**</sup>
 
