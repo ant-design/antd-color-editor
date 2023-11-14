@@ -4,6 +4,7 @@ import { Tabs } from 'antd';
 import type { TabsProps } from 'antd';
 import { useControls, useCreateStore } from 'leva';
 import { type ReactNode, memo, useEffect, useMemo, useState } from 'react';
+
 import {
   type IEditorConfig,
   type IScales,
@@ -22,8 +23,7 @@ import {
   stepConfig,
   threeConfig,
   tokenConfig,
-} from 'src/genScalesByConfig';
-
+} from '@/genScalesByConfig';
 import {
   AccessPanel,
   ColorsList,

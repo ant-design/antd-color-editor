@@ -2,8 +2,8 @@ import { Center, Environment, OrbitControls } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
 import { useTheme, useThemeMode } from 'antd-style';
 import { Suspense, memo, useRef } from 'react';
-import type { IScales } from 'src/genScalesByConfig';
 
+import type { IScales } from '@/genScalesByConfig';
 import { GenColor3D } from '@/index';
 
 const cube = [

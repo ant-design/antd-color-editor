@@ -1,8 +1,8 @@
 import { Space } from 'antd';
 import { memo } from 'react';
-import type { IScales } from 'src/genScalesByConfig';
 import styled from 'styled-components';
 
+import type { IScales } from '@/genScalesByConfig';
 import { ScaleRow, getAlphaColor } from '@/index';
 
 /******************************************************

@@ -1,9 +1,9 @@
 import { useThemeMode } from 'antd-style';
 import { useControls, useCreateStore } from 'leva';
 import { memo } from 'react';
-import type { IScales } from 'src/genScalesByConfig';
 import styled from 'styled-components';
 
+import type { IScales } from '@/genScalesByConfig';
 import type { IPanel } from '@/index';
 import { AccessBlock, AccessibilityTag, LevaPanel, PanelGroup, genScaleTestList } from '@/index';
 

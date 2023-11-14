@@ -38,7 +38,7 @@ export {
   type IColorConfig,
   type IColorScaleItem,
   type IColorScales,
-} from 'src/genScalesByConfig';
+} from '@/genScalesByConfig';
 // Hook
 export { default as ThemeProvider } from './ThemeProvider';
 export { default as useDownload } from './useDownload';
