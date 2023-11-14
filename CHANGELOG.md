@@ -2,6 +2,31 @@
 
 # Changelog
 
+### [Version 1.1.2](https://github.com/ant-design/antd-color-editor/compare/v1.1.1...v1.1.2)
+
+<sup>Released on **2023-11-14**</sup>
+
+#### 🐛 Bug Fixes
+
+- **misc**: Fix path error.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's fixed
+
+- **misc**: Fix path error ([45890b6](https://github.com/ant-design/antd-color-editor/commit/45890b6))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
 ### [Version 1.1.1](https://github.com/ant-design/antd-color-editor/compare/v1.1.0...v1.1.1)
 
 <sup>Released on **2023-11-13**</sup>
