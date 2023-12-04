@@ -106,7 +106,7 @@
     "@types/react-copy-to-clipboard": "^5",
     "@types/react-dom": "^18",
     "@types/styled-components": "^5",
-    "@types/three": "^0.158",
+    "@types/three": "^0.159",
     "commitlint": "^18",
     "eslint": "^8",
     "father": "4.3.7",
