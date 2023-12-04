@@ -91,7 +91,7 @@
     "react-dom": "^18",
     "react-layout-kit": "^1",
     "styled-components": "^5",
-    "three": "^0.158",
+    "three": "^0.159",
     "zustand": "^4"
   },
   "devDependencies": {
