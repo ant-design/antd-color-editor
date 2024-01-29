@@ -110,7 +110,7 @@
     "commitlint": "^18",
     "eslint": "^8",
     "father": "4.4.0",
-    "husky": "^8",
+    "husky": "^9",
     "lint-staged": "^15",
     "prettier": "^3",
     "remark": "^14",
