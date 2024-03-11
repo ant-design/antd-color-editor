@@ -64,7 +64,7 @@
     "@ant-design/colors": "^7",
     "@ant-design/icons": "^5",
     "@ant-design/pro-editor": "latest",
-    "@ctrl/tinycolor": "^3",
+    "@ctrl/tinycolor": "^4",
     "@leva-ui/plugin-bezier": "latest",
     "@material/material-color-utilities": "^0.2.6",
     "@radix-ui/react-icons": "^1",
