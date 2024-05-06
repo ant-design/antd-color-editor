@@ -108,7 +108,7 @@
     "@types/styled-components": "^5",
     "@types/three": "^0.163",
     "commitlint": "^18",
-    "eslint": "^8",
+    "eslint": "^9",
     "father": "4.4.0",
     "husky": "^8",
     "lint-staged": "^15",
